@@ -46,7 +46,7 @@
         </div>
         <div class="span8">
             <h2 style="text-align:center" >Search results:</h2>
-            <div id="search_res_div"><h4 id="search_res_text" style="text-align:center">Choose options and press "Search Schedule" to show results</h4></div>
+            <div style="text-align:center" id="search_res_div"><h4 id="search_res_text" style="text-align:center">Choose options and press "Search Schedule" to show results</h4></div>
         </div>
     </div>
     <br />

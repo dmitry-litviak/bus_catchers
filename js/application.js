@@ -5,27 +5,22 @@ loadingMask = {
   delay: 100,
   spinner: {},
   opts: {
-    color: '#f7f2f7',
+    color: '#bd0d00',
     shape: 'spiral',
-    diameter: 103,
-    density: 52,
+    diameter: 150,
+    density: 100,
     range: 1.4,
-    FPS: 30
+    FPS: 50
   },
   createSpinner: function() {
-    var loaderObj;
     if (_.isEmpty(this.spinner)) {
-      this.spinner = new CanvasLoader("spinner");
+      this.spinner = new CanvasLoader("search_res_div");
       this.spinner.setShape(this.opts.shape);
       this.spinner.setColor(this.opts.color);
       this.spinner.setDiameter(this.opts.diameter);
       this.spinner.setDensity(this.opts.density);
       this.spinner.setRange(this.opts.range);
-      this.spinner.setFPS(this.opts.FPS);
-      loaderObj = document.getElementById("search_res_div");
-      loaderObj.style.position = "absolute";
-      loaderObj.style["top"] = this.spinner.getDiameter() * -0.5 + "px";
-      return loaderObj.style["left"] = this.spinner.getDiameter() * -0.5 + "px";
+      return this.spinner.setFPS(this.opts.FPS);
     }
   },
   show: function(spinner) {
