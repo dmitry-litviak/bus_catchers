@@ -32,6 +32,7 @@
                         <?php endforeach ?>
                     </select>
                 </div>
+                <label>Companies:</label>
                 <?php foreach($companies as $company): ?>
                     <label class="checkbox">
                         <input type="checkbox" value="<?php echo $company->name ?>" name="companies[]" checked>
