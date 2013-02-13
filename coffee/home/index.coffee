@@ -10,14 +10,14 @@ index =
     @search_res =  $('#search_res_div')
     @options    =
       success    : @showResponse
-      beforeSend: () ->
-        loadingMask.show()
+#      beforeSend: () ->
+#        loadingMask.show()
 
   bindEvents: ->
     do @initFormSubmit
 
   showResponse: (responseText, statusText, xhr, $form) ->
-    loadingMask.hide()
+#    loadingMask.hide()
     obj = jQuery.parseJSON responseText
     if obj.text is "success"
       index.search_res.empty()

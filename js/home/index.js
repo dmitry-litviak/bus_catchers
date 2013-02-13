@@ -12,10 +12,7 @@ index = {
     this.form = $('#schedule');
     this.search_res = $('#search_res_div');
     return this.options = {
-      success: this.showResponse,
-      beforeSend: function() {
-        return loadingMask.show();
-      }
+      success: this.showResponse
     };
   },
   bindEvents: function() {
@@ -23,7 +20,6 @@ index = {
   },
   showResponse: function(responseText, statusText, xhr, $form) {
     var obj;
-    loadingMask.hide();
     obj = jQuery.parseJSON(responseText);
     if (obj.text === "success") {
       index.search_res.empty();
