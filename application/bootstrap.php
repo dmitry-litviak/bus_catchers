@@ -98,7 +98,7 @@ if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
 	));
 } else {
 	Kohana::init(array(
-		'base_url'   => 'http://'.$_SERVER['HTTP_HOST'].'/buscatchers/',
+		'base_url'   => 'http://'.$_SERVER['HTTP_HOST'].'/bus_catchers/',
 		'index_file' => ''
 	));
 }
