@@ -27,6 +27,8 @@ class My_Layout_Controller extends Controller {
                                         ->link_js('libs/jquery.mobile.customized.min')
                                         ->link_js('libs/jquery.easing.1.3')
                                         ->link_js('libs/underscore-min')
+                                        ->link_js('libs/canvasloader-min')
+                                        ->link_js('application')
                                         ->link_css('bootstrap.min')
                                         ->link_css('bootstrap-responsive.min')
                                         ->link_css('main')
