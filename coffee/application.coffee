@@ -25,7 +25,6 @@ loadingMask =
 #      loaderObj.style["left"] = @spinner.getDiameter() * -0.5 + "px"
 
   show: (spinner = true) ->
-
     @createSpinner()
     @spinner.show() if spinner
 

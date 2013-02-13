@@ -29,6 +29,8 @@ index =
   initFormSubmit: ->
     @form.submit (e) =>
       el = $(e.currentTarget)
+      console.log 'here'
+      loadingMask.show()
       el.ajaxSubmit @options
       false
 

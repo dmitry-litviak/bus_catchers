@@ -1,7 +1,7 @@
 <div class="span12" id="divMain">
 
     <div style="text-align:center">
-        <h1>Buy Tickets</h1>
+        <h1>Find Tickets</h1>
     </div>
     <hr />
     <div class="row-fluid">
@@ -9,16 +9,18 @@
             <form id="schedule" action="<?php echo URL::site('home/get_schedule') ?>" method="POST">
                 <h2 style="text-align:center" >Options:</h2>
                 <div>
-                    <label>Departure City:</label>
+                    <label>Origin city:</label>
                     <select name="depart_city" class="span12">
+                        <option value="NULL" selected>-- select city --</option>
                         <?php foreach($cities as $city): ?>
                             <option value="<?php echo $city->name . ', ' . $city->region ?>"><?php echo $city->name . ', ' . $city->region ?></option>
                         <?php endforeach ?>
                     </select>
                 </div>
                 <div>
-                    <label>Arrival City:</label>
+                    <label>Arrival city:</label>
                     <select name="arrive_city" class="span12">
+                        <option value="NULL" selected>-- select city --</option>
                         <?php foreach($cities as $city): ?>
                         <option value="<?php echo $city->name . ', ' . $city->region ?>"><?php echo $city->name . ', ' . $city->region ?></option>
                         <?php endforeach ?>

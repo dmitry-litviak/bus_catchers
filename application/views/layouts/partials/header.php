@@ -41,7 +41,7 @@
 
                     <div id="divHeaderText" class="page-content">
                         <div id="divHeaderLine1">Start Booking Now!</div><br />
-                        <div id="divHeaderLine2">Are you a frequent traveler or commuter? Buy all your tickets at once for better pricing and easier checkout.</div><br />
+                        <div id="divHeaderLine2">Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</div><br />
 <!--                        <div id="divHeaderLine3"><a class="btn btn-secondary" href="#">Secondary Button</a>    <a class="btn btn-primary" href="#">Primary Button</a></div>-->
                     </div>
 

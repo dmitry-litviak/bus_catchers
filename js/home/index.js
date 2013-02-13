@@ -42,6 +42,8 @@ index = {
     return this.form.submit(function(e) {
       var el;
       el = $(e.currentTarget);
+      console.log('here');
+      loadingMask.show();
       el.ajaxSubmit(_this.options);
       return false;
     });

@@ -35,6 +35,7 @@ class Controller_Home extends My_Layout_User_Controller {
                 $query = $query->where_close();
             }
             $result = $query->execute()->as_array();
+//            sleep(10);
             foreach($result as &$item) {
                 $item['DEPART_TIME'] = Helper_Output::time_for_table($item['DEPART_TIME']);
                 $item['ARRIVE_TIME'] = Helper_Output::time_for_table($item['ARRIVE_TIME']);
