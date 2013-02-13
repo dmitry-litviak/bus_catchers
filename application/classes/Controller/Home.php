@@ -25,7 +25,8 @@ class Controller_Home extends My_Layout_User_Controller {
             $tables = DB::query(Database::SELECT ,"SHOW FULL COLUMNS FROM " . $table_name)->execute()->as_array();
             $query = DB::select('*')->from($table_name)
                                     ->where('DEPART_CITY', '=', $this->request->post('depart_city'))
-                                    ->where('ARRIVE_CITY', '=', $this->request->post('arrive_city'));
+                                    ->where('ARRIVE_CITY', '=', $this->request->post('arrive_city'))
+                                    ->where('TRIP_COST', '!=', NULL);
             if ($this->request->post('companies')) {
                 $query = $query->where_open();
                 foreach ($this->request->post('companies') as $company) {
@@ -34,6 +35,10 @@ class Controller_Home extends My_Layout_User_Controller {
                 $query = $query->where_close();
             }
             $result = $query->execute()->as_array();
+            foreach($result as &$item) {
+                $item['DEPART_TIME'] = Helper_Output::time_for_table($item['DEPART_TIME']);
+                $item['ARRIVE_TIME'] = Helper_Output::time_for_table($item['ARRIVE_TIME']);
+            }
             if (empty($result)) {
                 Helper_Jsonresponse::render_json('error', 'Fares not available for this travel date', null);
             } else {

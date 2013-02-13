@@ -67,8 +67,16 @@ class Helper_Output
             } else {
                     return DateTime::CreateFromFormat('Y-m-d', $date)->format('YFj');
             }
-	}
-        
+	    }
+
+        public static function time_for_table($date) {
+            if($date == '0000-00-00 00:00:00' || !$date) {
+                return "--";
+            } else {
+                return DateTime::CreateFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d h:i:s a');
+            }
+        }
+
         static function hightLight($what, $where) {
             return str_replace($what, "<b>" . $what . "</b>", $where);
         }

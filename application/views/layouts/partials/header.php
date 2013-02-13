@@ -40,8 +40,8 @@
                 <div class="span6">
 
                     <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">Header Text Here!</div><br />
-                        <div id="divHeaderLine2">2nd Line Header Text for calling extra attention to featured content or information.</div><br />
+                        <div id="divHeaderLine1">Start Booking Now!</div><br />
+                        <div id="divHeaderLine2">Are you a frequent traveler or commuter? Buy all your tickets at once for better pricing and easier checkout.</div><br />
 <!--                        <div id="divHeaderLine3"><a class="btn btn-secondary" href="#">Secondary Button</a>    <a class="btn btn-primary" href="#">Primary Button</a></div>-->
                     </div>
 
