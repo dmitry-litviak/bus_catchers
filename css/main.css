@@ -1,0 +1,10 @@
+
+div.my-container{
+    margin-top: 50px;
+}
+
+img.spiner{
+    width: 32px;
+    height: 32px;
+    display: none;
+}

@@ -1,0 +1,9 @@
+application/cache/*
+application/logs/*
+files/*
+/.htaccess
+# Ignore RubyMine area
+/.idea
+# Ignore NetBeans area
+/nbproject
+

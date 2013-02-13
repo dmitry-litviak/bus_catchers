@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Company name</th>
+            <th>Departure time</th>
+            <th>Arrival time</th>
+            <th>Cost</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% _.each(schedules, function(schedule) { %>
+        <tr>
+            <td><%=schedule.COMPANY_NAME %></td>
+            <td><%=schedule.DEPART_TIME %></td>
+            <td><%=schedule.ARRIVE_TIME %></td>
+            <td><%= "$" + schedule.TRIP_COST %></td>
+            <td><%="SOON" %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
