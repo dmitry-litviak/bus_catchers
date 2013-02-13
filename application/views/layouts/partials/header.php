@@ -5,8 +5,8 @@
         <div class="span5">
 
             <div id="divLogo">
-                <a href="index.html" id="divSiteTitle">Bus Catchers</a><br />
-                <a href="index.html" id="divTagLine">Catch your bus</a>
+                <a href="<?php echo URL::base() ?>" id="divSiteTitle">Bus Catchers</a><br />
+                <a href="<?php echo URL::base() ?>" id="divTagLine">Catch your bus</a>
             </div>
 
         </div>
