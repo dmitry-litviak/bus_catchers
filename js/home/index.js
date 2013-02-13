@@ -42,8 +42,7 @@ index = {
     return this.form.submit(function(e) {
       var el;
       el = $(e.currentTarget);
-      console.log('here');
-      loadingMask.show();
+      _this.search_res.empty();
       el.ajaxSubmit(_this.options);
       return false;
     });

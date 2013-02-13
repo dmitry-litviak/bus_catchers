@@ -13,15 +13,13 @@ loadingMask = {
     FPS: 50
   },
   createSpinner: function() {
-    if (_.isEmpty(this.spinner)) {
-      this.spinner = new CanvasLoader("search_res_div");
-      this.spinner.setShape(this.opts.shape);
-      this.spinner.setColor(this.opts.color);
-      this.spinner.setDiameter(this.opts.diameter);
-      this.spinner.setDensity(this.opts.density);
-      this.spinner.setRange(this.opts.range);
-      return this.spinner.setFPS(this.opts.FPS);
-    }
+    this.spinner = new CanvasLoader("search_res_div");
+    this.spinner.setShape(this.opts.shape);
+    this.spinner.setColor(this.opts.color);
+    this.spinner.setDiameter(this.opts.diameter);
+    this.spinner.setDensity(this.opts.density);
+    this.spinner.setRange(this.opts.range);
+    return this.spinner.setFPS(this.opts.FPS);
   },
   show: function(spinner) {
     if (spinner == null) {

@@ -10,14 +10,15 @@ loadingMask =
     FPS     : 50
 
   createSpinner: () ->
-    if _.isEmpty(@spinner)
-      @spinner = new CanvasLoader("search_res_div")
-      @spinner.setShape(@opts.shape)
-      @spinner.setColor(@opts.color)
-      @spinner.setDiameter(@opts.diameter);
-      @spinner.setDensity(@opts.density);
-      @spinner.setRange(@opts.range);
-      @spinner.setFPS(@opts.FPS);
+#    if _.isEmpty(@spinner)
+#      console.log 'here'
+    @spinner = new CanvasLoader("search_res_div")
+    @spinner.setShape(@opts.shape)
+    @spinner.setColor(@opts.color)
+    @spinner.setDiameter(@opts.diameter);
+    @spinner.setDensity(@opts.density);
+    @spinner.setRange(@opts.range);
+    @spinner.setFPS(@opts.FPS);
 
 #      loaderObj = document.getElementById("canvasLoader")
 #      loaderObj.style.position = "absolute"
