@@ -78,9 +78,9 @@ if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
                  * Ports and sockets may be appended to the hostname.
                  */
                 'hostname'   => 'localhost',
-                'database'   => 'bus_catchers',
-                'username'   => 'root',
-                'password'   => 'qwerfvbnm321Q',
+                'database'   => 'bestca12_bus_schedules',
+                'username'   => 'bestca12_rider',
+                'password'   => 'theleonius',
                 'persistent' => FALSE,
             ),
             'table_prefix' => '',

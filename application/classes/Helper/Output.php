@@ -73,7 +73,7 @@ class Helper_Output
             if($date == '0000-00-00 00:00:00' || !$date) {
                 return "--";
             } else {
-                return DateTime::CreateFromFormat('Y-m-d H:i:s', $date)->format('h:i:s a');
+                return DateTime::CreateFromFormat('Y-m-d H:i:s', $date)->format('g:i a');
             }
         }
 

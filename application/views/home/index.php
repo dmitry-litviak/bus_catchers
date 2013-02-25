@@ -2,6 +2,7 @@
 
     <div style="text-align:center">
         <h1>Find Tickets</h1>
+        <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>
     </div>
     <hr />
     <div class="row-fluid">
@@ -48,7 +49,10 @@
         </div>
         <div class="span8">
             <h2 style="text-align:center" >Search results:</h2>
-            <div style="text-align:center" id="search_res_div"><h4 id="search_res_text" style="text-align:center">Choose options and press "Search Schedule" to show results</h4></div>
+            <div style="text-align:center" id="search_res_div">
+                <h4 id="search_res_text" style="text-align:center">Choose options and press "Search Schedule" to show results</h4>
+                <img src="styles/BoltBus.png" title="" />
+            </div>
         </div>
     </div>
     <br />

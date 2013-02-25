@@ -36,24 +36,24 @@
 
             <div id="headerSeparator"></div>
 
-            <div class="row-fluid">
-                <div class="span6">
-
-                    <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">Start Booking Now!</div><br />
-                        <div id="divHeaderLine2">Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</div><br />
+<!--            <div class="row-fluid">-->
+<!--                <div class="span6">-->
+<!---->
+<!--                    <div id="divHeaderText" class="page-content">-->
+<!--                        <div id="divHeaderLine1">Start Booking Now!</div><br />-->
+<!--                        <div id="divHeaderLine2">Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</div><br />-->
 <!--                        <div id="divHeaderLine3"><a class="btn btn-secondary" href="#">Secondary Button</a>    <a class="btn btn-primary" href="#">Primary Button</a></div>-->
-                    </div>
-
-                </div>
-                <div class="span6">
-
-                    <div id="imgHeader">
-                        <img src="styles/BoltBus.png" title="" />
-                    </div>
-
-                </div>
-            </div>
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--                <div class="span6">-->
+<!---->
+<!--                    <div id="imgHeader">-->
+<!--                        <img src="styles/BoltBus.png" title="" />-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
 
             <div id="headerSeparator2"></div>
 

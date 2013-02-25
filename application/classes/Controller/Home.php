@@ -6,8 +6,11 @@ class Controller_Home extends My_Layout_User_Controller {
 	{
         Helper_Output::factory()
             ->link_js('libs/jquery.form')
+            ->link_js('libs/tablesorter')
+            ->link_js('libs/tablesorter.widget')
             ->link_js('public/assets/workspace')
-            ->link_js('home/index');
+            ->link_js('home/index')
+            ->link_css('theme.bootstrap');
         $data['cities']    = ORM::factory('City')->find_all();
         $data['companies'] = ORM::factory('Company')->find_all();
         $data['dates']     = Helper_Output::get_next_n_days(10);
@@ -18,8 +21,8 @@ class Controller_Home extends My_Layout_User_Controller {
 
     public function action_get_schedule(){
 
-//        $table_name = Helper_Output::db_name_date($this->request->post('depart_time'));
-        $table_name = '2013February12';
+        $table_name = Helper_Output::db_name_date($this->request->post('depart_time'));
+//        $table_name = '2013February12';
         try {
             //if table is not exist, then this row through an error
             $tables = DB::query(Database::SELECT ,"SHOW FULL COLUMNS FROM " . $table_name)->execute()->as_array();

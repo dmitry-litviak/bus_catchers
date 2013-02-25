@@ -19,7 +19,25 @@ index = {
     };
   },
   bindEvents: function() {
-    return this.initFormSubmit();
+    this.initFormSubmit();
+    return this.initTheme();
+  },
+  initTheme: function() {
+    return $.extend($.tablesorter.themes.bootstrap, {
+      table: "table table-striped",
+      header: "bootstrap-header",
+      footerRow: "",
+      footerCells: "",
+      icons: "",
+      sortNone: "bootstrap-icon-unsorted",
+      sortAsc: "icon-chevron-up",
+      sortDesc: "icon-chevron-down",
+      active: "",
+      hover: "",
+      filterRow: "",
+      even: "",
+      odd: ""
+    });
   },
   showResponse: function(responseText, statusText, xhr, $form) {
     var obj;
@@ -27,15 +45,27 @@ index = {
     obj = jQuery.parseJSON(responseText);
     if (obj.text === "success") {
       index.search_res.empty();
-      return index.search_res.append(index.template({
+      index.search_res.append(index.template({
         schedules: obj.data
       }));
+      return index.initTable();
     } else {
       index.search_res.empty();
       return index.search_res.append(index.template_text({
         text: obj.errors
       }));
     }
+  },
+  initTable: function() {
+    return $("table").tablesorter({
+      theme: "bootstrap",
+      widthFixed: true,
+      headerTemplate: "{content} {icon}",
+      widgets: ["uitheme", "zebra"],
+      widgetOptions: {
+        zebra: ["even", "odd"]
+      }
+    });
   },
   initFormSubmit: function() {
     var _this = this;

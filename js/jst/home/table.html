@@ -1,12 +1,12 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Company name</th>
-            <th>Departure time</th>
-            <th>Arrival time</th>
-            <th>Travel time</th>
-            <th>Cost</th>
-            <th>Link</th>
+            <th>Company name<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
+            <th>Departure time<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
+            <th>Arrival time<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
+            <th>Travel time<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
+            <th>Cost<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
+            <th>Link<i class="tablesorter-icon bootstrap-icon-unsorted"></i></th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +17,7 @@
             <td><%=schedule.ARRIVE_TIME %></td>
             <td><%=schedule.TRIP_LENGTH %></td>
             <td><%= "$" + schedule.TRIP_COST %></td>
-            <td><%="SOON" %></td>
+            <td><a href="<%=schedule.URL %>" target="_blank">GO</a></td>
         </tr>
     <% }) %>
     </tbody>
