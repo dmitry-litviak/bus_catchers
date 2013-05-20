@@ -13,7 +13,7 @@ class Controller_Home extends My_Layout_User_Controller {
             ->link_css('theme.bootstrap');
         $data['cities']    = ORM::factory('City')->find_all();
         $data['companies'] = ORM::factory('Company')->find_all();
-        $data['dates']     = Helper_Output::get_next_n_days(10);
+        $data['dates']     = Helper_Output::get_next_n_days(7);
         $this->setTitle(Kohana::$config->load('config')->get('Site Title'))
              ->view('home/index', $data)
              ->render();
@@ -45,14 +45,14 @@ class Controller_Home extends My_Layout_User_Controller {
                 $item['TRIP_LENGTH'] = $item['TRIP_LENGTH'] != 'NULL' ? strtolower(str_replace('m', 'min', $item['TRIP_LENGTH'])) : '--';
             }
             if (empty($result)) {
-                Helper_Jsonresponse::render_json('error', 'Fares not available for this travel date', null);
+                Helper_Jsonresponse::render_json('error', 'Fares not available for this search query', null);
             } else {
                 Helper_Jsonresponse::render_json('success', null, $result);
             }
 
         }
         catch(Database_Exception $e) {
-            Helper_Jsonresponse::render_json('error', 'Fares not available for this travel date', null);
+            Helper_Jsonresponse::render_json('error', 'Fares not available for this search query', null);
         }
     }
 

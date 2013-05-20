@@ -18,7 +18,6 @@ class My_Layout_Controller extends Controller {
 		$this->_description     = $config->get('Site Description');
                 
                 //include mandatory css js for both side ( Client & Admin )
-                Helper_Uploader::createTempIfNotExist();
 		Helper_Output::factory()
                                         ->link_js('libs/jquey-1.8.2.min')
                                         ->link_js('libs/bootstrap.min')

@@ -11,6 +11,8 @@ index = {
   detectElements: function() {
     this.form = $('#schedule');
     this.search_res = $('#search_res_div');
+    this.company = $('.company-name');
+    this.info = $('.info-block');
     return this.options = {
       success: this.showResponse,
       beforeSend: function() {
@@ -20,7 +22,19 @@ index = {
   },
   bindEvents: function() {
     this.initFormSubmit();
-    return this.initTheme();
+    this.initTheme();
+    return this.company_click();
+  },
+  company_click: function() {
+    return this.company.hover(function(e) {
+      var content, element, title;
+      element = $(this);
+      content = element.data('content');
+      title = element.html();
+      console.log(content);
+      console.log(title);
+      return index.info.html('<h4 class="info-title">' + title + '</h4>' + content + '<a href="' + SYS.baseUrl + 'compare">Read More</a>');
+    });
   },
   initTheme: function() {
     return $.extend($.tablesorter.themes.bootstrap, {
@@ -64,6 +78,11 @@ index = {
       widgets: ["uitheme", "zebra"],
       widgetOptions: {
         zebra: ["even", "odd"]
+      },
+      headers: {
+        5: {
+          sorter: false
+        }
       }
     });
   },

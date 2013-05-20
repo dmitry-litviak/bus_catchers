@@ -22,7 +22,7 @@ else
  * @link http://kohanaframework.org/guide/using.configuration
  * @link http://www.php.net/manual/timezones
  */
-date_default_timezone_set('Africa/Johannesburg');
+date_default_timezone_set('America/New_York');
 
 /**
  * Set the default locale.
@@ -70,11 +70,11 @@ I18n::lang('en-us');
  * saying "Couldn't find constant Kohana::<INVALID_ENV_NAME>"
  */
 
-if (isset($_SERVER['KOHANA_ENV']))
-{
-	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
-}
-
+// if (isset($_SERVER['KOHANA_ENV']))
+// {
+// 	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
+// }
+Kohana::$environment = ($_SERVER['SERVER_NAME'] !== 'localhost') ? Kohana::PRODUCTION : Kohana::DEVELOPMENT;
 /**
  * Initialize Kohana, setting the default options.
  *
@@ -98,8 +98,10 @@ if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
 	));
 } else {
 	Kohana::init(array(
-		'base_url'   => 'http://'.$_SERVER['HTTP_HOST'].'/bus_catchers/',
-		'index_file' => ''
+		'base_url'   => 'http://'.$_SERVER['HTTP_HOST'],
+		'index_file' => FALSE,
+	    'profile'    => Kohana::$environment !== Kohana::PRODUCTION,
+	    'caching'    => Kohana::$environment === Kohana::PRODUCTION,
 	));
 }
 
@@ -151,7 +153,7 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'controller' => 'home',
 		'action'     => 'index',
 	));
-Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-    ->defaults(array(
-    'controller' => 'error',
+	Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
+        ->defaults(array(
+                'controller' => 'error',
 ));

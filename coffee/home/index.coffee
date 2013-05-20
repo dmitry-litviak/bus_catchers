@@ -8,6 +8,9 @@ index =
   detectElements: ->
     @form       =  $('#schedule')
     @search_res =  $('#search_res_div')
+    @company    =  $('.company-name')
+    @info       =  $('.info-block')
+#    @company.popover({ container: '.span7' })
     @options    =
       success    : @showResponse
       beforeSend: () ->
@@ -16,7 +19,17 @@ index =
   bindEvents: ->
     do @initFormSubmit
     do @initTheme
-
+    do @company_click
+  
+  company_click: ->
+    @company. hover (e) ->
+      element = $(@)
+      content = element.data('content')
+      title   = element.html()
+      console.log content
+      console.log title
+      index.info.html('<h4 class="info-title">'+title+'</h4>'+content+'<a href="'+SYS.baseUrl+'compare">Read More</a>')
+  
   initTheme: ->
     $.extend $.tablesorter.themes.bootstrap,
       table: "table table-striped"
@@ -52,6 +65,9 @@ index =
       widgets: ["uitheme", "zebra"]
       widgetOptions:
         zebra: ["even", "odd"]
+      headers:
+        5:
+          sorter: false
 
   initFormSubmit: ->
     @form.submit (e) =>
