@@ -38,6 +38,7 @@
             </div>
             <?php echo View::factory('layouts/partials/footer')->render(); ?>
         </div>
+        <div id="toTop">^ Back to Top</div>
         <br /><br /><br />
         <?php echo Helper_Output::renderJs(); ?>
     </body>

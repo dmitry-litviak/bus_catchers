@@ -8,7 +8,7 @@ return array(
         'status' => 1
     ),
     "compare" => array(
-        'title' => 'Compare',
+        'title' => 'Company comparison',
         'url' => 'compare',
         'status' => 0
     )

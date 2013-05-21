@@ -31,9 +31,7 @@ index = {
       element = $(this);
       content = element.data('content');
       title = element.html();
-      console.log(content);
-      console.log(title);
-      return index.info.html('<h4 class="info-title">' + title + '</h4>' + content + '<a href="' + SYS.baseUrl + 'compare">Read More</a>');
+      return index.info.html('<h4 class="info-title">' + title + '</h4>' + content + '<a href="' + SYS.baseUrl + 'company/info/' + title + '">Read More</a>');
     });
   },
   initTheme: function() {

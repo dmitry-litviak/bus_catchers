@@ -11,7 +11,7 @@
     <hr />
     <?php foreach ($companies as $key => $company): ?>
         <div class="well well-large justified">
-            <h4><?php echo $company->name ?></h4>
+            <h4><a href="<?php echo URL::site('company/info/'. $company->name) ?>" target="_blank"><?php echo $company->name ?></a></h4>
             <?php echo $company->description ?>
         </div>
     <?php endforeach; ?>
