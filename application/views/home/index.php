@@ -40,18 +40,20 @@
                     </select>
                 </div>
                 <div class="row-fluid">
-                    <div class="span4">
+                    <div class="span5">
                         <label>Companies:</label>
                         <?php foreach ($companies as $company): ?>
                             <label class="checkbox">
-                                <input type="checkbox" value="<?php echo $company->name ?>" name="companies[]" checked>
-                                <span class="company-name" data-content="<?php echo Helper_Output::cut_string($company->description, 200) ?>" ><?php echo $company->name ?></span>
+                                <span>
+                                    <input type="checkbox" value="<?php echo $company->name ?>" name="companies[]" checked>
+                                    <span class=""  ><?php echo $company->name ?></span>
+                                </span>
+                                <span class="label label-important pull-right read-more" data-trigger="click" data-content="<?php echo Helper_Output::cut_string($company->description, 150) ?>" data-title="<?php echo $company->name ?>"><i class="icon-arrow-right icon-white info-link"></i></span>
                             </label>
                         <?php endforeach; ?>
                     </div>
-                    <div class="span8 info-block justified" style="height: 200px">
-                    </div>
                 </div>
+                <br>
                 <div style="text-align:center">
                     <input class="btn btn-primary" value="Search Schedules" type="submit">
                 </div>

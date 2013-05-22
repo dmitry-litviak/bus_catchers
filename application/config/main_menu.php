@@ -11,5 +11,10 @@ return array(
         'title' => 'Company comparison',
         'url' => 'compare',
         'status' => 0
+    ),
+    "map" => array(
+        'title' => 'Stations',
+        'url' => 'map',
+        'status' => 0
     )
 );

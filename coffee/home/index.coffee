@@ -1,6 +1,6 @@
 index =
-  template      : JST["table"]
-  template_text : JST['text']
+  template      : JST["home/table"]
+  template_text : JST['home/text']
   init: ->
     do @detectElements
     do @bindEvents
@@ -8,7 +8,7 @@ index =
   detectElements: ->
     @form       =  $('#schedule')
     @search_res =  $('#search_res_div')
-    @company    =  $('.company-name')
+    @read_more  =  $('.read-more')
     @info       =  $('.info-block')
 #    @company.popover({ container: '.span7' })
     @options    =
@@ -22,11 +22,16 @@ index =
     do @company_click
   
   company_click: ->
-    @company. hover (e) ->
-      element = $(@)
-      content = element.data('content')
-      title   = element.html()
-      index.info.html('<h4 class="info-title">'+title+'</h4>'+content+'<a href="'+SYS.baseUrl+'company/info/'+title+'">Read More</a>')
+    @read_more.popover()
+    @read_more.click (e) ->
+      element = @
+      index.read_more.each ->
+        if @ != element
+          $(@).popover('hide')
+      if $(".infor").length <= 0
+        $(".popover-content").append('<a class="infor" href="'+SYS.baseUrl+'company/info/'+$(element).data('title')+'">Read More</a>')
+      e.preventDefault()
+#      $('.read-more:not('+element.html()+')').popover('hide')
   
   initTheme: ->
     $.extend $.tablesorter.themes.bootstrap,
@@ -49,7 +54,7 @@ index =
     obj = jQuery.parseJSON responseText
     if obj.text is "success"
       index.search_res.empty()
-      index.search_res.append index.template({schedules : obj.data})
+      index.search_res.append index.template({schedules : obj.data, baseurl : SYS.baseUrl})
       do index.initTable
     else
       index.search_res.empty()
@@ -65,6 +70,8 @@ index =
         zebra: ["even", "odd"]
       headers:
         5:
+          sorter: false
+        6:
           sorter: false
 
   initFormSubmit: ->

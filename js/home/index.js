@@ -2,8 +2,8 @@
 var index;
 
 index = {
-  template: JST["table"],
-  template_text: JST['text'],
+  template: JST["home/table"],
+  template_text: JST['home/text'],
   init: function() {
     this.detectElements();
     return this.bindEvents();
@@ -11,7 +11,7 @@ index = {
   detectElements: function() {
     this.form = $('#schedule');
     this.search_res = $('#search_res_div');
-    this.company = $('.company-name');
+    this.read_more = $('.read-more');
     this.info = $('.info-block');
     return this.options = {
       success: this.showResponse,
@@ -26,12 +26,19 @@ index = {
     return this.company_click();
   },
   company_click: function() {
-    return this.company.hover(function(e) {
-      var content, element, title;
-      element = $(this);
-      content = element.data('content');
-      title = element.html();
-      return index.info.html('<h4 class="info-title">' + title + '</h4>' + content + '<a href="' + SYS.baseUrl + 'company/info/' + title + '">Read More</a>');
+    this.read_more.popover();
+    return this.read_more.click(function(e) {
+      var element;
+      element = this;
+      index.read_more.each(function() {
+        if (this !== element) {
+          return $(this).popover('hide');
+        }
+      });
+      if ($(".infor").length <= 0) {
+        $(".popover-content").append('<a class="infor" href="' + SYS.baseUrl + 'company/info/' + $(element).data('title') + '">Read More</a>');
+      }
+      return e.preventDefault();
     });
   },
   initTheme: function() {
@@ -58,7 +65,8 @@ index = {
     if (obj.text === "success") {
       index.search_res.empty();
       index.search_res.append(index.template({
-        schedules: obj.data
+        schedules: obj.data,
+        baseurl: SYS.baseUrl
       }));
       return index.initTable();
     } else {
@@ -79,6 +87,9 @@ index = {
       },
       headers: {
         5: {
+          sorter: false
+        },
+        6: {
           sorter: false
         }
       }

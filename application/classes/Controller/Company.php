@@ -18,7 +18,7 @@ class Controller_Company extends My_Layout_User_Controller {
                 $this->redirect('compare');
             }
             $this->setTitle('Company')
-                    ->view('company/index', $data)
+                    ->view('company/'.$param['id'], $data)
                     ->render();
         }
     }

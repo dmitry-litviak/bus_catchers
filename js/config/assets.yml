@@ -5,3 +5,4 @@ gzip_assets: no
 javascripts:
   workspace:
     - jst/home/*.html
+    - jst/map/*.html

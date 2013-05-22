@@ -431,3 +431,23 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
         font-family:verdana;
         font-size:11px;
 }
+
+.company-checkbox {
+    width: 75px;
+}
+
+.info-link {
+    padding: 0 10px;
+}
+
+#gmaps-canvas {
+  height: 400px;
+  border: 1px solid #999;
+  -moz-box-shadow:    0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow:         0px 0px 5px #ccc;
+}
+
+#gmaps-canvas img {
+    max-width: none;
+}
