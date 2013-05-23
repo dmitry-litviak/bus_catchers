@@ -41,7 +41,9 @@ index =
     @lng_input.val latLng.lng()
   
   initialize_map: ->
-    @map_options.center = new google.maps.LatLng($("#d_lat").val(), $("#d_long").val())  
+    @map_options.center = new google.maps.LatLng($("#d_lat").val(), $("#d_long").val())
+    if $("#d_lat").val() == "40"
+      @map_options.zoom = 6
     gmap = document.getElementById(@map_name_d)
     @map_d = new google.maps.Map(gmap, @map_options)
     @map_options.center = new google.maps.LatLng($("#a_lat").val(), $("#a_long").val())  

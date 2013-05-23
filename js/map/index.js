@@ -44,6 +44,9 @@ index = {
   initialize_map: function() {
     var gmap;
     this.map_options.center = new google.maps.LatLng($("#d_lat").val(), $("#d_long").val());
+    if ($("#d_lat").val() === "40") {
+      this.map_options.zoom = 6;
+    }
     gmap = document.getElementById(this.map_name_d);
     this.map_d = new google.maps.Map(gmap, this.map_options);
     this.map_options.center = new google.maps.LatLng($("#a_lat").val(), $("#a_long").val());

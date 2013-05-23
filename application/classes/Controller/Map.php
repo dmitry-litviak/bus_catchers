@@ -14,6 +14,7 @@ class Controller_Map extends My_Layout_User_Controller {
                 ->link_js('public/assets/workspace')
                 ->link_js('map/index');
         $get = Helper_Output::clean($this->request->query());
+        $data['get'] = $get;
         if (count($get)) {
             Session::instance()->set('get', $get);
             $data['d_city'] = ORM::factory('City')->where('name', '=', substr($get['depart'], 0, strpos($get['depart'], ',')))->find();

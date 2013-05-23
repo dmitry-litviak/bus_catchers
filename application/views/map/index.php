@@ -8,6 +8,11 @@
         <h4>Search for stations near you</h4>  
         <hr>
     </div>
+    <?php if (!empty($get)): ?>
+        <h3 class="centered">For <?php echo $get['company'] ?>, from "<?php echo $get['depart'] ?>" to "<?php echo $get['arrive'] ?>"</h3>
+    <?php else: ?>
+        <h3 class="centered">For all companies, for all cities</h3>
+    <?php endif ?>
     <div class="row-fluid">
         <div class="span6">
             <h3 class="centered">Origin City</h3>
