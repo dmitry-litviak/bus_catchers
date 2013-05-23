@@ -28,6 +28,7 @@ index =
       index.read_more.each ->
         if @ != element
           $(@).popover('hide')
+          $(".infor").remove()
       if $(".infor").length <= 0
         $(".popover-content").append('<a class="infor" href="'+SYS.baseUrl+'company/info/'+$(element).data('title')+'">Read More</a>')
       e.preventDefault()

@@ -32,7 +32,8 @@ index = {
       element = this;
       index.read_more.each(function() {
         if (this !== element) {
-          return $(this).popover('hide');
+          $(this).popover('hide');
+          return $(".infor").remove();
         }
       });
       if ($(".infor").length <= 0) {
