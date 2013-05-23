@@ -18,16 +18,18 @@ index = {
       center: new google.maps.LatLng(40.752508, -73.993714),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    this.geocoder = void 0;
-    this.map = void 0;
-    this.markers = [];
+    this.map_d = void 0;
+    this.map_a = void 0;
+    this.markers_d = [];
+    this.markers_a = [];
     this.image = new google.maps.MarkerImage("../img/marker-images/image.gif", new google.maps.Size(18, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17));
     this.shadow = new google.maps.MarkerImage("../img/marker-images/shadow.png", new google.maps.Size(30, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17));
     this.shape = {
       coord: [10, 0, 11, 1, 12, 2, 13, 3, 14, 4, 15, 5, 16, 6, 17, 7, 14, 8, 15, 9, 15, 10, 15, 11, 15, 12, 15, 13, 15, 14, 15, 15, 14, 16, 3, 16, 2, 15, 2, 14, 2, 13, 2, 12, 2, 11, 2, 10, 2, 9, 3, 8, 0, 7, 1, 6, 2, 5, 3, 4, 4, 3, 3, 2, 3, 1, 3, 0, 10, 0],
       type: "poly"
     };
-    this.map_name = "gmaps-canvas";
+    this.map_name_d = "gmaps-canvas-depart";
+    this.map_name_a = "gmaps-canvas-arrive";
     return this.gmarkers = [];
   },
   bind_events: function() {
@@ -39,39 +41,14 @@ index = {
     this.lat_input.val(latLng.lat());
     return this.lng_input.val(latLng.lng());
   },
-  geocode_lookup: function(type, value, update) {
-    var me, request;
-    me = this;
-    update = (typeof update !== "undefined" ? update : false);
-    request = {};
-    request[type] = value;
-    return this.geocoder.geocode(request, function(results, status) {
-      me.gmap_error.html("");
-      me.gmap_error.hide();
-      if (status === google.maps.GeocoderStatus.OK) {
-        if (results[0]) {
-          return me.update_ui(results[0].formatted_address, results[0].geometry.location);
-        } else {
-          me.gmap_error.html("Sorry, something went wrong. Try again!");
-          return me.gmap_error.show();
-        }
-      } else {
-        if (type === "address") {
-          me.gmap_error.html("Sorry! We couldn't find " + value + ". Try a different search term.");
-          return me.gmap_error.show();
-        } else {
-          me.gmap_error.html("Woah... that's pretty remote! You're going to have to manually enter a place name.");
-          me.gmap_error.show();
-          return me.update_ui("", value);
-        }
-      }
-    });
-  },
   initialize_map: function() {
     var gmap;
     this.map_options.center = new google.maps.LatLng($("#d_lat").val(), $("#d_long").val());
-    gmap = document.getElementById(this.map_name);
-    this.map = new google.maps.Map(gmap, this.map_options);
+    gmap = document.getElementById(this.map_name_d);
+    this.map_d = new google.maps.Map(gmap, this.map_options);
+    this.map_options.center = new google.maps.LatLng($("#a_lat").val(), $("#a_long").val());
+    gmap = document.getElementById(this.map_name_a);
+    this.map_a = new google.maps.Map(gmap, this.map_options);
     return this.get_markers();
   },
   get_markers: function() {
@@ -87,14 +64,14 @@ index = {
         var markerClusterer;
         if (res.text = "success") {
           $.each(res.data, function(i, item) {
-            var infowindow, marker;
-            marker = new google.maps.Marker({
+            var infowindow_a, infowindow_b, marker_a, marker_d;
+            marker_a = new google.maps.Marker({
               position: new google.maps.LatLng(item.lat, item.long)
             });
-            infowindow = new google.maps.InfoWindow({
+            infowindow_a = new google.maps.InfoWindow({
               content: ""
             });
-            google.maps.event.addListener(marker, "click", function() {
+            google.maps.event.addListener(marker_a, "click", function() {
               var _this = this;
               return $.ajax({
                 url: SYS.baseUrl + 'map/get_info',
@@ -105,18 +82,50 @@ index = {
                 dataType: 'json',
                 success: function(res) {
                   if (res.text = "success") {
-                    infowindow.setContent(me.template({
+                    infowindow_a.setContent(me.template({
                       item: res.data,
                       url: SYS.baseUrl
                     }));
-                    return infowindow.open(me.map, marker);
+                    return infowindow_a.open(me.map_a, marker_a);
                   }
                 }
               });
             });
-            return me.markers.push(marker);
+            marker_d = new google.maps.Marker({
+              position: new google.maps.LatLng(item.lat, item.long)
+            });
+            infowindow_b = new google.maps.InfoWindow({
+              content: ""
+            });
+            google.maps.event.addListener(marker_d, "click", function() {
+              var _this = this;
+              return $.ajax({
+                url: SYS.baseUrl + 'map/get_info',
+                data: $.param({
+                  id: item.id
+                }),
+                type: 'POST',
+                dataType: 'json',
+                success: function(res) {
+                  if (res.text = "success") {
+                    infowindow_b.setContent(me.template({
+                      item: res.data,
+                      url: SYS.baseUrl
+                    }));
+                    return infowindow_b.open(me.map_d, marker_d);
+                  }
+                }
+              });
+            });
+            me.markers_a.push(marker_a);
+            return me.markers_d.push(marker_d);
           });
-          return markerClusterer = new MarkerClusterer(me.map, me.markers, {
+          markerClusterer = new MarkerClusterer(me.map_d, me.markers_d, {
+            maxZoom: 15,
+            gridSize: 50,
+            styles: null
+          });
+          return markerClusterer = new MarkerClusterer(me.map_a, me.markers_a, {
             maxZoom: 15,
             gridSize: 50,
             styles: null

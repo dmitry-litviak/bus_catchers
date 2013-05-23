@@ -440,7 +440,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
     padding: 0 10px;
 }
 
-#gmaps-canvas {
+#gmaps-canvas-depart, #gmaps-canvas-arrive {
   height: 400px;
   border: 1px solid #999;
   -moz-box-shadow:    0px 0px 5px #ccc;
@@ -448,6 +448,9 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
   box-shadow:         0px 0px 5px #ccc;
 }
 
-#gmaps-canvas img {
+#gmaps-canvas-depart img {
+    max-width: none;
+}
+#gmaps-canvas-arrive img {
     max-width: none;
 }

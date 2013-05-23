@@ -15,14 +15,7 @@ class Controller_Map extends My_Layout_User_Controller {
                 ->link_js('map/index');
         $get = Helper_Output::clean($this->request->query());
         if (count($get)) {
-//            $data['depart'] = ORM::factory('Station')
-//                        ->where('city', '=', $get['depart'])
-//                        ->where('company_name', '=', $get['company'])
-//                        ->find_all();
-//            $data['arrive'] = ORM::factory('Station')
-//                        ->where('city', '=', $get['arrive'])
-//                        ->where('company_name', '=', $get['company'])
-//                        ->find_all();
+            Session::instance()->set('get', $get);
             $data['d_city'] = ORM::factory('City')->where('name', '=', substr($get['depart'], 0, strpos($get['depart'], ',')))->find();
             $data['a_city'] = ORM::factory('City')->where('name', '=', substr($get['arrive'], 0, strpos($get['arrive'], ',')))->find();
         } else {
@@ -41,11 +34,26 @@ class Controller_Map extends My_Layout_User_Controller {
     }
 
     public function action_get_markers() {
-        Helper_Jsonresponse::render_json('success', null, DB::select('*')->from('stations')->execute()->as_array());
+        $get = Session::instance()->get('get');
+        $markers = DB::select('*')->from('stations')->execute()->as_array();
+        if (!empty($get)) {
+            $markers = DB::select('*')->from('stations')->where('company_name', '=', $get['company'])->execute()->as_array();
+//            $markers = DB::select()->from('routes')
+//                    ->where('origin_key', 'IN', DB::select('id')
+//                            ->from('stations')
+//                            ->where('company_name', '=', $get['company'])
+//                            ->where('city', '=', $get['depart']))
+//                    ->join("stations", "LEFT")
+//                    ->on("routes.origin_key", "=", "stations.id")
+//                    ->execute()
+//                    ->as_array();
+        }
+        Helper_Jsonresponse::render_json('success', null, $markers);
     }
 
     public function action_get_info() {
-        Helper_Jsonresponse::render_json('success', null, DB::select('*')->from('stations')->where('id', '=', $this->request->post('id'))->execute()->as_array());
+        $station = DB::select('*')->from('stations')->where('id', '=', $this->request->post('id'))->execute()->as_array();
+        Helper_Jsonresponse::render_json('success', null, $station);
     }
 
 }

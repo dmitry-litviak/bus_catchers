@@ -1,25 +1,24 @@
 <div class="span12" id="divMain">
     <input type="hidden" id="d_lat" value="<?php echo $d_city->lat ?>">
     <input type="hidden" id="d_long" value="<?php echo $d_city->long ?>">
-    <div style="text-align:center">
+    <input type="hidden" id="a_lat" value="<?php echo $a_city->lat ?>">
+    <input type="hidden" id="a_long" value="<?php echo $a_city->long ?>">
+    <div class="centered">
         <h1>Explore the map</h1>
         <h4>Search for stations near you</h4>  
+        <hr>
     </div>
-
-    <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab">Origin City</a></li>
-            <li><a href="#tab2" data-toggle="tab">Arrival City</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab1">
-                <div id='gmaps-canvas' class="map_canvas"></div>
-            </div>
-            <div class="tab-pane" id="tab2">
-                <div id='gmaps-canvas' class="map_canvas"></div>
-            </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <h3 class="centered">Origin City</h3>
+            <div id='gmaps-canvas-depart' class="map_canvas"></div>
+        </div>
+        <div class="span6 pull-right">
+            <h3 class="centered">Arrival City</h3>
+            <div id='gmaps-canvas-arrive' class="map_canvas"></div>
         </div>
     </div>
+
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
