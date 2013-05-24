@@ -15,11 +15,20 @@ index =
       success    : @showResponse
       beforeSend: () ->
         loadingMask.show()
+    @companies = $("input:checkbox[name=companies]")
 
   bindEvents: ->
     do @initFormSubmit
     do @initTheme
     do @company_click
+    do @all_click
+  
+  all_click: ->
+    me = @
+    $("input:checkbox[name=all]").click ->
+      me.companies.removeAttr("checked")
+      if $(this).is(":checked")
+        me.companies.attr("checked", "checked")
   
   company_click: ->
     @read_more.popover()

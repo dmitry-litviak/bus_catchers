@@ -9,10 +9,44 @@
         <hr>
     </div>
     <?php if (!empty($get)): ?>
-        <h3 class="centered">For <?php echo $get['company'] ?>, from "<?php echo $get['depart'] ?>" to "<?php echo $get['arrive'] ?>"</h3>
+        <h3 class="centered">From "<?php echo $get['depart'] ?>" to "<?php echo $get['arrive'] ?>"</h3>
     <?php else: ?>
-        <h3 class="centered">For all companies, for all cities</h3>
+        <h3 class="centered">For all cities</h3>
     <?php endif ?>
+    <div class="centered">
+        <?php if (!empty($get)): ?>
+            <label class="checkbox inline">
+                <span>
+                    <input type="checkbox" value="all" name="all" >
+                    <span>All companies</span>
+                </span>
+            </label>
+            <?php foreach ($companies as $company): ?>
+                <label class="checkbox inline">
+                    <span>
+                        <input type="checkbox" value="<?php echo $company->name ?>" name="companies" <?php echo in_array($company->name, $get['company']) ? "checked" : "" ?> >
+                        <span><?php echo $company->name ?></span>
+                    </span>
+                </label>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <label class="checkbox inline">
+                <span>
+                    <input type="checkbox" value="all" name="all" checked>
+                    <span>All</span>
+                </span>
+            </label>
+            <?php foreach ($companies as $company): ?>
+                <label class="checkbox inline">
+                    <span>
+                        <input type="checkbox" value="<?php echo $company->name ?>" name="companies" checked >
+                        <span><?php echo $company->name ?></span>
+                    </span>
+                </label>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+    <hr>
     <div class="row-fluid">
         <div class="span6">
             <h3 class="centered">Origin City</h3>

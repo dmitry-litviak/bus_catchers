@@ -14,9 +14,12 @@ class Controller_Map extends My_Layout_User_Controller {
                 ->link_js('public/assets/workspace')
                 ->link_js('map/index');
         $get = Helper_Output::clean($this->request->query());
+        if (!empty($get) && !is_array($get['company'])) {
+            $get['company'] = explode(',', $get['company']);
+        }
         $data['get'] = $get;
         if (count($get)) {
-            Session::instance()->set('get', $get);
+//            Session::instance()->set('get', $get);
             $data['d_city'] = ORM::factory('City')->where('name', '=', substr($get['depart'], 0, strpos($get['depart'], ',')))->find();
             $data['a_city'] = ORM::factory('City')->where('name', '=', substr($get['arrive'], 0, strpos($get['arrive'], ',')))->find();
         } else {
@@ -29,16 +32,21 @@ class Controller_Map extends My_Layout_User_Controller {
                         'long' => -78
             );
         }
+        $data['companies'] = ORM::factory('Company')->find_all();
         $this->setTitle('Map')
                 ->view('map/index', $data)
                 ->render();
     }
 
     public function action_get_markers() {
-        $get = Session::instance()->get('get');
-        $markers = DB::select('*')->from('stations')->execute()->as_array();
+//        $get = Session::instance()->get('get');
+        $get = Helper_Output::clean($this->request->post());
+        $markers = array();
         if (!empty($get)) {
-            $markers = DB::select('*')->from('stations')->where('company_name', '=', $get['company'])->execute()->as_array();
+            $markers = DB::select('*')->from('stations')->where('company_name', 'in', $get['companies'])->execute()->as_array();
+        }
+//        if (!empty($get)) {
+//            $markers = DB::select('*')->from('stations')->where('company_name', 'in', $get['companies'])->execute()->as_array();
 //            $markers = DB::select()->from('routes')
 //                    ->where('origin_key', 'IN', DB::select('id')
 //                            ->from('stations')
@@ -48,7 +56,7 @@ class Controller_Map extends My_Layout_User_Controller {
 //                    ->on("routes.origin_key", "=", "stations.id")
 //                    ->execute()
 //                    ->as_array();
-        }
+//        }
         Helper_Jsonresponse::render_json('success', null, $markers);
     }
 

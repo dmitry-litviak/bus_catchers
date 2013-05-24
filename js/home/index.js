@@ -13,17 +13,29 @@ index = {
     this.search_res = $('#search_res_div');
     this.read_more = $('.read-more');
     this.info = $('.info-block');
-    return this.options = {
+    this.options = {
       success: this.showResponse,
       beforeSend: function() {
         return loadingMask.show();
       }
     };
+    return this.companies = $("input:checkbox[name=companies]");
   },
   bindEvents: function() {
     this.initFormSubmit();
     this.initTheme();
-    return this.company_click();
+    this.company_click();
+    return this.all_click();
+  },
+  all_click: function() {
+    var me;
+    me = this;
+    return $("input:checkbox[name=all]").click(function() {
+      me.companies.removeAttr("checked");
+      if ($(this).is(":checked")) {
+        return me.companies.attr("checked", "checked");
+      }
+    });
   },
   company_click: function() {
     this.read_more.popover();

@@ -10,7 +10,7 @@ index =
 
     @jmap        = $("#gmaps-canvas")
     @map_options =
-      zoom: 9
+      zoom: 13
       maxZoom: 18
       minZoom: 3
       center: new google.maps.LatLng(40.752508, -73.993714)
@@ -30,6 +30,7 @@ index =
     @map_name_d    = "gmaps-canvas-depart"
     @map_name_a    = "gmaps-canvas-arrive"
     @gmarkers       = []
+    @companies = $("input:checkbox[name=companies]")
     
   bind_events: ->
     do @initialize_map
@@ -40,22 +41,55 @@ index =
     @lat_input.val latLng.lat()
     @lng_input.val latLng.lng()
   
+  checkbox_click: ->
+    @companies.click ->
+      do index.clearOverlays
+      do index.get_markers
+  
+  all_click: ->
+    me = @
+    $("input:checkbox[name=all]").click ->
+      me.companies.removeAttr("checked")
+      if $(this).is(":checked")
+        me.companies.attr("checked", "checked")
+      do index.clearOverlays
+      do index.get_markers
+  
+  clearOverlays: ->
+    i = 0
+    while i < @markers_a.length
+      @markers_a[i].setMap null
+      i++
+    @markers_a = []
+    i = 0
+    while i < @markers_d.length
+      @markers_d[i].setMap null
+      i++
+    @markers_d = []
+  
   initialize_map: ->
     @map_options.center = new google.maps.LatLng($("#d_lat").val(), $("#d_long").val())
     if $("#d_lat").val() == "40"
-      @map_options.zoom = 6
+      @map_options.zoom = 4
     gmap = document.getElementById(@map_name_d)
     @map_d = new google.maps.Map(gmap, @map_options)
     @map_options.center = new google.maps.LatLng($("#a_lat").val(), $("#a_long").val())  
     gmap = document.getElementById(@map_name_a)
     @map_a = new google.maps.Map(gmap, @map_options)
     do @get_markers
+    do @checkbox_click
+    do @all_click
+    google.maps.visualRefresh = true
           
   get_markers: ->
     me = @
+    companies = []
+    $("input:checkbox[name=companies]:checked").each ->
+      companies.push($(this).val())
+#    console.log companies
     $.ajax
       url: SYS.baseUrl + 'map/get_markers'
-      data: $.param({})
+      data: $.param({companies : companies})
       type: 'POST'
       dataType: 'json'
       success: (res) =>
@@ -63,6 +97,8 @@ index =
           $.each res.data, (i, item) ->
             marker_a     = new google.maps.Marker(
               position: new google.maps.LatLng(item.lat, item.long)
+              map: me.map_a
+#              animation: google.maps.Animation.DROP
             )
             infowindow_a = new google.maps.InfoWindow(content: "")
             google.maps.event.addListener marker_a, "click", ->
@@ -78,6 +114,8 @@ index =
                     
             marker_d     = new google.maps.Marker(
               position: new google.maps.LatLng(item.lat, item.long)
+              map: me.map_d
+#              animation: google.maps.Animation.DROP
             )
             infowindow_b = new google.maps.InfoWindow(content: "")
             google.maps.event.addListener marker_d, "click", ->
@@ -94,16 +132,16 @@ index =
             me.markers_a.push(marker_a);
             me.markers_d.push(marker_d);
             
-          markerClusterer = new MarkerClusterer(me.map_d, me.markers_d,
-            maxZoom: 15
-            gridSize: 50
-            styles: null
-          ) 
-          markerClusterer = new MarkerClusterer(me.map_a, me.markers_a,
-            maxZoom: 15
-            gridSize: 50
-            styles: null
-          )   
+#          markerClusterer = new MarkerClusterer(me.map_d, me.markers_d,
+#            maxZoom: 15
+#            gridSize: 50
+#            styles: null
+#          ) 
+#          markerClusterer = new MarkerClusterer(me.map_a, me.markers_a,
+#            maxZoom: 15
+#            gridSize: 50
+#            styles: null
+#          )   
  
 $(document).ready ->
   do index.init
