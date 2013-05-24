@@ -51,7 +51,7 @@
                         <?php foreach ($companies as $company): ?>
                             <label class="checkbox">
                                 <span>
-                                    <input type="checkbox" value="<?php echo $company->name ?>" name="companies[]" checked>
+                                    <input type="checkbox" value="<?php echo $company->name ?>" name="companies[]" class="c_name" checked>
                                     <span class=""  ><?php echo $company->name ?></span>
                                 </span>
                                 <span class="label label-important pull-right read-more" data-trigger="click" data-content="<?php echo Helper_Output::cut_string($company->description, 150) ?>" data-title="<?php echo $company->name ?>"><i class="icon-arrow-right icon-white info-link"></i></span>

@@ -15,7 +15,7 @@ index =
       success    : @showResponse
       beforeSend: () ->
         loadingMask.show()
-    @companies = $("input:checkbox[name=companies]")
+    @companies = $(".c_name")
 
   bindEvents: ->
     do @initFormSubmit

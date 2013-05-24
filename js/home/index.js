@@ -19,7 +19,7 @@ index = {
         return loadingMask.show();
       }
     };
-    return this.companies = $("input:checkbox[name=companies]");
+    return this.companies = $(".c_name");
   },
   bindEvents: function() {
     this.initFormSubmit();
