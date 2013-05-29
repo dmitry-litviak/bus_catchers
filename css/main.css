@@ -8,3 +8,12 @@ img.spiner{
     height: 32px;
     display: none;
 }
+
+.slider-range {
+    margin: 20px 10px;
+}
+
+.info-map {
+    height: 130px;
+    width: 200px;
+}

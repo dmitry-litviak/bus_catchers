@@ -16,5 +16,10 @@ return array(
         'title' => 'Stations',
         'url' => 'map',
         'status' => 0
+    ),
+    "about" => array(
+        'title' => 'About',
+        'url' => 'about',
+        'status' => 0
     )
 );

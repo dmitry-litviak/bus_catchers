@@ -23,7 +23,6 @@
     <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet" type="text/css">
-
 </head>
     <body id="pageBody">
         <div id="divBoxed" class="container">

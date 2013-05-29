@@ -6,11 +6,13 @@ class Controller_Home extends My_Layout_User_Controller {
 
     public function action_index() {
         Helper_Output::factory()
+                ->link_js('libs/jquery-ui-1.10.3.custom.min')
                 ->link_js('libs/jquery.form')
                 ->link_js('libs/tablesorter')
                 ->link_js('libs/tablesorter.widget')
                 ->link_js('public/assets/workspace')
                 ->link_js('home/index')
+                ->link_css('smoothness/jquery-ui-1.10.3.custom.min')
                 ->link_css('theme.bootstrap');
         $data['cities'] = ORM::factory('City')->find_all();
         $data['companies'] = ORM::factory('Company')->find_all();
@@ -21,10 +23,10 @@ class Controller_Home extends My_Layout_User_Controller {
     }
 
     public function action_get_schedule() {
-
         $table_name = Helper_Output::db_name_date($this->request->post('depart_time'));
-//        $table_name = '2013February12';
         try {
+            $time_beg = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_beg'))->format('Y-m-j H:i:s');
+            $time_end = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_end'))->format('Y-m-j H:i:s');
             //if table is not exist, then this row through an error
             $companies = $this->request->post('companies');
             if (!empty($companies)) {
@@ -32,7 +34,8 @@ class Controller_Home extends My_Layout_User_Controller {
                 $query = DB::select('*')->from($table_name)
                         ->where('DEPART_CITY', '=', $this->request->post('depart_city'))
                         ->where('ARRIVE_CITY', '=', $this->request->post('arrive_city'))
-                        ->where('TRIP_COST', '!=', NULL);
+                        ->where('TRIP_COST', '!=', NULL)
+                        ->where('DEPART_TIME', 'BETWEEN', array($time_beg, $time_end));
                 if ($this->request->post('companies')) {
                     $query = $query->where_open();
                     foreach ($this->request->post('companies') as $company) {
@@ -56,7 +59,7 @@ class Controller_Home extends My_Layout_User_Controller {
                 Helper_Jsonresponse::render_json('success', null, $result);
             }
         } catch (Database_Exception $e) {
-            Helper_Jsonresponse::render_json('error', 'Fares not available for this search query', null);
+            Helper_Jsonresponse::render_json('error', 'Fares not favailable for this search query', null);
         }
     }
 

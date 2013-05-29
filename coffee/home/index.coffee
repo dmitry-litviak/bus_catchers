@@ -10,7 +10,11 @@ index =
     @search_res =  $('#search_res_div')
     @read_more  =  $('.read-more')
     @info       =  $('.info-block')
-#    @company.popover({ container: '.span7' })
+    @slider     =  $(".slider-range")
+    @inp_beg    =  $("#time_beg")
+    @inp_end    =  $("#time_end")
+    @span_beg   =  $(".time-beg")
+    @span_end   =  $(".time-end")
     @options    =
       success    : @showResponse
       beforeSend: () ->
@@ -22,7 +26,37 @@ index =
     do @initTheme
     do @company_click
     do @all_click
+    do @range_slider_init
   
+  range_slider_init: ->
+    me = @
+    @slider.slider
+      range: true
+      min: 5
+      max: 1435
+      step: 5
+      values: [ 5, 1435 ],
+      slide: (e, ui) ->
+        values = []
+        _.each ui.values, (num, key) ->
+          hours = Math.floor(num / 60)
+          minutes = num - (hours * 60)
+#          hours = "0" + hours  if hours.toString().length is 1
+#          minutes = "0" + minutes  if minutes.toString().length is 1 
+          values.push index.format_date hours, minutes
+        me.span_beg.html values[0]
+        me.span_end.html values[1]
+        me.inp_beg.val values[0]
+        me.inp_end.val values[1]
+        
+        
+  format_date: (hours, minutes) ->
+    ampm = (if hours >= 12 then "pm" else "am")
+    hours = hours % 12
+    hours = (if hours > 9 then hours else "0"+hours) 
+    minutes = (if minutes < 10 then "0" + minutes else minutes)
+    strTime = hours + ":" + minutes + " " + ampm  
+    
   all_click: ->
     me = @
     $("input:checkbox[name=all]").click ->

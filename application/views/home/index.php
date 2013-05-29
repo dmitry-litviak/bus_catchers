@@ -2,10 +2,7 @@
 
     <div style="text-align:center">
         <h1>Find Tickets</h1>
-        <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>
-        <h4>
-            <strong>Notice:</strong> Fung Wah is currently out of service
-        </h4>    
+        <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>  
     </div>
 
     <hr />
@@ -38,6 +35,12 @@
                             <option value="<?php echo $date[1] ?>"><?php echo $date[0] ?></option>
                         <?php endforeach ?>
                     </select>
+                </div>
+                <div>
+                    <label>Time Range: <span class="badge badge-important time-beg">00:05 am</span> - <span class="badge badge-important time-end">11:55 pm</span></label>
+                    <div class="slider-range"></div>
+                    <input type="hidden" value="00:05 am" name="time_beg" id="time_beg">
+                    <input type="hidden" value="11:55 pm" name="time_end" id="time_end">
                 </div>
                 <div class="row-fluid">
                     <div class="span5">

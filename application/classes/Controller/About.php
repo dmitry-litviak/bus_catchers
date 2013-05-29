@@ -12,7 +12,7 @@ class Controller_About extends My_Layout_User_Controller {
     {
 //        Helper_Output::factory()->link_js('home/index');
 
-        $this->setTitle(Kohana::$config->load('config')->get('Site Title'))
+        $this->setTitle('About')
             ->view('about/index')
             ->render();
     }

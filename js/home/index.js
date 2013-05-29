@@ -13,6 +13,11 @@ index = {
     this.search_res = $('#search_res_div');
     this.read_more = $('.read-more');
     this.info = $('.info-block');
+    this.slider = $(".slider-range");
+    this.inp_beg = $("#time_beg");
+    this.inp_end = $("#time_end");
+    this.span_beg = $(".time-beg");
+    this.span_end = $(".time-end");
     this.options = {
       success: this.showResponse,
       beforeSend: function() {
@@ -25,7 +30,41 @@ index = {
     this.initFormSubmit();
     this.initTheme();
     this.company_click();
-    return this.all_click();
+    this.all_click();
+    return this.range_slider_init();
+  },
+  range_slider_init: function() {
+    var me;
+    me = this;
+    return this.slider.slider({
+      range: true,
+      min: 5,
+      max: 1435,
+      step: 5,
+      values: [5, 1435],
+      slide: function(e, ui) {
+        var values;
+        values = [];
+        _.each(ui.values, function(num, key) {
+          var hours, minutes;
+          hours = Math.floor(num / 60);
+          minutes = num - (hours * 60);
+          return values.push(index.format_date(hours, minutes));
+        });
+        me.span_beg.html(values[0]);
+        me.span_end.html(values[1]);
+        me.inp_beg.val(values[0]);
+        return me.inp_end.val(values[1]);
+      }
+    });
+  },
+  format_date: function(hours, minutes) {
+    var ampm, strTime;
+    ampm = (hours >= 12 ? "pm" : "am");
+    hours = hours % 12;
+    hours = (hours > 9 ? hours : "0" + hours);
+    minutes = (minutes < 10 ? "0" + minutes : minutes);
+    return strTime = hours + ":" + minutes + " " + ampm;
   },
   all_click: function() {
     var me;
