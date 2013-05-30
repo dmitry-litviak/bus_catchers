@@ -454,3 +454,11 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 #gmaps-canvas-arrive img {
     max-width: none;
 }
+
+.first-time {
+    margin-right: 4px;
+}
+
+.my-font {
+    font-family: 'Dosis';
+}

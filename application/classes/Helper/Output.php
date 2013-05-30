@@ -112,4 +112,14 @@ class Helper_Output {
         return (mb_strlen($string) > $maxlen) ? $cutStr . '...' : $cutStr;
     }
 
+    public static function create_date($i) {
+        $hours = floor($i / 60);
+        $minutes = $i - ($hours * 60);
+        $ampm = $hours >= 12 ? "pm" : "am";
+        $hours = $hours % 12;
+        $hours = $hours > 9 ? $hours : "0" . $hours;
+        $minutes = $minutes < 10 ? "0" . $minutes : $minutes;
+        return $hours . ":" . $minutes . " " . $ampm;
+    }
+
 }

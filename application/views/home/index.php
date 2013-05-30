@@ -1,7 +1,7 @@
 <div class="span12" id="divMain">
 
     <div style="text-align:center">
-        <h1>Find Tickets</h1>
+        <h1 class="my-font">Find Tickets</h1>
         <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>  
     </div>
 
@@ -9,7 +9,7 @@
     <div class="row-fluid">
         <div class="span4">
             <form id="schedule" action="<?php echo URL::site('home/get_schedule') ?>" method="POST">
-                <h2 style="text-align:center" >Options:</h2>
+                <h2 class="my-font" style="text-align:center" >Options:</h2>
                 <div>
                     <label>Origin city:</label>
                     <select name="depart_city" class="span12">
@@ -37,11 +37,23 @@
                     </select>
                 </div>
                 <div>
-                    <label>Time Range: <span class="badge badge-important time-beg">00:05 am</span> - <span class="badge badge-important time-end">11:55 pm</span></label>
-                    <div class="slider-range"></div>
-                    <input type="hidden" value="00:05 am" name="time_beg" id="time_beg">
-                    <input type="hidden" value="11:55 pm" name="time_end" id="time_end">
+                    <label>Time Range:</label>
+                    <div class="row-fluid">
+                        <select name="time_beg" class="span6">
+                            <?php for ($i = 5; $i <= 1435; $i += 5): ?>
+                                <?php $date = Helper_Output::create_date($i); ?>
+                                <option value="<?php echo $date ?>"><?php echo $date ?></option>
+                            <?php endfor ?>
+                        </select>
+                        <select name="time_end" class="span6">
+                            <?php for ($i = 5; $i <= 1435; $i += 5): ?>
+                                <?php $date = Helper_Output::create_date($i); ?>
+                                <option value="<?php echo $date ?>"><?php echo $date ?></option>
+                            <?php endfor ?>
+                        </select>
+                    </div>
                 </div>
+                <hr>
                 <div class="row-fluid">
                     <div class="span5">
                         <label>Companies:</label>
@@ -69,7 +81,7 @@
             </form>
         </div>
         <div class="span8">
-            <h2 style="text-align:center" >Search results:</h2>
+            <h2 class="my-font" style="text-align:center" >Search results:</h2>
             <div style="text-align:center" id="search_res_div">
                 <h4 id="search_res_text" style="text-align:center">Choose options and press "Search Schedule" to show results</h4>
                 <!-- <img src="styles/BoltBus.png" title="" /> -->

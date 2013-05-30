@@ -26,7 +26,7 @@ index =
     do @initTheme
     do @company_click
     do @all_click
-    do @range_slider_init
+#    do @range_slider_init
   
   range_slider_init: ->
     me = @
