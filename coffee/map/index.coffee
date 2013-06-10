@@ -20,6 +20,8 @@ index =
     @map_a         = undefined
     @markers_d     = []
     @markers_a     = []
+    @info_d        = []
+    @info_a        = []
     
     @image  = new google.maps.MarkerImage("../img/marker-images/image.gif", new google.maps.Size(18, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17))
     @shadow = new google.maps.MarkerImage("../img/marker-images/shadow.png", new google.maps.Size(30, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17))
@@ -80,7 +82,13 @@ index =
     do @checkbox_click
     do @all_click
     google.maps.visualRefresh = true
-          
+  
+  close_info: (i, map) ->
+    if map == "a"
+      index.info_a[i].close()
+    else
+      index.info_d[i].close()
+  
   get_markers: ->
     me = @
     companies = []
@@ -98,36 +106,38 @@ index =
             marker_a     = new google.maps.Marker(
               position: new google.maps.LatLng(item.lat, item.long)
               map: me.map_a
-#              animation: google.maps.Animation.DROP
             )
             infowindow_a = new google.maps.InfoWindow(content: "")
-            google.maps.event.addListener marker_a, "click", ->
-              $.ajax
+            me.info_a.push infowindow_a
+            info_index = me.info_a.length - 1
+            $.ajax
                 url: SYS.baseUrl + 'map/get_info'
                 data: $.param({id : item.id})
                 type: 'POST'
                 dataType: 'json'
                 success: (res) =>
                   if res.text = "success"
-                    infowindow_a.setContent me.template({item: res.data, url : SYS.baseUrl})
-                    infowindow_a.open me.map_a, marker_a
+                    infowindow_a.setContent me.template({item: res.data, url : SYS.baseUrl, info_index : info_index, map : "a"})
+            google.maps.event.addListener marker_a, "click", ->
+              infowindow_a.open me.map_a, marker_a
                     
             marker_d     = new google.maps.Marker(
               position: new google.maps.LatLng(item.lat, item.long)
               map: me.map_d
-#              animation: google.maps.Animation.DROP
             )
-            infowindow_b = new google.maps.InfoWindow(content: "")
-            google.maps.event.addListener marker_d, "click", ->
-              $.ajax
+            infowindow_d = new google.maps.InfoWindow(content: "")
+            me.info_d.push infowindow_d
+            info_index = me.info_d.length - 1
+            $.ajax
                 url: SYS.baseUrl + 'map/get_info'
                 data: $.param({id : item.id})
                 type: 'POST'
                 dataType: 'json'
                 success: (res) =>
                   if res.text = "success"
-                    infowindow_b.setContent me.template({item: res.data, url : SYS.baseUrl})
-                    infowindow_b.open me.map_d, marker_d
+                    infowindow_d.setContent me.template({item: res.data, url : SYS.baseUrl, info_index : info_index, map : "d"})
+            google.maps.event.addListener marker_d, "click", ->
+              infowindow_d.open me.map_d, marker_d
                     
             me.markers_a.push(marker_a);
             me.markers_d.push(marker_d);

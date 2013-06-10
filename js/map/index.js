@@ -22,6 +22,8 @@ index = {
     this.map_a = void 0;
     this.markers_d = [];
     this.markers_a = [];
+    this.info_d = [];
+    this.info_a = [];
     this.image = new google.maps.MarkerImage("../img/marker-images/image.gif", new google.maps.Size(18, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17));
     this.shadow = new google.maps.MarkerImage("../img/marker-images/shadow.png", new google.maps.Size(30, 17), new google.maps.Point(0, 0), new google.maps.Point(9, 17));
     this.shape = {
@@ -91,6 +93,13 @@ index = {
     this.all_click();
     return google.maps.visualRefresh = true;
   },
+  close_info: function(i, map) {
+    if (map === "a") {
+      return index.info_a[i].close();
+    } else {
+      return index.info_d[i].close();
+    }
+  },
   get_markers: function() {
     var companies, me,
       _this = this;
@@ -109,7 +118,8 @@ index = {
       success: function(res) {
         if (res.text = "success") {
           return $.each(res.data, function(i, item) {
-            var infowindow_a, infowindow_b, marker_a, marker_d;
+            var info_index, infowindow_a, infowindow_d, marker_a, marker_d,
+              _this = this;
             marker_a = new google.maps.Marker({
               position: new google.maps.LatLng(item.lat, item.long),
               map: me.map_a
@@ -117,52 +127,58 @@ index = {
             infowindow_a = new google.maps.InfoWindow({
               content: ""
             });
-            google.maps.event.addListener(marker_a, "click", function() {
-              var _this = this;
-              return $.ajax({
-                url: SYS.baseUrl + 'map/get_info',
-                data: $.param({
-                  id: item.id
-                }),
-                type: 'POST',
-                dataType: 'json',
-                success: function(res) {
-                  if (res.text = "success") {
-                    infowindow_a.setContent(me.template({
-                      item: res.data,
-                      url: SYS.baseUrl
-                    }));
-                    return infowindow_a.open(me.map_a, marker_a);
-                  }
+            me.info_a.push(infowindow_a);
+            info_index = me.info_a.length - 1;
+            $.ajax({
+              url: SYS.baseUrl + 'map/get_info',
+              data: $.param({
+                id: item.id
+              }),
+              type: 'POST',
+              dataType: 'json',
+              success: function(res) {
+                if (res.text = "success") {
+                  return infowindow_a.setContent(me.template({
+                    item: res.data,
+                    url: SYS.baseUrl,
+                    info_index: info_index,
+                    map: "a"
+                  }));
                 }
-              });
+              }
+            });
+            google.maps.event.addListener(marker_a, "click", function() {
+              return infowindow_a.open(me.map_a, marker_a);
             });
             marker_d = new google.maps.Marker({
               position: new google.maps.LatLng(item.lat, item.long),
               map: me.map_d
             });
-            infowindow_b = new google.maps.InfoWindow({
+            infowindow_d = new google.maps.InfoWindow({
               content: ""
             });
-            google.maps.event.addListener(marker_d, "click", function() {
-              var _this = this;
-              return $.ajax({
-                url: SYS.baseUrl + 'map/get_info',
-                data: $.param({
-                  id: item.id
-                }),
-                type: 'POST',
-                dataType: 'json',
-                success: function(res) {
-                  if (res.text = "success") {
-                    infowindow_b.setContent(me.template({
-                      item: res.data,
-                      url: SYS.baseUrl
-                    }));
-                    return infowindow_b.open(me.map_d, marker_d);
-                  }
+            me.info_d.push(infowindow_d);
+            info_index = me.info_d.length - 1;
+            $.ajax({
+              url: SYS.baseUrl + 'map/get_info',
+              data: $.param({
+                id: item.id
+              }),
+              type: 'POST',
+              dataType: 'json',
+              success: function(res) {
+                if (res.text = "success") {
+                  return infowindow_d.setContent(me.template({
+                    item: res.data,
+                    url: SYS.baseUrl,
+                    info_index: info_index,
+                    map: "d"
+                  }));
                 }
-              });
+              }
+            });
+            google.maps.event.addListener(marker_d, "click", function() {
+              return infowindow_d.open(me.map_d, marker_d);
             });
             me.markers_a.push(marker_a);
             return me.markers_d.push(marker_d);

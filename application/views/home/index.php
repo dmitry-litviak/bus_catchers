@@ -48,11 +48,16 @@
                         <select name="time_end" class="span6">
                             <?php for ($i = 5; $i <= 1435; $i += 5): ?>
                                 <?php $date = Helper_Output::create_date($i); ?>
-                                <option value="<?php echo $date ?>"><?php echo $date ?></option>
+                                <option <?php echo $i == 1435 ? 'selected' : '' ?> value="<?php echo $date ?>"><?php echo $date ?></option>
                             <?php endfor ?>
                         </select>
                     </div>
                 </div>
+                <br>
+                <div style="text-align:center">
+                    <input class="btn btn-primary" value="Search Schedules" type="submit">
+                </div>
+
                 <hr>
                 <div class="row-fluid">
                     <div class="span5">
@@ -75,9 +80,6 @@
                     </div>
                 </div>
                 <br>
-                <div style="text-align:center">
-                    <input class="btn btn-primary" value="Search Schedules" type="submit">
-                </div>
             </form>
         </div>
         <div class="span8">

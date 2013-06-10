@@ -10,7 +10,9 @@ class Controller_Compare extends My_Layout_User_Controller {
     }
 
     public function action_index() {
-        Helper_Output::factory()->link_js('compare/index');
+        Helper_Output::factory()
+                ->link_js('libs/jquery.raty.min')
+                ->link_js('compare/index');
         $data['companies'] = ORM::factory('Company')->find_all();
         $this->setTitle('Comparison')
                 ->view('compare/index', $data)

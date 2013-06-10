@@ -49,11 +49,11 @@
     <hr>
     <div class="row-fluid">
         <div class="span6">
-            <h3 class="centered">Origin City</h3>
+            <h2 class="centered">Origin City</h2>
             <div id='gmaps-canvas-depart' class="map_canvas"></div>
         </div>
         <div class="span6 pull-right">
-            <h3 class="centered">Arrival City</h3>
+            <h2 class="centered">Arrival City</h2>
             <div id='gmaps-canvas-arrive' class="map_canvas"></div>
         </div>
     </div>

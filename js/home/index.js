@@ -30,8 +30,7 @@ index = {
     this.initFormSubmit();
     this.initTheme();
     this.company_click();
-    this.all_click();
-    return this.range_slider_init();
+    return this.all_click();
   },
   range_slider_init: function() {
     var me;

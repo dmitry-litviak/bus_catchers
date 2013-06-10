@@ -1,7 +1,7 @@
 <div class="span12" id="divMain">
 
     <div style="text-align:center">
-        <h1>Web Scrapping</h1>  
+        <h1>Web Scraping</h1>  
     </div>
 
     <hr />
