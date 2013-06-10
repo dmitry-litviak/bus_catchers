@@ -28,7 +28,7 @@ index = {
     return this.create_rate();
   },
   create_rate: function() {
-    return this.stars.raty({
+    this.stars.raty({
       half: true,
       size: 24,
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
@@ -36,6 +36,9 @@ index = {
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
       readOnly: true,
       score: 2.5
+    });
+    return this.stars.css({
+      'margin': '0 auto'
     });
   }
 };

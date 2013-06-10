@@ -479,6 +479,11 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
     font-size: 50px;
 }
 
+.comp_stars {
+    margin: 0 auto;
+    line-height: 100px;
+}
+
 
 /*.my-font {
     font-family: 'Dosis';

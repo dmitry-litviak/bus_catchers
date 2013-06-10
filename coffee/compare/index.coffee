@@ -30,6 +30,7 @@ index =
       starOn: SYS.baseUrl + "img/stars/star-on-big.png"
       readOnly: true
       score: 2.5
+    @stars.css {'margin' : '0 auto'}
     
     
 $(document).ready ->
