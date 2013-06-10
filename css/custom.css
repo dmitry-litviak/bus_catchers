@@ -34,14 +34,14 @@ ul#contact-info {list-style:none;}
 /* Grid */
 
 #tiles li {
-width:240px !important;
-background-color: #ffffff;
-border: 1px solid #dedede;
--moz-border-radius: 2px;
--webkit-border-radius: 2px;
-border-radius: 2px;
-padding: 10px !important;
-margin-right:7px;margin-bottom:7px;float:left;
+    width:240px !important;
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 10px !important;
+    margin-right:7px;margin-bottom:7px;float:left;
 }
 
 #tiles li img {margin-bottom:10px;}
@@ -69,7 +69,7 @@ margin-right:7px;margin-bottom:7px;float:left;
 
 [class*="general foundicon-"]:before {font-family: "GeneralFoundicons";}
 
-        
+
 /* Menu Side */
 
 .menu_menu_simple ul {margin-top:0px;margin-bottom:0px;}
@@ -80,7 +80,7 @@ margin-right:7px;margin-bottom:7px;float:left;
 /* Header Area */
 
 #decorative1 {
-margin-top:-2px;padding-top:2px}
+    margin-top:-2px;padding-top:2px}
 
 
 /* Menu Centered */
@@ -114,15 +114,15 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 .flex-video iframe, .flex-video object, .flex-video embed {position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
 
 @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
-        .flex-video { padding-top: 0; }
+    .flex-video { padding-top: 0; }
 
-    }
+}
 
-    
+
 /* Additional */
-    
+
 #divBoxed {position:relative}
- 
+
 .nav-links > a {margin-right:20px;}
 
 .btn-secondary, .btn-secondary:hover {text-shadow:none;}
@@ -141,7 +141,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 /* Adjustments */
 
 .search.adjust {margin-bottom:15px}
-      
+
 .divPanel {}
 
 .divPanel.notop {padding-top:0px}
@@ -211,8 +211,8 @@ body{background-image: url(subtle_stripes.png); background-color: rgb(181, 181, 
 .camera_full_width {margin-left: -40px;margin-right: -40px}
 
 h1{font-weight: normal; font-style: normal; letter-spacing: 0px; 
-    /*line-height: 58px; margin-top: 15px; */
-    font-family: Dosis; color: rgb(0, 0, 0);}
+   /*line-height: 58px; margin-top: 15px; */
+   font-family: Dosis; color: rgb(0, 0, 0);}
 
 .page-content, .page-content li{line-height: 22px;}
 
@@ -250,19 +250,19 @@ h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
 a.btn, a.btn-large, a.btn-small, a.btn-mini {color:#333}
 
- a.btn-info, a.btn-success, a.btn-warning, a.btn-danger, a.btn-inverse {color:#ffffff}
+a.btn-info, a.btn-success, a.btn-warning, a.btn-danger, a.btn-inverse {color:#ffffff}
 
- .btn-secondary, .btn-secondary:hover, a.btn-secondary, a.btn-secondary:hover {color:#2b2b2b;}
+.btn-secondary, .btn-secondary:hover, a.btn-secondary, a.btn-secondary:hover {color:#2b2b2b;}
 
- .btn-secondary {border:1px solid #e3e3e3;border-bottom:1px solid #b3b3b3;background-color:#ffffff;background-repeat: repeat-x;background-image:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image:-moz-linear-gradient(top, #ffffff, #e6e6e6);background-image:-ms-linear-gradient(top, #ffffff, #e6e6e6);background-image:-o-linear-gradient(top, #ffffff, #e6e6e6);background-image:linear-gradient(top, #ffffff, #e6e6e6);filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0);filter: progid:dximagetransform.microsoft.gradient(enabled=false);}
+.btn-secondary {border:1px solid #e3e3e3;border-bottom:1px solid #b3b3b3;background-color:#ffffff;background-repeat: repeat-x;background-image:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image:-moz-linear-gradient(top, #ffffff, #e6e6e6);background-image:-ms-linear-gradient(top, #ffffff, #e6e6e6);background-image:-o-linear-gradient(top, #ffffff, #e6e6e6);background-image:linear-gradient(top, #ffffff, #e6e6e6);filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0);filter: progid:dximagetransform.microsoft.gradient(enabled=false);}
 
- .btn-secondary:hover, .btn-secondary:active, .btn-secondary.active, .btn-secondary.disabled, .btn-secondary[disabled] {background-color:#e3e3e3;}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary.active, .btn-secondary.disabled, .btn-secondary[disabled] {background-color:#e3e3e3;}
 
 .btn-primary, .btn-primary:hover, a.btn-primary, a.btn-primary:hover {color:#ffffff;}
 
- .btn-primary {border:1px solid #bd0000;border-bottom:1px solid #940000;background-color:#d40000;background-repeat: repeat-x;background-image:-webkit-gradient(linear, left top, left bottom, from(#d40000), to(#bf0000));background-image:-webkit-linear-gradient(top, #d40000, #bf0000);background-image:-moz-linear-gradient(top, #d40000, #bf0000);background-image:-ms-linear-gradient(top, #d40000, #bf0000);background-image:-o-linear-gradient(top, #d40000, #bf0000);background-image:linear-gradient(top, #d40000, #bf0000);filter: progid:dximagetransform.microsoft.gradient(startColorstr=#d40000, endColorstr=#bf0000, GradientType=0);filter: progid:dximagetransform.microsoft.gradient(enabled=false);}
+.btn-primary {border:1px solid #bd0000;border-bottom:1px solid #940000;background-color:#d40000;background-repeat: repeat-x;background-image:-webkit-gradient(linear, left top, left bottom, from(#d40000), to(#bf0000));background-image:-webkit-linear-gradient(top, #d40000, #bf0000);background-image:-moz-linear-gradient(top, #d40000, #bf0000);background-image:-ms-linear-gradient(top, #d40000, #bf0000);background-image:-o-linear-gradient(top, #d40000, #bf0000);background-image:linear-gradient(top, #d40000, #bf0000);filter: progid:dximagetransform.microsoft.gradient(startColorstr=#d40000, endColorstr=#bf0000, GradientType=0);filter: progid:dximagetransform.microsoft.gradient(enabled=false);}
 
- .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {background-color:#bd0000;}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {background-color:#bd0000;}
 
 #divHeaderText{padding: 69px 0px; border-color: rgb(51, 51, 51);}
 
@@ -319,7 +319,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 .navbar .btn-navbar-highlight {display:none;width:100%}
 
 @media (max-width: 979px) {
-     #divLogo {margin-bottom:10px;}
+    #divLogo {margin-bottom:10px;}
 
 
     .navbar .btn-navbar-highlight {display:block;padding:9px 14px;margin-top:15px;}
@@ -333,7 +333,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 
     .dropdown-menu, .sub-menu {border-radius:5px !important;}
 
-    
+
     /* Fixed Top */
 
     #decorative2 {position:static}
@@ -348,12 +348,12 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 
     #divSiteTitle {font-size: 25px;}
 
-    
+
     #divHeaderText {margin:0px;padding:10px 0px;}
-   
+
     #divHeaderLine1 {margin-top: 0px;}
-     
-    
+
+
     #divMenuRight {width:100%;margin-top: 0px;padding-top:0px}
 
     .ddmenu, .navbar .ddmenu {margin-top: 0px; margin-bottom: 0px;}
@@ -362,34 +362,34 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 
     .navbar {width:100%;margin-top: 0px;padding-top:0px}
 
-    
+
     #decorative1, #decorative2 {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
 
-    
+
     /* Fixed Top */
 
     #decorative2 {position:static}
 
     body {padding-top:0px}
 
-    
+
     #divFooter {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
-    
+
     #divBoxed > #divFooter {margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px;}
 
-    
+
     body > #footerOuterSeparator, body > #contentOuterSeparator {margin-left:-20px;margin-right:-20px;}
 
-    
-    .headerArea, .topArea {padding-left:20px;padding-right:20px;}
- /*only for templates without divBoxed*/
 
-    
+    .headerArea, .topArea {padding-left:20px;padding-right:20px;}
+    /*only for templates without divBoxed*/
+
+
     #camera_wrap {margin-top:20px}
 
     #divVideo {margin-top:20px}
 
-    
+
     .dropdown-menu .sub-menu {left:0%;position:relative;top:0;visibility:visible;margin-top:3px;display:block}
 
     .dropdown-menu, .sub-menu {border-radius:5px !important;}
@@ -417,19 +417,19 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 }
 
 #toTop {
-	width:100px;
-        border:1px solid #ccc;
-        background:#f7f7f7;
-        text-align:center;
-        padding:5px;
-        position:fixed; /* this is the magic */
-        bottom:10px; /* together with this to put the div at the bottom*/
-        right:10px;
-        cursor:pointer;
-        display:none;
-        color:#333;
-        font-family:verdana;
-        font-size:11px;
+    width:100px;
+    border:1px solid #ccc;
+    background:#f7f7f7;
+    text-align:center;
+    padding:5px;
+    position:fixed; /* this is the magic */
+    bottom:10px; /* together with this to put the div at the bottom*/
+    right:10px;
+    cursor:pointer;
+    display:none;
+    color:#333;
+    font-family:verdana;
+    font-size:11px;
 }
 
 .company-checkbox {
@@ -441,11 +441,11 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 }
 
 #gmaps-canvas-depart, #gmaps-canvas-arrive {
-  height: 400px;
-  border: 1px solid #999;
-  -moz-box-shadow:    0px 0px 5px #ccc;
-  -webkit-box-shadow: 0px 0px 5px #ccc;
-  box-shadow:         0px 0px 5px #ccc;
+    height: 400px;
+    border: 1px solid #999;
+    -moz-box-shadow:    0px 0px 5px #ccc;
+    -webkit-box-shadow: 0px 0px 5px #ccc;
+    box-shadow:         0px 0px 5px #ccc;
 }
 
 #gmaps-canvas-depart img {
@@ -477,6 +477,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 .comp_name {
     font-family: Terminal Dosis Light !important;
     font-size: 50px;
+    margin-left: 20%;
 }
 
 .comp_stars {
