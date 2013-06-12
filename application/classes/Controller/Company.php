@@ -30,6 +30,7 @@ class Controller_Company extends My_Layout_User_Controller {
     public function action_login() {
         $mode = Helper_Output::clean($this->request->query());
         $mode = $mode['type'];
+//        Helper_Main::print_flex($_SERVER);die;
         try {
             $hybridauth = new Hybrid_Auth(HYBRIDAUTH_PATH . 'hybridauth/config.php');
 

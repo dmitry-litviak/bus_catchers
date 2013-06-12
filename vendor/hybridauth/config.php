@@ -10,10 +10,10 @@
 // ----------------------------------------------------------------------------------------
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
-
+$whitelist = array('buscatchers.loc');
 return 
 	array(
-		"base_url" => $_SERVER['HTTP_HOST']."loginauth", 
+		"base_url" => in_array($_SERVER['HTTP_HOST'], $whitelist) ? $_SERVER['HTTP_HOST']."loginauth" : $_SERVER['HTTP_HOST']."/bus_catchers/loginauth", 
 
 		"providers" => array ( 
 			// openid providers
