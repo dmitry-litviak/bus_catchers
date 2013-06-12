@@ -18,13 +18,13 @@ That’s it. No strings attached. Valid at any time, regardless of time of day, 
     </div>
     <hr>
     <div class="social-buttons">
-        <?php if (Session::instance()->get('user')): ?>
+        <?php if (!Session::instance()->get('user')): ?>
             <h3>For leaving a comment you should sign in</h3>
             <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Sign in with Facebook</a>
             <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
             <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
         <?php else: ?>
-            <h3>You logged in as <?php echo Session::instance()->get('user')->displayName ?></h3>
+            <h3>You logged in as <?php // echo Session::instance()->get('user')->displayName ?></h3>
         <?php endif; ?>
     </div>
 </div>
