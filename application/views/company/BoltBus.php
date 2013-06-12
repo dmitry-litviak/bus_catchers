@@ -24,7 +24,7 @@ That’s it. No strings attached. Valid at any time, regardless of time of day, 
             <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
             <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
         <?php else: ?>
-            <h3>You logged in as <?php // echo $_SESSION['user']['displayName'] ?></h3>
+            <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
         <?php endif; ?>
     </div>
 </div>
