@@ -11,8 +11,10 @@
         <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
     </div>
 <?php else: ?>
-    <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
-    <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
+    <div class="social-buttons">
+        <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
+        <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
+    </div>
     <hr>
     <div>
         <form class="form-horizontal">
