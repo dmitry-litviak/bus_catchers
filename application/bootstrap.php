@@ -157,7 +157,7 @@ Route::set('hybridauth-endpoint', 'loginauth')
 	));
 
 Route::set('sections', '<directory>(/<controller>(/<action>(/<id>)))', array('directory' => '(admin|api)'))
-        ->defaults(array(
+            ->defaults(array(
 		'controller' => 'dashboard',
 		'action'     => 'index',
 	));
