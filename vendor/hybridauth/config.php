@@ -13,7 +13,7 @@
 
 return 
 	array(
-		"base_url" => "http://buscatchers.loc/loginauth", 
+		"base_url" => $_SERVER['HTTP_HOST']."loginauth", 
 
 		"providers" => array ( 
 			// openid providers
