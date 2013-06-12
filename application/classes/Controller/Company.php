@@ -42,7 +42,7 @@ class Controller_Company extends My_Layout_User_Controller {
 //            Helper_Main::print_flex($_SESSION);die;
             $this->redirect("company/info/" . $_SESSION['info']);
         } catch (Exception $e) {
-            Helper_Main::print_flex($e->getMessage());
+            var_dump($e);
         }
     }
     
