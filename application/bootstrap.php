@@ -151,7 +151,7 @@ Route::set('hybridauth-install', 'hybridauth/install')
 
 Route::set('hybridauth-endpoint', 'loginauth')
 	->defaults(array(
-		'directory' => 'HybridAuth',
+		'directory' => 'Hybridauth',
 		'controller' => 'Index',
 		'action' => 'endpoint',
 	));

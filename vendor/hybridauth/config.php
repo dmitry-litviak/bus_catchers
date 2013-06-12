@@ -31,7 +31,7 @@ return
 			),
 
 			"Google" => array ( 
-				"enabled" => false,
+				"enabled" => true,
 				"keys"    => array ( "id" => "5840884008.apps.googleusercontent.com", "secret" => "dkHPLKz7zMdv-l8fcOJ1oq_9" )
 			),
 
