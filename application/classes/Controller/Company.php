@@ -39,7 +39,8 @@ class Controller_Company extends My_Layout_User_Controller {
 
             $user_profile = $user->getUserProfile();
             $this->session->set('user', (array)$user_profile);
-//            $this->redirect("company/info/" . $_SESSION['info']);
+            Helper_Main::print_flex($_SESSION);die;
+            $this->redirect("company/info/" . $_SESSION['info']);
         } catch (Exception $e) {
             echo "Ooophs, we got an error: " . $e->getMessage();
         }
