@@ -21,6 +21,7 @@ class Controller_Company extends My_Layout_User_Controller {
             if (!$data['company']->id) {
                 $this->redirect('compare');
             }
+            Session::instance()->set('info', $param['id']);
             $this->setTitle('Company')
                     ->view('company/' . $param['id'], $data)
                     ->render();
@@ -37,16 +38,15 @@ class Controller_Company extends My_Layout_User_Controller {
             $user = $hybridauth->authenticate($mode);
 
             $user_profile = $user->getUserProfile();
-//            Session::instance()->set($key, $value);
-            Helper_Main::print_flex($user_profile);
-            
+            Session::instance()->set('user', $user_profile);
+            $this->redirect("company/info/" . Session::instance()->get("info"));
         } catch (Exception $e) {
             echo "Ooophs, we got an error: " . $e->getMessage();
         }
     }
     
     public function action_logout() {
-        
+        Session::instance()->delete('user');
     }
 
 }
