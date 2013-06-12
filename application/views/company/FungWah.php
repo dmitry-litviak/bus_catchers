@@ -12,4 +12,7 @@
     <div class="centered">
         <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
     </div>
+    <hr>
+    <div class="social-buttons">
+    </div>
 </div>

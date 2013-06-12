@@ -121,11 +121,11 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	    'auth'              => MODPATH.'auth',                  // Basic authentication
+        'auth'              => MODPATH.'auth',                  // Basic authentication
         'database'          => MODPATH.'database',              // Database access
         'orm'               => MODPATH.'orm',                   // Object Relationship Mapping
         'mailer'            => MODPATH.'mailer',                // Email sending
-        'kohana-paypal-ipn' => MODPATH.'kohana-paypal-ipn',     // Email sending
+//        'kohana-hybridauth'    => MODPATH.'kohana-hybridauth',     // Twitter
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	// 'image'      => MODPATH.'image',      // Image manipulation
@@ -141,6 +141,20 @@ Cookie::$expiration     = 31104000;
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+define('HYBRIDAUTH_PATH', DOCROOT.'/vendor/');
+Route::set('hybridauth-install', 'hybridauth/install')
+        ->defaults(array(
+            'directory' => 'Hybridauth',
+            'controller' => 'Index',
+            'action' => 'install',
+        ));
+
+Route::set('hybridauth-endpoint', 'loginauth')
+	->defaults(array(
+		'directory' => 'HybridAuth',
+		'controller' => 'Index',
+		'action' => 'endpoint',
+	));
 
 Route::set('sections', '<directory>(/<controller>(/<action>(/<id>)))', array('directory' => '(admin|api)'))
         ->defaults(array(

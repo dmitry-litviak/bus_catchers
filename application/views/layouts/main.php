@@ -26,6 +26,7 @@
     <link href='http://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
 </head>
     <body id="pageBody">
+        <div id="fb-root"></div>
         <div id="divBoxed" class="container">
             <?php echo View::factory('layouts/partials/header')->render(); ?>
             <div class="contentArea">

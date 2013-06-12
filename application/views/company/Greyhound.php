@@ -23,4 +23,7 @@ For those within Mexico who wish to travel by Greyhound in the United States, Gr
     <div class="centered">
         <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
     </div>
+    <hr>
+    <div class="social-buttons">
+    </div>
 </div>

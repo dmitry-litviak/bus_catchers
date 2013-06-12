@@ -16,4 +16,10 @@ That’s it. No strings attached. Valid at any time, regardless of time of day, 
     <div class="centered">
         <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
     </div>
+    <hr>
+    <div class="social-buttons">
+        <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Login with Facebook</a>
+        <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Login with Twitter</a>
+        <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Login with Google</a>
+    </div>
 </div>
