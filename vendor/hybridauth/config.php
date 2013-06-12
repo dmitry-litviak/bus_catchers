@@ -13,7 +13,7 @@
 $whitelist = array('buscatchers.loc');
 return 
 	array(
-		"base_url" => in_array($_SERVER['HTTP_HOST'], $whitelist) ? $_SERVER['HTTP_HOST']."loginauth" : $_SERVER['HTTP_HOST']."/bus_catchers/loginauth", 
+		"base_url" => in_array($_SERVER['HTTP_HOST'], $whitelist) ? $_SERVER['HTTP_HOST']."loginauth" : 'http://'.$_SERVER['HTTP_HOST']."/bus_catchers/loginauth", 
 
 		"providers" => array ( 
 			// openid providers
