@@ -40,10 +40,10 @@ class Controller_Company extends My_Layout_User_Controller {
             $user_profile = $user->getUserProfile();
             $this->session->set('user', (array)$user_profile);
 //            Helper_Main::print_flex($_SESSION);die;
-            $this->redirect(URL::site("company/info/" . $_SESSION['info']));
         } catch (Exception $e) {
             echo $e;
         }
+        $this->redirect(URL::site("company/info/" . $_SESSION['info']));
     }
     
     public function action_logout() {
