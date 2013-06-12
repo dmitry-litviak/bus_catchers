@@ -38,8 +38,8 @@ class Controller_Company extends My_Layout_User_Controller {
             $user = $hybridauth->authenticate($mode);
 
             $user_profile = $user->getUserProfile();
-            Helper_Main::print_flex((array)$user_profile);die;
             Session::instance()->set('user', (array)$user_profile);
+            Helper_Main::print_flex($_SESSION);die;
             $this->redirect("company/info/" . Session::instance()->get("info"));
         } catch (Exception $e) {
             echo "Ooophs, we got an error: " . $e->getMessage();
