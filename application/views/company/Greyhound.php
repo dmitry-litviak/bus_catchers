@@ -20,19 +20,5 @@
 
         For those within Mexico who wish to travel by Greyhound in the United States, Greyhound subsidiary Greyhound de Mexico can sell Greyhound tickets at one of more than 100 agencies located throughout Mexico. The agencies also sell tickets for several Mexican bus companies, like Estrella Blanca, which connect to Greyhound service at the United States-Mexico border cities.
     </div>
-    <div class="centered">
-        <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
-    </div>
-    <hr>
-    <div class="social-buttons">
-        <?php if (empty($_SESSION['user'])): ?>
-            <h3>For leaving a comment you should sign in</h3>
-            <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Sign in with Facebook</a>
-            <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
-            <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
-        <?php else: ?>
-            <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
-            <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
-        <?php endif; ?>
-    </div>
+    <?php echo View::factory('company/social_buttons')->render(); ?>
 </div>

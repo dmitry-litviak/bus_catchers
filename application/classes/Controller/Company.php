@@ -15,7 +15,7 @@ class Controller_Company extends My_Layout_User_Controller {
         if ($this->request->param('id')) {
             Helper_Output::factory()
                     ->link_js('libs/jquery.raty.min')
-                    ->link_js('compare/index');
+                    ->link_js('company/raty');
             $param = Helper_Output::clean($this->request->param());
             $data['company'] = ORM::factory('Company')->where('name', '=', $param['id'])->find();
             if (!$data['company']->id) {

@@ -9,19 +9,5 @@
         GO Buses is dedicated to providing safe, reliable and professional bus charter services in and around the Metropolitan Area. We offer the finest service for those who enjoy traveling in style and comfort. Whether you need group transportation to and from airports, hotels, amusement parks or casinos, our experienced and courteous drivers strive for top-quality service.
         With our wide range of services, GO Buses provides travel services for all group sizes. Our services include, travel to and from destinations, arranging New York City sightseeing in any language, dining, theater, cultural and arts venues and admission to famous New York City attractions. GO Buses is also a contracted vendor of the New York City Board of Education, which allows us to provide charter services to schools for round-trip transportation of students.
     </div>
-    <div class="centered">
-        <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
-    </div>
-    <hr>
-    <div class="social-buttons">
-        <?php if (empty($_SESSION['user'])): ?>
-            <h3>For leaving a comment you should sign in</h3>
-            <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Sign in with Facebook</a>
-            <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
-            <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
-        <?php else: ?>
-            <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
-            <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
-        <?php endif; ?>
-    </div>
+    <?php echo View::factory('company/social_buttons')->render(); ?>
 </div>

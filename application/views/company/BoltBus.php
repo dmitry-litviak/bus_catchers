@@ -13,19 +13,5 @@ Introducing the Bolt Rewards program. No miles, no restrictions. Simply take eig
 That’s it. No strings attached. Valid at any time, regardless of time of day, day of week, or even holiday travel. You’ve earned it, so why not use it whenever you want? 
 
     </div>
-    <div class="centered">
-        <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
-    </div>
-    <hr>
-    <div class="social-buttons">
-        <?php if (empty($_SESSION['user'])): ?>
-            <h3>For leaving a comment you should sign in</h3>
-            <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Sign in with Facebook</a>
-            <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
-            <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
-        <?php else: ?>
-            <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
-            <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
-        <?php endif; ?>
-    </div>
+    <?php echo View::factory('company/social_buttons')->render(); ?>
 </div>
