@@ -18,8 +18,9 @@ That’s it. No strings attached. Valid at any time, regardless of time of day, 
     </div>
     <hr>
     <div class="social-buttons">
-        <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Login with Facebook</a>
-        <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Login with Twitter</a>
-        <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Login with Google</a>
+        <h3>For leaving a comment you should sign in</h3>
+        <a class="btn fb" href="<?php echo URL::site("company/Sign in?type=Facebook") ?>">Sign in with Facebook</a>
+        <a class="btn tw" href="<?php echo URL::site("company/Sign in?type=Twitter") ?>">Sign in with Twitter</a>
+        <a class="btn gl" href="<?php echo URL::site("company/Sign in?type=Google") ?>">Sign in with Google</a>
     </div>
 </div>
