@@ -22,7 +22,6 @@ class Controller_Company extends My_Layout_User_Controller {
                 $this->redirect('compare');
             }
             Session::instance()->set('info', $param['id']);
-            Helper_Main::print_flex($_SESSION);die;
             $this->setTitle('Company')
                     ->view('company/' . $param['id'], $data)
                     ->render();
