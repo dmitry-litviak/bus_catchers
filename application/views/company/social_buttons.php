@@ -41,27 +41,27 @@
                     </div>
                 </div>
                 <div class="span4">
-                    <div class="row-fluid">
+                    <div class="row-fluid new-rating">
                         <div class="span4">Timeliness:</div>
                         <div id="timeliness" class="span9"></div>
                         <input type="hidden" id="timeliness-input" name="timeliness">
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid new-rating">
                         <div class="span4">Comfort:</div>
                         <div id="comfort" class="span9"></div>
                         <input type="hidden" id="comfort-input" name="comfort">
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid new-rating">
                         <div class="span4">WiFi:</div>
                         <div id="wifi" class="span9"></div>
                         <input type="hidden" id="wifi-input" name="wifi">
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid new-rating">
                         <div class="span4">Empty seating:</div>
                         <div id="empty-seating" class="span9"></div>
                         <input type="hidden" id="empty-seating-input" name="empty_seating">
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid new-rating">
                         <div class="span4">Cleanliness:</div>
                         <div id="cleanliness" class="span9"></div>
                         <input type="hidden" id="cleanliness-input" name="cleanliness">

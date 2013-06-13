@@ -545,3 +545,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
     padding-right: 5px !important;
     margin: 0;
 }
+
+.new-rating {
+    padding: 5px 0;
+}

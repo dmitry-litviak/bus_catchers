@@ -134,7 +134,7 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: 5,
+      score: 0,
       target: '#timeliness-input',
       targetType: 'number',
       targetKeep: true
@@ -145,7 +145,7 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: 5,
+      score: 0,
       target: '#comfort-input',
       targetType: 'number',
       targetKeep: true
@@ -156,7 +156,7 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: 5,
+      score: 0,
       target: '#wifi-input',
       targetType: 'number',
       targetKeep: true
@@ -167,7 +167,7 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: 5,
+      score: 0,
       target: '#empty-seating-input',
       targetType: 'number',
       targetKeep: true
@@ -178,7 +178,7 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: 5,
+      score: 0,
       target: '#cleanliness-input',
       targetType: 'number',
       targetKeep: true
