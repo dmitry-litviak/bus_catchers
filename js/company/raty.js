@@ -111,7 +111,7 @@ raty = {
     var obj;
     obj = jQuery.parseJSON(responseText);
     if (obj.text === "success") {
-      return me.comments.prepend(me.template({
+      return raty.comments.prepend(raty.template({
         comment: obj.data
       }));
     } else {

@@ -88,7 +88,7 @@ raty =
   showResponse: (responseText, statusText, xhr, $form) ->
     obj = jQuery.parseJSON responseText
     if obj.text is "success"
-      me.comments.prepend me.template({comment : obj.data})
+      raty.comments.prepend raty.template({comment : obj.data})
     else
       console.log responseText
 
