@@ -57,51 +57,7 @@ raty = {
             me.comments.append(me.template({
               comment: comment
             }));
-            $("#timeliness" + comment.id).raty({
-              half: true,
-              size: 16,
-              readOnly: true,
-              starHalf: SYS.baseUrl + "img/stars/star-half.png",
-              starOff: SYS.baseUrl + "img/stars/star-off.png",
-              starOn: SYS.baseUrl + "img/stars/star-on.png",
-              score: comment.timeliness
-            });
-            $("#comfort" + comment.id).raty({
-              half: true,
-              size: 16,
-              readOnly: true,
-              starHalf: SYS.baseUrl + "img/stars/star-half.png",
-              starOff: SYS.baseUrl + "img/stars/star-off.png",
-              starOn: SYS.baseUrl + "img/stars/star-on.png",
-              score: comment.comfort
-            });
-            $("#wifi" + comment.id).raty({
-              half: true,
-              size: 16,
-              readOnly: true,
-              starHalf: SYS.baseUrl + "img/stars/star-half.png",
-              starOff: SYS.baseUrl + "img/stars/star-off.png",
-              starOn: SYS.baseUrl + "img/stars/star-on.png",
-              score: comment.wifi
-            });
-            $("#empty-seating" + comment.id).raty({
-              half: true,
-              size: 16,
-              readOnly: true,
-              starHalf: SYS.baseUrl + "img/stars/star-half.png",
-              starOff: SYS.baseUrl + "img/stars/star-off.png",
-              starOn: SYS.baseUrl + "img/stars/star-on.png",
-              score: comment.empty_seating
-            });
-            return $("#cleanliness" + comment.id).raty({
-              half: true,
-              size: 16,
-              readOnly: true,
-              starHalf: SYS.baseUrl + "img/stars/star-half.png",
-              starOff: SYS.baseUrl + "img/stars/star-off.png",
-              starOn: SYS.baseUrl + "img/stars/star-on.png",
-              score: comment.cleanliness
-            });
+            return me.rate_comment(comment);
           });
         }
       }
@@ -111,12 +67,60 @@ raty = {
     var obj;
     obj = jQuery.parseJSON(responseText);
     if (obj.text === "success") {
-      return raty.comments.prepend(raty.template({
+      raty.comments.prepend(raty.template({
         comment: obj.data
       }));
+      return raty.rate_comment(obj.data);
     } else {
       return console.log(responseText);
     }
+  },
+  rate_comment: function(comment) {
+    $("#timeliness" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half.png",
+      starOff: SYS.baseUrl + "img/stars/star-off.png",
+      starOn: SYS.baseUrl + "img/stars/star-on.png",
+      score: comment.timeliness
+    });
+    $("#comfort" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half.png",
+      starOff: SYS.baseUrl + "img/stars/star-off.png",
+      starOn: SYS.baseUrl + "img/stars/star-on.png",
+      score: comment.comfort
+    });
+    $("#wifi" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half.png",
+      starOff: SYS.baseUrl + "img/stars/star-off.png",
+      starOn: SYS.baseUrl + "img/stars/star-on.png",
+      score: comment.wifi
+    });
+    $("#empty-seating" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half.png",
+      starOff: SYS.baseUrl + "img/stars/star-off.png",
+      starOn: SYS.baseUrl + "img/stars/star-on.png",
+      score: comment.empty_seating
+    });
+    return $("#cleanliness" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half.png",
+      starOff: SYS.baseUrl + "img/stars/star-off.png",
+      starOn: SYS.baseUrl + "img/stars/star-on.png",
+      score: comment.cleanliness
+    });
   },
   init_form_submit: function() {
     var _this = this;

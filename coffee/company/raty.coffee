@@ -44,54 +44,58 @@ raty =
         if res.text = "success"
           _.each res.data, (comment) ->
             me.comments.append me.template({comment : comment})
-            $("#timeliness" + comment.id).raty
-              half: true
-              size: 16
-              readOnly: true
-              starHalf: SYS.baseUrl + "img/stars/star-half.png"
-              starOff: SYS.baseUrl + "img/stars/star-off.png"
-              starOn: SYS.baseUrl + "img/stars/star-on.png"
-              score: comment.timeliness
-            $("#comfort" + comment.id).raty
-              half: true
-              size: 16
-              readOnly: true
-              starHalf: SYS.baseUrl + "img/stars/star-half.png"
-              starOff: SYS.baseUrl + "img/stars/star-off.png"
-              starOn: SYS.baseUrl + "img/stars/star-on.png"
-              score: comment.comfort
-            $("#wifi" + comment.id).raty
-              half: true
-              size: 16
-              readOnly: true
-              starHalf: SYS.baseUrl + "img/stars/star-half.png"
-              starOff: SYS.baseUrl + "img/stars/star-off.png"
-              starOn: SYS.baseUrl + "img/stars/star-on.png"
-              score: comment.wifi
-            $("#empty-seating" + comment.id).raty
-              half: true
-              size: 16
-              readOnly: true
-              starHalf: SYS.baseUrl + "img/stars/star-half.png"
-              starOff: SYS.baseUrl + "img/stars/star-off.png"
-              starOn: SYS.baseUrl + "img/stars/star-on.png"
-              score: comment.empty_seating
-            $("#cleanliness" + comment.id).raty
-              half: true
-              size: 16
-              readOnly: true
-              starHalf: SYS.baseUrl + "img/stars/star-half.png"
-              starOff: SYS.baseUrl + "img/stars/star-off.png"
-              starOn: SYS.baseUrl + "img/stars/star-on.png"
-              score: comment.cleanliness
+            me.rate_comment comment
     
   showResponse: (responseText, statusText, xhr, $form) ->
     obj = jQuery.parseJSON responseText
     if obj.text is "success"
       raty.comments.prepend raty.template({comment : obj.data})
+      raty.rate_comment obj.data
     else
       console.log responseText
 
+  rate_comment: (comment)->
+    $("#timeliness" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half.png"
+      starOff: SYS.baseUrl + "img/stars/star-off.png"
+      starOn: SYS.baseUrl + "img/stars/star-on.png"
+      score: comment.timeliness
+    $("#comfort" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half.png"
+      starOff: SYS.baseUrl + "img/stars/star-off.png"
+      starOn: SYS.baseUrl + "img/stars/star-on.png"
+      score: comment.comfort
+    $("#wifi" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half.png"
+      starOff: SYS.baseUrl + "img/stars/star-off.png"
+      starOn: SYS.baseUrl + "img/stars/star-on.png"
+      score: comment.wifi
+    $("#empty-seating" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half.png"
+      starOff: SYS.baseUrl + "img/stars/star-off.png"
+      starOn: SYS.baseUrl + "img/stars/star-on.png"
+      score: comment.empty_seating
+    $("#cleanliness" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half.png"
+      starOff: SYS.baseUrl + "img/stars/star-off.png"
+      starOn: SYS.baseUrl + "img/stars/star-on.png"
+      score: comment.cleanliness
+  
   init_form_submit: ->
     @form.submit (e) =>
       el = $(e.currentTarget)
