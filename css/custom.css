@@ -539,3 +539,9 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 .social-buttons {
     text-align: center;
 }
+
+.comment-row {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin: 0;
+}
