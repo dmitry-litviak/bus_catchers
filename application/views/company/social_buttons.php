@@ -17,7 +17,7 @@
     </div>
     <hr>
     <div>
-        <form class="form-horizontal comment-form" action="<?php echo URL::site('company/comment') ?>" method="POST">
+        <form class="form-actions comment-form" action="<?php echo URL::site('company/comment') ?>" method="POST">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
             <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
             <div class="row-fluid">
