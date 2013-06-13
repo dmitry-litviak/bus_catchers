@@ -21,9 +21,24 @@ raty =
     @wifi           = $("#wifi")
     @empty_seating  = $("#empty-seating")
     @cleanliness    = $("#cleanliness")
+    @form           = $("#comment-form")
+    @options =
+      success    : @showResponse
   
   bind_events: ->
     do @create_rate
+
+  showResponse: (responseText, statusText, xhr, $form) ->
+    if responseText.text == "success"
+      console.log responseText
+    else
+      console.log responseText
+
+  init_form_submit: ->
+    @form.submit (e) =>
+      el = $(e.currentTarget)
+      el.ajaxSubmit @options
+      false
 
   create_rate: ->
     @timeliness.raty

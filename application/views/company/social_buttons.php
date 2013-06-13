@@ -17,13 +17,13 @@
     </div>
     <hr>
     <div>
-        <form class="form-horizontal">
+        <form class="form-horizontal comment-form" action="<?php echo URL::site('company/comment') ?>" method="POST">
             <div class="row-fluid">
                 <div class="span7">
                     <div class="control-group">
                         <label class="control-label" for="name">Your Name:</label>
                         <div class="controls">
-                            <input class="span12" type="text" placeholder="Some Name" name="name" id="name">
+                            <input class="span12" type="text" placeholder="<?php echo $_SESSION['user']['displayName'] ?>" name="name" id="name">
                         </div>
                     </div>
                     <div class="control-group">
@@ -57,7 +57,7 @@
                     <div class="row-fluid">
                         <div class="span3">Empty seating:</div>
                         <div id="empty-seating" class="span9"></div>
-                        <input type="hidden" id="empty-seating-input" name="empty-seating">
+                        <input type="hidden" id="empty-seating-input" name="empty_seating">
                     </div>
                     <div class="row-fluid">
                         <div class="span3">Cleanliness:</div>

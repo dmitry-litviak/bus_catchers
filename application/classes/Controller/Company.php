@@ -14,6 +14,7 @@ class Controller_Company extends My_Layout_User_Controller {
     public function action_info() {
         if ($this->request->param('id')) {
             Helper_Output::factory()
+                    ->link_js('libs/jquery.form')
                     ->link_js('libs/jquery.raty.min')
                     ->link_js('company/raty');
             $param = Helper_Output::clean($this->request->param());
@@ -49,6 +50,11 @@ class Controller_Company extends My_Layout_User_Controller {
     public function action_logout() {
         Session::instance()->delete('user');
         $this->redirect("company/info/" . $_SESSION['info']);
+    }
+    
+    public function action_comment() {
+        $post = Helper_Output::clean($this->request->post());
+        Helper_Main::print_flex($post);die;
     }
 
 }

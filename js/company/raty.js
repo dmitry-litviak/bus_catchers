@@ -26,10 +26,30 @@ raty = {
     this.comfort = $("#comfort");
     this.wifi = $("#wifi");
     this.empty_seating = $("#empty-seating");
-    return this.cleanliness = $("#cleanliness");
+    this.cleanliness = $("#cleanliness");
+    this.form = $("#comment-form");
+    return this.options = {
+      success: this.showResponse
+    };
   },
   bind_events: function() {
     return this.create_rate();
+  },
+  showResponse: function(responseText, statusText, xhr, $form) {
+    if (responseText.text === "success") {
+      return console.log(responseText);
+    } else {
+      return console.log(responseText);
+    }
+  },
+  init_form_submit: function() {
+    var _this = this;
+    return this.form.submit(function(e) {
+      var el;
+      el = $(e.currentTarget);
+      el.ajaxSubmit(_this.options);
+      return false;
+    });
   },
   create_rate: function() {
     this.timeliness.raty({
