@@ -2,7 +2,7 @@
     <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
 </div>
 <hr>
-
+<input type="hidden" id="company" value="<?php echo $company->id ?>">
 <?php if (empty($_SESSION['user'])): ?>
     <div class="social-buttons">
         <h3>For leaving a comment you should sign in</h3>
@@ -18,6 +18,8 @@
     <hr>
     <div>
         <form class="form-horizontal comment-form" action="<?php echo URL::site('company/comment') ?>" method="POST">
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
+            <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
             <div class="row-fluid">
                 <div class="span7">
                     <div class="control-group">
@@ -69,3 +71,5 @@
         </form>
     </div>
 <?php endif; ?>
+<div class="comments-block">
+</div>

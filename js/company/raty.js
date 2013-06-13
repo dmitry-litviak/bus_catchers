@@ -17,6 +17,7 @@ $(function() {
 });
 
 raty = {
+  template: JST['company/comment'],
   init: function() {
     this.detect_elements();
     return this.bind_events();
@@ -27,17 +28,90 @@ raty = {
     this.wifi = $("#wifi");
     this.empty_seating = $("#empty-seating");
     this.cleanliness = $("#cleanliness");
-    this.form = $("#comment-form");
+    this.form = $(".comment-form");
+    this.comments = $(".comments-block");
+    this.company = $("#company");
     return this.options = {
       success: this.showResponse
     };
   },
   bind_events: function() {
-    return this.create_rate();
+    this.create_rate();
+    this.init_form_submit();
+    return this.get_comments();
+  },
+  get_comments: function() {
+    var me,
+      _this = this;
+    me = this;
+    return $.ajax({
+      url: SYS.baseUrl + 'company/get_comments',
+      data: $.param({
+        id: me.company.val()
+      }),
+      type: 'POST',
+      dataType: 'json',
+      success: function(res) {
+        if (res.text = "success") {
+          return _.each(res.data, function(comment) {
+            me.comments.append(me.template({
+              comment: comment
+            }));
+            $("#timeliness" + comment.id).raty({
+              half: true,
+              size: 16,
+              readOnly: true,
+              starHalf: SYS.baseUrl + "img/stars/star-half.png",
+              starOff: SYS.baseUrl + "img/stars/star-off.png",
+              starOn: SYS.baseUrl + "img/stars/star-on.png",
+              score: comment.timeliness
+            });
+            $("#comfort" + comment.id).raty({
+              half: true,
+              size: 16,
+              readOnly: true,
+              starHalf: SYS.baseUrl + "img/stars/star-half.png",
+              starOff: SYS.baseUrl + "img/stars/star-off.png",
+              starOn: SYS.baseUrl + "img/stars/star-on.png",
+              score: comment.comfort
+            });
+            $("#wifi" + comment.id).raty({
+              half: true,
+              size: 16,
+              readOnly: true,
+              starHalf: SYS.baseUrl + "img/stars/star-half.png",
+              starOff: SYS.baseUrl + "img/stars/star-off.png",
+              starOn: SYS.baseUrl + "img/stars/star-on.png",
+              score: comment.wifi
+            });
+            $("#empty-seating" + comment.id).raty({
+              half: true,
+              size: 16,
+              readOnly: true,
+              starHalf: SYS.baseUrl + "img/stars/star-half.png",
+              starOff: SYS.baseUrl + "img/stars/star-off.png",
+              starOn: SYS.baseUrl + "img/stars/star-on.png",
+              score: comment.empty_seating
+            });
+            return $("#cleanliness" + comment.id).raty({
+              half: true,
+              size: 16,
+              readOnly: true,
+              starHalf: SYS.baseUrl + "img/stars/star-half.png",
+              starOff: SYS.baseUrl + "img/stars/star-off.png",
+              starOn: SYS.baseUrl + "img/stars/star-on.png",
+              score: comment.cleanliness
+            });
+          });
+        }
+      }
+    });
   },
   showResponse: function(responseText, statusText, xhr, $form) {
     if (responseText.text === "success") {
-      return console.log(responseText);
+      return me.comments.prepend(me.template({
+        comment: responseText.data
+      }));
     } else {
       return console.log(responseText);
     }
@@ -71,7 +145,8 @@ raty = {
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
       score: 5,
       target: '#comfort-input',
-      targetType: 'number'
+      targetType: 'number',
+      targetKeep: true
     });
     this.wifi.raty({
       half: true,
@@ -81,7 +156,8 @@ raty = {
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
       score: 5,
       target: '#wifi-input',
-      targetType: 'number'
+      targetType: 'number',
+      targetKeep: true
     });
     this.empty_seating.raty({
       half: true,
@@ -91,7 +167,8 @@ raty = {
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
       score: 5,
       target: '#empty-seating-input',
-      targetType: 'number'
+      targetType: 'number',
+      targetKeep: true
     });
     return this.cleanliness.raty({
       half: true,
@@ -101,7 +178,8 @@ raty = {
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
       score: 5,
       target: '#cleanliness-input',
-      targetType: 'number'
+      targetType: 'number',
+      targetKeep: true
     });
   }
 };

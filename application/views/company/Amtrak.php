@@ -28,5 +28,5 @@
 
 
     </div>
-    <?php echo View::factory('company/social_buttons')->render(); ?>
+    <?php echo View::factory('company/social_buttons')->bind("company", $company)->render(); ?>
 </div>

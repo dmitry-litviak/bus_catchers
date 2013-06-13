@@ -20,5 +20,5 @@
 
         For those within Mexico who wish to travel by Greyhound in the United States, Greyhound subsidiary Greyhound de Mexico can sell Greyhound tickets at one of more than 100 agencies located throughout Mexico. The agencies also sell tickets for several Mexican bus companies, like Estrella Blanca, which connect to Greyhound service at the United States-Mexico border cities.
     </div>
-    <?php echo View::factory('company/social_buttons')->render(); ?>
+    <?php echo View::factory('company/social_buttons')->bind("company", $company)->render(); ?>
 </div>

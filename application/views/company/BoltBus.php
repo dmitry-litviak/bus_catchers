@@ -13,5 +13,5 @@ Introducing the Bolt Rewards program. No miles, no restrictions. Simply take eig
 That’s it. No strings attached. Valid at any time, regardless of time of day, day of week, or even holiday travel. You’ve earned it, so why not use it whenever you want? 
 
     </div>
-    <?php echo View::factory('company/social_buttons')->render(); ?>
+    <?php echo View::factory('company/social_buttons')->bind("company", $company)->render(); ?>
 </div>

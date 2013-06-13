@@ -6,3 +6,4 @@ javascripts:
   workspace:
     - jst/home/*.html
     - jst/map/*.html
+    - jst/company/*.html
