@@ -86,8 +86,9 @@ raty =
               score: comment.cleanliness
     
   showResponse: (responseText, statusText, xhr, $form) ->
-    if responseText.text == "success"
-      me.comments.prepend me.template({comment : responseText.data})
+    obj = jQuery.parseJSON responseText
+    if obj.text is "success"
+      me.comments.prepend me.template({comment : obj.data})
     else
       console.log responseText
 

@@ -108,9 +108,11 @@ raty = {
     });
   },
   showResponse: function(responseText, statusText, xhr, $form) {
-    if (responseText.text === "success") {
+    var obj;
+    obj = jQuery.parseJSON(responseText);
+    if (obj.text === "success") {
       return me.comments.prepend(me.template({
-        comment: responseText.data
+        comment: obj.data
       }));
     } else {
       return console.log(responseText);
