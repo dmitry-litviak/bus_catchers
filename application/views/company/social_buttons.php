@@ -21,7 +21,7 @@
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
             <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
             <div class="row-fluid">
-                <div class="span7">
+                <div class="span8">
                     <div class="control-group">
                         <label class="control-label" for="name">Your Name:</label>
                         <div class="controls">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="span5">
+                <div class="span4">
                     <div class="row-fluid">
                         <div class="span3">Timeliness:</div>
                         <div id="timeliness" class="span9"></div>
