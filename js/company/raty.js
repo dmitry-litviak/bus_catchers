@@ -31,14 +31,46 @@ raty = {
     this.form = $(".comment-form");
     this.comments = $(".comments-block");
     this.company = $("#company");
+    this.avg_rate = $(".avg_rate");
     return this.options = {
       success: this.showResponse
     };
   },
   bind_events: function() {
+    this.init_avg_rate();
     this.create_rate();
     this.init_form_submit();
     return this.get_comments();
+  },
+  init_avg_rate: function() {
+    var company_id, me,
+      _this = this;
+    me = this;
+    company_id = this.avg_rate.data("company");
+    return $.ajax({
+      url: SYS.baseUrl + 'compare/get_avg_rating',
+      data: $.param({
+        id: company_id
+      }),
+      type: 'POST',
+      dataType: 'json',
+      success: function(res) {
+        if (res.text = "success") {
+          me.avg_rate.raty({
+            half: true,
+            size: 24,
+            starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
+            starOff: SYS.baseUrl + "img/stars/star-off-big.png",
+            starOn: SYS.baseUrl + "img/stars/star-on-big.png",
+            readOnly: true,
+            score: res.data
+          });
+          return me.avg_rate.css({
+            'margin': '0 auto'
+          });
+        }
+      }
+    });
   },
   get_comments: function() {
     var me,

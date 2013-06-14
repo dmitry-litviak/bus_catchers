@@ -15,7 +15,7 @@
                 <a class="comp_name" href="<?php echo URL::site('company/info/'. $company->name) ?>" target="_blank"><?php echo $company->name ?></a>
             </div>
             <div class="span4 company_container">
-                <div class="stars"></div>
+                <div class="stars" data-company="<?php echo $company->id ?>"></div>
             </div>
         </div>
         <hr>

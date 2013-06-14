@@ -25,13 +25,35 @@ raty =
     @form           = $(".comment-form")
     @comments       = $(".comments-block")
     @company        = $("#company")
+    @avg_rate       = $(".avg_rate")
     @options =
       success    : @showResponse
   
   bind_events: ->
+    do @init_avg_rate
     do @create_rate
     do @init_form_submit
     do @get_comments
+  
+  init_avg_rate: ->
+    me = @
+    company_id = @avg_rate.data "company"
+    $.ajax
+      url: SYS.baseUrl + 'compare/get_avg_rating'
+      data: $.param({id : company_id})
+      type: 'POST'
+      dataType: 'json'
+      success: (res) =>
+        if res.text = "success"
+          me.avg_rate.raty
+            half: true
+            size: 24
+            starHalf: SYS.baseUrl + "img/stars/star-half-big.png"
+            starOff: SYS.baseUrl + "img/stars/star-off-big.png"
+            starOn: SYS.baseUrl + "img/stars/star-on-big.png"
+            readOnly: true
+            score: res.data
+          me.avg_rate.css {'margin' : '0 auto'}
   
   get_comments: ->
     me = @

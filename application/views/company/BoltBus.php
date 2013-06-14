@@ -1,7 +1,8 @@
 <div class="span12" id="divMain">
 
     <div style="text-align:center">
-        <h1>BoltBus</h1>  
+        <h1>BoltBus</h1> 
+        <div class="avg_rate" data-company="<?php echo $company->id ?>"></div>
     </div>
 
     <hr />

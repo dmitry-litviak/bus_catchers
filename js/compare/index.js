@@ -28,17 +28,36 @@ index = {
     return this.create_rate();
   },
   create_rate: function() {
-    this.stars.raty({
-      half: true,
-      size: 24,
-      starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
-      starOff: SYS.baseUrl + "img/stars/star-off-big.png",
-      starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      readOnly: true,
-      score: 2.5
-    });
-    return this.stars.css({
-      'margin': '0 auto'
+    var me;
+    me = this;
+    return _.each(this.stars, function(star) {
+      var company_id,
+        _this = this;
+      company_id = $(star).data("company");
+      return $.ajax({
+        url: SYS.baseUrl + 'compare/get_avg_rating',
+        data: $.param({
+          id: company_id
+        }),
+        type: 'POST',
+        dataType: 'json',
+        success: function(res) {
+          if (res.text = "success") {
+            $(star).raty({
+              half: true,
+              size: 24,
+              starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
+              starOff: SYS.baseUrl + "img/stars/star-off-big.png",
+              starOn: SYS.baseUrl + "img/stars/star-on-big.png",
+              readOnly: true,
+              score: res.data
+            });
+            return $(star).css({
+              'margin': '0 auto'
+            });
+          }
+        }
+      });
     });
   }
 };

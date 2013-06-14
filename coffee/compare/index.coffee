@@ -22,15 +22,25 @@ index =
     do @create_rate
     
   create_rate: ->
-    @stars.raty
-      half: true
-      size: 24
-      starHalf: SYS.baseUrl + "img/stars/star-half-big.png"
-      starOff: SYS.baseUrl + "img/stars/star-off-big.png"
-      starOn: SYS.baseUrl + "img/stars/star-on-big.png"
-      readOnly: true
-      score: 2.5
-    @stars.css {'margin' : '0 auto'}
+    me = @
+    _.each @stars, (star) ->
+      company_id = $(star).data "company"
+      $.ajax
+        url: SYS.baseUrl + 'compare/get_avg_rating'
+        data: $.param({id : company_id})
+        type: 'POST'
+        dataType: 'json'
+        success: (res) =>
+          if res.text = "success"
+            $(star).raty
+              half: true
+              size: 24
+              starHalf: SYS.baseUrl + "img/stars/star-half-big.png"
+              starOff: SYS.baseUrl + "img/stars/star-off-big.png"
+              starOn: SYS.baseUrl + "img/stars/star-on-big.png"
+              readOnly: true
+              score: res.data
+            $(star).css {'margin' : '0 auto'}
     
     
 $(document).ready ->
