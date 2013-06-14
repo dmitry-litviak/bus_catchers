@@ -156,11 +156,25 @@ raty = {
   },
   init_form_submit: function() {
     var _this = this;
-    return this.form.submit(function(e) {
+    this.form.submit(function(e) {
       var el;
       el = $(e.currentTarget);
-      el.ajaxSubmit(_this.options);
+      if (_this.form.valid()) {
+        el.ajaxSubmit(_this.options);
+      }
       return false;
+    });
+    return this.form.validate({
+      rules: {
+        "name": {
+          minlength: 2,
+          required: true
+        },
+        "message": {
+          minlength: 2,
+          required: true
+        }
+      }
     });
   },
   create_rate: function() {

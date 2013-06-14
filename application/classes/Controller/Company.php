@@ -14,6 +14,7 @@ class Controller_Company extends My_Layout_User_Controller {
     public function action_info() {
         if ($this->request->param('id')) {
             Helper_Output::factory()
+                    ->link_js('libs/jquery.validate.min')
                     ->link_js('public/assets/workspace')
                     ->link_js('libs/jquery-ui.min')
                     ->link_js('libs/jquery.form')

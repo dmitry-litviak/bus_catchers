@@ -121,8 +121,19 @@ raty =
   init_form_submit: ->
     @form.submit (e) =>
       el = $(e.currentTarget)
-      el.ajaxSubmit @options
+      if @form.valid()
+        el.ajaxSubmit @options
       false
+      
+    @form.validate
+      rules:
+        "name":
+          minlength: 2
+          required: true
+
+        "message":
+          minlength: 2
+          required: true
 
   create_rate: ->
     @timeliness.raty
