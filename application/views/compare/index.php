@@ -5,7 +5,7 @@
         <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>  
     </div>
 
-    <hr />
+    <hr class="hr-custom" >
     <?php foreach ($companies as $key => $company): ?>
         <div class="row-fluid">
             <div class="span4 company_container">
@@ -18,6 +18,6 @@
                 <div class="stars" data-company="<?php echo $company->id ?>"></div>
             </div>
         </div>
-        <hr>
+        <hr class="hr-custom">
     <?php endforeach; ?>
 </div>

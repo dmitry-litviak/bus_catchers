@@ -19,7 +19,9 @@ class Controller_Company extends My_Layout_User_Controller {
                     ->link_js('libs/jquery-ui.min')
                     ->link_js('libs/jquery.form')
                     ->link_js('libs/jquery.raty.min')
-                    ->link_js('company/raty');
+                    ->link_js('company/raty')
+                    ->link_css('font-awesome')
+                    ->link_css('social-buttons');
             $param = Helper_Output::clean($this->request->param());
             $data['company'] = ORM::factory('Company')->where('name', '=', $param['id'])->find();
             if (!$data['company']->id) {

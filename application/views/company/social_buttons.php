@@ -6,9 +6,9 @@
 <?php if (empty($_SESSION['user'])): ?>
     <div class="social-buttons">
         <h3>For leaving a comment you should sign in</h3>
-        <a class="btn fb" href="<?php echo URL::site("company/login?type=Facebook") ?>">Sign in with Facebook</a>
-        <a class="btn tw" href="<?php echo URL::site("company/login?type=Twitter") ?>">Sign in with Twitter</a>
-        <a class="btn gl" href="<?php echo URL::site("company/login?type=Google") ?>">Sign in with Google</a>
+        <a class="btn btn-facebook" href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i> | Sign in with Facebook</a>
+        <a class="btn btn-twitter" href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i> | Sign in with Twitter</a>
+        <a class="btn btn-google-plus" href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i> | Sign in with Google</a>
     </div>
 <?php else: ?>
     <div class="social-buttons">
@@ -17,7 +17,7 @@
     </div>
     <hr>
     <div>
-        <form class="form-actions comment-form" action="<?php echo URL::site('company/comment') ?>" method="POST">
+        <form class="form-actions comment-form well well-large" action="<?php echo URL::site('company/comment') ?>" method="POST">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
             <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
             <div class="row-fluid">

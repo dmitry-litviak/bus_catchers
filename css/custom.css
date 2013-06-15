@@ -222,7 +222,7 @@ h1{font-weight: normal; font-style: normal; letter-spacing: 0px;
 
 .sidebar{padding-top: 23px; }
 
-.sidebox-title{font-weight: normal; font-style: normal; font-size: 20px; letter-spacing: 0px; line-height: 40px; font-family: Terminal Dosis Light; color: rgb(51, 51, 51);}
+.sidebox-title{font-weight: normal; font-style: normal; font-size: 20px; letter-spacing: 0px; line-height: 40px; font-family: Dosis; color: rgb(51, 51, 51);}
 
 .sidebox a{color: rgb(191, 13, 0); font-family: Maven Pro;}
 
@@ -232,7 +232,7 @@ h1{font-weight: normal; font-style: normal; letter-spacing: 0px;
 
 #divFooter a{color: rgb(245, 204, 174); font-family: Maven Pro; font-size: 12px; line-height: 22px;}
 
-#divFooter h3{font-family: Terminal Dosis Light; font-weight: normal; font-style: normal; font-size: 19px; line-height: 45px; color: rgb(227, 227, 227);}
+#divFooter h3{font-family: Dosis; font-weight: normal; font-style: normal; font-size: 19px; line-height: 45px; color: rgb(227, 227, 227);}
 
 h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
@@ -240,9 +240,9 @@ h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
 .breadcrumbs a{color: rgb(191, 13, 0);;font-family: Maven Pro;}
 
-#divHeaderLine1{font-family: 'Terminal Dosis Light'; font-size: 50px; line-height: 62px; margin-top: 16px; text-transform: none; color: rgb(47, 47, 47); letter-spacing: 1px;}
+#divHeaderLine1{font-family: 'Dosis'; font-size: 50px; line-height: 62px; margin-top: 16px; text-transform: none; color: rgb(47, 47, 47); letter-spacing: 1px;}
 
-#divHeaderLine2{font-family: 'Terminal Dosis Light'; font-size: 24px; line-height: 36px; margin-top: 11px; color: rgb(148, 148, 148); letter-spacing: 1px; text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px;}
+#divHeaderLine2{font-family: 'Dosis'; font-size: 24px; line-height: 36px; margin-top: 11px; color: rgb(148, 148, 148); letter-spacing: 1px; text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px;}
 
 #divHeaderLine3{margin-top: 37px; line-height: 21px; color: rgb(0, 0, 0);}
 
@@ -270,13 +270,13 @@ a.btn-info, a.btn-success, a.btn-warning, a.btn-danger, a.btn-inverse {color:#ff
 
 #headerSeparator{margin-top: 6px; border-top-color: rgb(51, 51, 51); border-top-width: 0px; border-top-style: solid;}
 
-h3,.page-content h3 a{font-weight: normal; font-style: normal; ;font-family: Terminal Dosis Light;}
+h3,.page-content h3 a{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
-h4,.page-content h4 a{font-weight: normal; font-style: normal; ;font-family: Terminal Dosis Light;}
+h4,.page-content h4 a{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
-h5,.page-content h5 a{font-weight: normal; font-style: normal; ;font-family: Terminal Dosis Light;}
+h5,.page-content h5 a{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
-h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Terminal Dosis Light;}
+h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
 .line-separator{border-top-width: 1px; border-top-style: dotted; margin-top: 21px; margin-bottom: 21px; border-top-color: rgb(195, 195, 195); }
 
@@ -460,29 +460,29 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 }
 
 .company_container {
-    height: 100px;
+    height: 50px;
     text-align: center;
-    line-height: 100px;
+    line-height: 50px;
 }
 
 .company_logo {
 
-    max-height: 100px;
+    max-height: 40px;
 }
 
 .company-name {
-    line-height: 100px;
+    line-height: 40px;
 }
 
 .comp_name {
-    font-family: Terminal Dosis Light !important;
-    font-size: 50px;
+    font-family: Dosis !important;
+    font-size: 30px;
     margin-left: 20%;
 }
 
 .comp_stars {
     margin: 0 auto;
-    line-height: 100px;
+    line-height: 40px;
 }
 
 .fb {
@@ -548,4 +548,9 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 
 .new-rating {
     padding: 5px 0;
+}
+
+
+.hr-custom {
+    margin: 10px 0 !important;
 }
