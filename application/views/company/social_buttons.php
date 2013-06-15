@@ -37,7 +37,7 @@
                     <div class="control-group">
                         <label class="control-label" for="title">3. Add a title:</label>
                         <div class="controls">
-                            <input class="span12" type="text" value="<?php echo $_SESSION['user']['displayName'] ?>" name="title" id="title">
+                            <input class="span12" type="text" placeholder="Some Title" name="title" id="title">
                         </div>
                     </div>
                     <div class="control-group">

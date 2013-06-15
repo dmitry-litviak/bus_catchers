@@ -173,6 +173,10 @@ raty = {
         "message": {
           minlength: 2,
           required: true
+        },
+        "title": {
+          minlength: 2,
+          required: true
         }
       }
     });
