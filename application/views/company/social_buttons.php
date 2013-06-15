@@ -6,9 +6,9 @@
 <?php if (empty($_SESSION['user'])): ?>
     <div class="social-buttons">
         <h3>For leaving a comment you should sign in</h3>
-        <a class="btn btn-facebook" href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i> | Sign in with Facebook</a>
-        <a class="btn btn-twitter" href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i> | Sign in with Twitter</a>
-        <a class="btn btn-google-plus" href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i> | Sign in with Google</a>
+        <a class="btn btn-large btn-facebook" href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i> | Sign in with Facebook</a>
+        <a class="btn btn-large btn-twitter" href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i> | Sign in with Twitter</a>
+        <a class="btn btn-large btn-google-plus" href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i> | Sign in with Google</a>
     </div>
 <?php else: ?>
     <div class="social-buttons">
@@ -23,13 +23,25 @@
             <div class="row-fluid">
                 <div class="span8">
                     <div class="control-group">
-                        <label class="control-label" for="name">Your Name:</label>
+                        <label class="control-label" for="name">1. Choose a rating:</label>
                         <div class="controls">
-                            <input class="span12" type="text" placeholder="<?php echo $_SESSION['user']['displayName'] ?>" name="name" id="name">
+                            <div class="rating"></div>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="message">Message:</label>
+                        <label class="control-label" for="name">2. Add Your Name:</label>
+                        <div class="controls">
+                            <input class="span12" type="text" value="<?php echo $_SESSION['user']['displayName'] ?>" name="name" id="name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="title">3. Add a title:</label>
+                        <div class="controls">
+                            <input class="span12" type="text" value="<?php echo $_SESSION['user']['displayName'] ?>" name="title" id="title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="message">4. Write a review:</label>
                         <div class="controls">
                             <textarea class="span12" rows="3" name="message" id="message" placeholder="Some Message"></textarea>
                         </div>
@@ -41,6 +53,7 @@
                     </div>
                 </div>
                 <div class="span4">
+                    <label>Detailed Ratings (optional):</label>
                     <div class="row-fluid new-rating">
                         <div class="span4">Timeliness:</div>
                         <div id="timeliness" class="span9"></div>
