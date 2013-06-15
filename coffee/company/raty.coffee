@@ -26,6 +26,7 @@ raty =
     @comments       = $(".comments-block")
     @company        = $("#company")
     @avg_rate       = $(".avg_rate")
+    @rating         = $(".rating")
     @options =
       success    : @showResponse
   
@@ -77,6 +78,14 @@ raty =
       console.log responseText
 
   rate_comment: (comment)->
+    $("#rating" + comment.id).raty
+      half: true
+      size: 16
+      readOnly: true
+      starHalf: SYS.baseUrl + "img/stars/star-half-big.png"
+      starOff: SYS.baseUrl + "img/stars/star-off-big.png"
+      starOn: SYS.baseUrl + "img/stars/star-on-big.png"
+      score: comment.rating
     $("#timeliness" + comment.id).raty
       half: true
       size: 16
@@ -132,14 +141,24 @@ raty =
           required: true
 
         "message":
-          minlength: 2
+          minlength: 40
           required: true
           
         "title":
-          minlength: 2
+          minlength: 3
           required: true
 
   create_rate: ->
+    @rating.raty
+      half: true
+      size: 24
+      starHalf: SYS.baseUrl + "img/stars/star-half-big.png"
+      starOff: SYS.baseUrl + "img/stars/star-off-big.png"
+      starOn: SYS.baseUrl + "img/stars/star-on-big.png"
+      score: 0
+      target    : '#rating'
+      targetType: 'number'
+      targetKeep: true
     @timeliness.raty
       half: true
       size: 24

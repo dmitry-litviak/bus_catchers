@@ -32,6 +32,7 @@ raty = {
     this.comments = $(".comments-block");
     this.company = $("#company");
     this.avg_rate = $(".avg_rate");
+    this.rating = $(".rating");
     return this.options = {
       success: this.showResponse
     };
@@ -108,6 +109,15 @@ raty = {
     }
   },
   rate_comment: function(comment) {
+    $("#rating" + comment.id).raty({
+      half: true,
+      size: 16,
+      readOnly: true,
+      starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
+      starOff: SYS.baseUrl + "img/stars/star-off-big.png",
+      starOn: SYS.baseUrl + "img/stars/star-on-big.png",
+      score: comment.rating
+    });
     $("#timeliness" + comment.id).raty({
       half: true,
       size: 16,
@@ -171,17 +181,28 @@ raty = {
           required: true
         },
         "message": {
-          minlength: 2,
+          minlength: 40,
           required: true
         },
         "title": {
-          minlength: 2,
+          minlength: 3,
           required: true
         }
       }
     });
   },
   create_rate: function() {
+    this.rating.raty({
+      half: true,
+      size: 24,
+      starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
+      starOff: SYS.baseUrl + "img/stars/star-off-big.png",
+      starOn: SYS.baseUrl + "img/stars/star-on-big.png",
+      score: 0,
+      target: '#rating',
+      targetType: 'number',
+      targetKeep: true
+    });
     this.timeliness.raty({
       half: true,
       size: 24,

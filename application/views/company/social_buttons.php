@@ -23,21 +23,22 @@
             <div class="row-fluid">
                 <div class="span8">
                     <div class="control-group">
-                        <label class="control-label" for="name">1. Choose a rating:</label>
+                        <label class="control-label" for="rate">1. Choose a rating:</label>
                         <div class="controls">
                             <div class="rating"></div>
+                            <input type="hidden" id="rating" name="rating">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="name">2. Add Your Name:</label>
-                        <div class="controls">
-                            <input class="span12" type="text" value="<?php echo $_SESSION['user']['displayName'] ?>" name="name" id="name">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="title">3. Add a title:</label>
+                        <label class="control-label" for="title">2. Add a title:</label>
                         <div class="controls">
                             <input class="span12" type="text" placeholder="Some Title" name="title" id="title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="name">3. Post As:</label>
+                        <div class="controls">
+                            <input class="span12" type="text" value="<?php echo $_SESSION['user']['displayName'] ?>" name="name" id="name">
                         </div>
                     </div>
                     <div class="control-group">

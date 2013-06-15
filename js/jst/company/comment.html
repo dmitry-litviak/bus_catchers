@@ -1,38 +1,42 @@
-
 <hr>
-<div class="row-fluid form-actions comment-row">
-    <div class="span8">
-        <div class="control-group">
-            <div class="controls">
-                <h3><%= comment.name %></h3>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <h4><%= comment.message %></h4>
-            </div>
-        </div>
-    </div>
-    <div class="span4">
-        <div class="row-fluid">
-            <div class="span4">Timeliness:</div>
-            <div id="timeliness<%= comment.id %>" class="span9"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">Comfort:</div>
-            <div id="comfort<%= comment.id %>" class="span9"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">WiFi:</div>
-            <div id="wifi<%= comment.id %>" class="span9"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">Empty seating:</div>
-            <div id="empty-seating<%= comment.id %>" class="span9"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">Cleanliness:</div>
-            <div id="cleanliness<%= comment.id %>" class="span9"></div>
+<div class="media">
+    <a class="pull-left" href="javascript:void(0)">
+        <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACtElEQVR4Xu2Y3UtqURDFlyYVqQhBQon5koqYiUIElSD951qa+AkGUWDUgxC9KEhqfnfXgOLl3gKP2Xlw5kXO0T2zZ+2Z+eG2NBqNCdbYLCqAVoC2gM6ANZ6B0CGoFFAKKAWUAkqBNVZAMagYVAwqBhWDawwB/TOkGFQMKgYVg4pBxeAaK7A0Bh8fH/H6+orJZIL9/X0Eg0FYLJaZpH8og/v7e+zs7CAWi/313Ve6r8LnV7GWEuDh4QH1eh02m038D4dD+Hw++P1+eaYoqVRK3m9ubuLy8hJWq/XbeluFz+8CGhZgNBohnU7LiSYSCQwGA7y8vMDpdMLj8UjMWq0m72jb29u4uLhAu91GtVrFxsYG4vE43t/fwaS3trYQiURwc3OzsM/5ilu0mw0L0O/3ZbPj8ViS/vj4kBYIBAKyh263i0wmg8PDQ7RaLXQ6HRGKmy2VSmg2m9jd3ZV1/I5Vw/VGfS6a+PT3hgVgb5fLZfHDFmCZ05hEOByWJJl4MplEPp9Hr9ebCTAvHte4XC6cnp5iGZ+/LgBPOJvNSumen5/LKeZyOen1k5MTFItF2O12eL1ePD09SaUcHR3JM+35+Vne087OzqSKlvVpRATDFcAT5wxgb1OA6TMFCIVCqFQq/+yHA/Dq6gqcH9fX17Oq2dvbQzQanfkw4tNI8lxjWABOeFYAT+3g4EA+2ddutxvHx8dgmdOYdKFQkOR40kzu7u4Ob29vcDgcUjmsDg5ArjXq89cFYEAOsNvbWzlRGtuBvcwk542tQQFIAc4FCjKlB4Ug9zlHpjRZ1KcpFJhPkCij8UR/ylbh8397M9wCP5Wo2X5UAL0R0hshvRHSGyGzJ7GZ8ZUCSgGlgFJAKWDmFDY7tlJAKaAUUAooBcyexGbGVwooBZQCSgGlgJlT2OzYSoF1p8AnDSiNnx2jBucAAAAASUVORK5CYII=">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading"><b><%= comment.title %></b></h4>
+        <div class="media justified comment-row">
+            <p><i>by <%= comment.name %></i></p>
+            <div id="rating<%= comment.id %>" class="main-rating"></div>
+            <p class="comment-msg"><%= comment.message %></p>
+            <% if ((comment.timeliness + comment.comfort + comment.wifi + comment.empty_seating + comment.cleanliness) != 0) { %>
+                <div class="row-fluid well well-large well-comment">
+                    <div class="span6">
+                        <div class="row-fluid">
+                            <div class="span4">Timeliness:</div>
+                            <div id="timeliness<%= comment.id %>" class="span9 pull-right"></div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">Comfort:</div>
+                            <div id="comfort<%= comment.id %>" class="span9 pull-right"></div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">WiFi:</div>
+                            <div id="wifi<%= comment.id %>" class="span9 pull-right"></div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="row-fluid">
+                            <div class="span4">Empty seating:</div>
+                            <div id="empty-seating<%= comment.id %>" class="span9 pull-right"></div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">Cleanliness:</div>
+                            <div id="cleanliness<%= comment.id %>" class="span9 pull-right"></div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
         </div>
     </div>
 </div>
