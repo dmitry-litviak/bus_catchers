@@ -19,6 +19,7 @@
     <div>
         <form class="form-actions comment-form well well-large" action="<?php echo URL::site('company/comment') ?>" method="POST">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
+            <input type="hidden" name="photo" value="<?php echo $_SESSION['user']['photoURL'] ? $_SESSION['user']['photoURL'] : URL::site('/img/default-profile.jpg') ?>">
             <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
             <div class="row-fluid">
                 <div class="span8">

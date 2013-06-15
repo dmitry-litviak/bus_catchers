@@ -43,7 +43,6 @@ class Controller_Company extends My_Layout_User_Controller {
             $user = $hybridauth->authenticate($mode);
 
             $user_profile = $user->getUserProfile();
-            Helper_Main::print_flex($user_profile);die;
             $this->session->set('user', (array)$user_profile);
         } catch (Exception $e) {
             echo $e;
