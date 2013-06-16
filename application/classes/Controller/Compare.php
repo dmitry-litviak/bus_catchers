@@ -18,11 +18,14 @@ class Controller_Compare extends My_Layout_User_Controller {
                 ->view('compare/index', $data)
                 ->render();
     }
-    
+
     public function action_get_avg_rating() {
         $post = Helper_Output::clean($this->request->post());
         $rating = ORM::factory("Comment")->get_avg_rating($post['id']);
-        Helper_Jsonresponse::render_json('success', '', $rating);
+        Helper_Jsonresponse::render_json('success', '', array(
+            'rating' => $rating,
+            'count' => count(ORM::factory("Comment")->where('company_id', '=', $post['id'])->find_all())
+        ));
     }
 
 }

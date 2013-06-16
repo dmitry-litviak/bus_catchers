@@ -39,8 +39,10 @@ index =
               starOff: SYS.baseUrl + "img/stars/star-off-big.png"
               starOn: SYS.baseUrl + "img/stars/star-on-big.png"
               readOnly: true
-              score: res.data
+              score: res.data.rating
             $(star).css {'margin' : '0 auto'}
+            if res.data.count
+              $(star).next().html("(" + res.data.count + ")")
     
     
 $(document).ready ->

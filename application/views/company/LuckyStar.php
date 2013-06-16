@@ -2,7 +2,10 @@
 
     <div style="text-align:center">
         <h1>LuckyStar</h1>
-        <div class="avg_rate" data-company="<?php echo $company->id ?>"></div>
+        <div class="rate-title">
+            <div class="avg_rate" data-company="<?php echo $company->id ?>"></div>
+            <span></span>
+        </div>
     </div>
 
     <hr />

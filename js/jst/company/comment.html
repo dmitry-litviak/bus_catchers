@@ -1,13 +1,13 @@
 <hr>
 <div class="media">
-    <a class="pull-left" href="javascript:void(0)">
+    <a class="pull-left comment-link" href="javascript:void(0)">
         <img class="media-object"  style="width: 64px; height: 64px;" src="<%= comment.photo %>">
+        <p class="comment-name"><%= comment.name %></p>
     </a>
     <div class="media-body">
         <h4 class="media-heading"><b><%= comment.title %></b></h4>
         <div class="media justified comment-row">
-            <p><i>by <%= comment.name %></i></p>
-            <div id="rating<%= comment.id %>" class="main-rating"></div>
+            <div id="rating<%= comment.id %>" class="main-rating"></div><span class="time-ago"><%= comment.date %></span>
             <p class="comment-msg"><%= comment.message %></p>
             <% if ((comment.timeliness + comment.comfort + comment.wifi + comment.empty_seating + comment.cleanliness) != 0) { %>
                 <div class="row-fluid well well-large well-comment">

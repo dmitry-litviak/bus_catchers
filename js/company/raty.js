@@ -64,11 +64,11 @@ raty = {
             starOff: SYS.baseUrl + "img/stars/star-off-big.png",
             starOn: SYS.baseUrl + "img/stars/star-on-big.png",
             readOnly: true,
-            score: res.data
+            score: res.data.rating
           });
-          return me.avg_rate.css({
-            'margin': '0 auto'
-          });
+          if (res.data.count) {
+            return me.avg_rate.next().html("(" + res.data.count + " customer reviews)");
+          }
         }
       }
     });

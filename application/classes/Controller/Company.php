@@ -65,8 +65,11 @@ class Controller_Company extends My_Layout_User_Controller {
     
     public function action_get_comments() {
         $post = Helper_Output::clean($this->request->post());
-        $comments = DB::select()->from('comments')->where('company_id', '=', $post['id'])->execute();
-        Helper_Jsonresponse::render_json("success", "", $comments->as_array());
+        $comments = DB::select()->from('comments')->where('company_id', '=', $post['id'])->execute()->as_array();
+        foreach ($comments as $key => $comment) {
+            $comments[$key]['date'] = Helper_Output::ago(strtotime($comment['date']));
+        }
+        Helper_Jsonresponse::render_json("success", "", $comments);
     }
 
 }

@@ -53,8 +53,10 @@ raty =
             starOff: SYS.baseUrl + "img/stars/star-off-big.png"
             starOn: SYS.baseUrl + "img/stars/star-on-big.png"
             readOnly: true
-            score: res.data
-          me.avg_rate.css {'margin' : '0 auto'}
+            score: res.data.rating
+#          me.avg_rate.parent().css {'margin' : '0 auto'}
+          if res.data.count
+              me.avg_rate.next().html("(" + res.data.count + " customer reviews)")
   
   get_comments: ->
     me = @

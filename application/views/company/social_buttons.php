@@ -5,10 +5,10 @@
 <input type="hidden" id="company" value="<?php echo $company->id ?>">
 <?php if (empty($_SESSION['user'])): ?>
     <div class="social-buttons">
-        <h3>For leaving a comment you should sign in</h3>
-        <a class="btn btn-facebook" href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i> | Sign in with Facebook</a>
-        <a class="btn btn-twitter" href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i> | Sign in with Twitter</a>
-        <a class="btn btn-google-plus" href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i> | Sign in with Google</a>
+        <h3>Sign in to leave a review</h3>
+        <a class="btn btn-facebook" href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i>  Sign in with Facebook</a>
+        <a class="btn btn-twitter" href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i>  Sign in with Twitter</a>
+        <a class="btn btn-google-plus" href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i>  Sign in with Google</a>
     </div>
 <?php else: ?>
     <div class="social-buttons">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <button type="submit" class="btn">Comment</button>
+                            <button type="submit" class="btn">Submit</button>
                         </div>
                     </div>
                 </div>
