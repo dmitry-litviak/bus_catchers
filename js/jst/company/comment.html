@@ -3,6 +3,11 @@
     <a class="pull-left comment-link" href="javascript:void(0)">
         <img class="media-object"  style="width: 64px; height: 64px;" src="<%= comment.photo %>">
         <p class="comment-name"><%= comment.name %></p>
+        <div style="text-align: center">
+            <button class="btn btn-mini btn-vote" ><i class="icon-chevron-up"></i></button>
+            <h1 class="votes"><%= comment.votes %></h1>
+            <button class="btn btn-mini btn-vote" ><i class="icon-chevron-down"></i></button>
+        </div>
     </a>
     <div class="media-body">
         <h4 class="media-heading"><b><%= comment.title %></b></h4>

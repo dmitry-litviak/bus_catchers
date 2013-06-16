@@ -43,18 +43,18 @@ class Controller_Company extends My_Layout_User_Controller {
             $user = $hybridauth->authenticate($mode);
 
             $user_profile = $user->getUserProfile();
-            $this->session->set('user', (array)$user_profile);
+            $this->session->set('user', (array) $user_profile);
         } catch (Exception $e) {
             echo $e;
         }
         $this->redirect(URL::site("company/info/" . $_SESSION['info']));
     }
-    
+
     public function action_logout() {
         Session::instance()->delete('user');
         $this->redirect("company/info/" . $_SESSION['info']);
     }
-    
+
     public function action_comment() {
         $post = Helper_Output::clean($this->request->post());
         $comment = ORM::factory('Comment');
@@ -62,12 +62,18 @@ class Controller_Company extends My_Layout_User_Controller {
         $comment->save();
         Helper_Jsonresponse::render_json("success", "", $comment->as_array());
     }
-    
+
     public function action_get_comments() {
         $post = Helper_Output::clean($this->request->post());
         $comments = DB::select()->from('comments')->where('company_id', '=', $post['id'])->execute()->as_array();
         foreach ($comments as $key => $comment) {
             $comments[$key]['date'] = Helper_Output::ago(strtotime($comment['date']));
+            $votes = DB::select(array(DB::expr('SUM(vote)'), 'votes'))
+                    ->from('votes')
+                    ->where('comment_id', '=', $comment['id'])
+                    ->execute()
+                    ->get('votes');
+            $comments[$key]['votes'] = $votes ? $votes : 0;
         }
         Helper_Jsonresponse::render_json("success", "", $comments);
     }

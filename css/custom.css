@@ -598,3 +598,11 @@ a.comment-link:active {
 .time-ago {
     font-size: 11px;
 }
+
+.btn-vote {
+    width: 64px;
+}
+
+h1.votes {
+    font-family: Maven Pro !important; 
+}
