@@ -91,12 +91,11 @@ class Controller_Company extends My_Layout_User_Controller {
         if ($post['sign'] == '-') {
             $post['vote'] = -1;
         }
-        Helper_Main::print_flex($post);
-        die;
 
         if ($vote->id) {
             Helper_Jsonresponse::render_json('error', "", "You have already voted for this comment");
         } else {
+            unset($post['sign']);
             $new_vote = ORM::factory('Vote');
             $new_vote->values($post);
             $new_vote->save();
