@@ -84,6 +84,7 @@ class Controller_Company extends My_Layout_User_Controller {
                 ->where('comment_id', '=', $post['comment_id'])
                 ->where('user_id', '=', $post['user_id'])
                 ->find();
+        Helper_Main::print_flex($vote);die;
         if ($vote->id) {
             Helper_Jsonresponse::render_json('error', "", "You have already voted for this comment");
         } else {
