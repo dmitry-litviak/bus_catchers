@@ -49,7 +49,7 @@ raty = {
       var element, sign, value,
         _this = this;
       element = $(this);
-      value = element.parent().find('h1.votes').html();
+      value = parseInt(element.parent().find('h1.votes').html());
       sign = '+';
       if (element.hasClass('minus')) {
         sign = '-';
