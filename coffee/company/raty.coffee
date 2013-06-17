@@ -105,6 +105,7 @@ raty =
       obj.data.votes = "0"
       raty.comments.prepend raty.template({comment : obj.data})
       raty.rate_comment obj.data
+      raty.form.remove()
     else
       console.log responseText
 

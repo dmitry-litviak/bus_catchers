@@ -145,7 +145,8 @@ raty = {
       raty.comments.prepend(raty.template({
         comment: obj.data
       }));
-      return raty.rate_comment(obj.data);
+      raty.rate_comment(obj.data);
+      return raty.form.remove();
     } else {
       return console.log(responseText);
     }
