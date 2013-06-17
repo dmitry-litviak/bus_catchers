@@ -66,13 +66,14 @@ raty = {
         success: function(res) {
           if (res.text = "success") {
             if (element.hasClass('plus')) {
-              return element.next().html(value + 1);
+              element.next().html(value + 1);
             } else {
-              return element.prev().html(value - 1);
+              element.prev().html(value - 1);
             }
           } else {
-            return console.log(res.data);
+            console.log(res.data);
           }
+          return element.parent().find('.btn-vote').attr("disabled", "disabled");
         }
       });
     });

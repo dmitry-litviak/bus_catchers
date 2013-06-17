@@ -57,6 +57,7 @@ raty =
               element.prev().html value - 1
           else
             console.log res.data
+          element.parent().find('.btn-vote').attr( "disabled", "disabled" );
         
   init_avg_rate: ->
     me = @
