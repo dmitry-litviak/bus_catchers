@@ -608,6 +608,6 @@ h1.votes {
 }
 
 .status-line {
-    margin-right: 40px;
+    /*margin-right: 40px;*/
     float: right;
 }
