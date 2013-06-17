@@ -40,7 +40,7 @@ raty =
   init_votes: ->   
     $(".btn-vote").live "click", ->
       element = $(@)
-      value = element.html()
+      value = element.parent().find('h1.votes').html()
       sign = '+'
       if element.hasClass('minus')
         sign = '-'
