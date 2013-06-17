@@ -40,6 +40,8 @@ index =
               starOn: SYS.baseUrl + "img/stars/star-on-big.png"
               readOnly: true
               score: res.data.rating
+              noRatedMsg: "Be the first to leave a review"
+              hints: ['bad', 'poor', 'average', 'good', 'excellent']
             $(star).css {'margin' : '0 auto'}
             if res.data.count
               $(star).next().html("(" + res.data.count + ")")

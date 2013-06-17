@@ -41,7 +41,41 @@ raty = {
     this.init_avg_rate();
     this.create_rate();
     this.init_form_submit();
-    return this.get_comments();
+    this.get_comments();
+    return this.init_votes();
+  },
+  init_votes: function() {
+    return $(".btn-vote").live("click", function() {
+      var element, sign, value,
+        _this = this;
+      element = $(this);
+      value = element.html();
+      sign = '+';
+      if (element.hasClass('minus')) {
+        sign = '-';
+      }
+      return $.ajax({
+        url: SYS.baseUrl + 'company/vote',
+        data: $.param({
+          comment_id: element.parent().next().data('comment'),
+          user_id: $('#user_id').val(),
+          sign: sign
+        }),
+        type: 'POST',
+        dataType: 'json',
+        success: function(res) {
+          if (res.text = "success") {
+            if (element.hasClass('plus')) {
+              return element.next().html(value + 1);
+            } else {
+              return element.prev().html(value - 1);
+            }
+          } else {
+            return console.log(res.data);
+          }
+        }
+      });
+    });
   },
   init_avg_rate: function() {
     var company_id, me,
@@ -64,6 +98,8 @@ raty = {
             starOff: SYS.baseUrl + "img/stars/star-off-big.png",
             starOn: SYS.baseUrl + "img/stars/star-on-big.png",
             readOnly: true,
+            noRatedMsg: "Be the first to leave a review",
+            hints: ['bad', 'poor', 'average', 'good', 'excellent'],
             score: res.data.rating
           });
           if (res.data.count) {
@@ -86,12 +122,15 @@ raty = {
       dataType: 'json',
       success: function(res) {
         if (res.text = "success") {
-          return _.each(res.data, function(comment) {
+          _.each(res.data, function(comment) {
             me.comments.append(me.template({
               comment: comment
             }));
             return me.rate_comment(comment);
           });
+          if (!$('#user_id').val()) {
+            return $('.btn-vote').attr("disabled", "disabled");
+          }
         }
       }
     });
@@ -116,7 +155,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half-big.png",
       starOff: SYS.baseUrl + "img/stars/star-off-big.png",
       starOn: SYS.baseUrl + "img/stars/star-on-big.png",
-      score: comment.rating
+      score: comment.rating,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     $("#timeliness" + comment.id).raty({
       half: true,
@@ -125,7 +166,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half.png",
       starOff: SYS.baseUrl + "img/stars/star-off.png",
       starOn: SYS.baseUrl + "img/stars/star-on.png",
-      score: comment.timeliness
+      score: comment.timeliness,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     $("#comfort" + comment.id).raty({
       half: true,
@@ -134,7 +177,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half.png",
       starOff: SYS.baseUrl + "img/stars/star-off.png",
       starOn: SYS.baseUrl + "img/stars/star-on.png",
-      score: comment.comfort
+      score: comment.comfort,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     $("#wifi" + comment.id).raty({
       half: true,
@@ -143,7 +188,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half.png",
       starOff: SYS.baseUrl + "img/stars/star-off.png",
       starOn: SYS.baseUrl + "img/stars/star-on.png",
-      score: comment.wifi
+      score: comment.wifi,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     $("#empty-seating" + comment.id).raty({
       half: true,
@@ -152,7 +199,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half.png",
       starOff: SYS.baseUrl + "img/stars/star-off.png",
       starOn: SYS.baseUrl + "img/stars/star-on.png",
-      score: comment.empty_seating
+      score: comment.empty_seating,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     return $("#cleanliness" + comment.id).raty({
       half: true,
@@ -161,7 +210,9 @@ raty = {
       starHalf: SYS.baseUrl + "img/stars/star-half.png",
       starOff: SYS.baseUrl + "img/stars/star-off.png",
       starOn: SYS.baseUrl + "img/stars/star-on.png",
-      score: comment.cleanliness
+      score: comment.cleanliness,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
   },
   init_form_submit: function() {

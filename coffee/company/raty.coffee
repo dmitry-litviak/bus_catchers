@@ -35,7 +35,29 @@ raty =
     do @create_rate
     do @init_form_submit
     do @get_comments
-  
+    do @init_votes
+    
+  init_votes: ->   
+    $(".btn-vote").live "click", ->
+      element = $(@)
+      value = element.html()
+      sign = '+'
+      if element.hasClass('minus')
+        sign = '-'
+      $.ajax
+        url: SYS.baseUrl + 'company/vote'
+        data: $.param({comment_id : element.parent().next().data('comment'), user_id : $('#user_id').val(), sign : sign})
+        type: 'POST'
+        dataType: 'json'
+        success: (res) =>
+          if res.text = "success"
+            if element.hasClass('plus')
+              element.next().html value + 1
+            else
+              element.prev().html value - 1
+          else
+            console.log res.data
+        
   init_avg_rate: ->
     me = @
     company_id = @avg_rate.data "company"
@@ -53,6 +75,8 @@ raty =
             starOff: SYS.baseUrl + "img/stars/star-off-big.png"
             starOn: SYS.baseUrl + "img/stars/star-on-big.png"
             readOnly: true
+            noRatedMsg: "Be the first to leave a review"
+            hints: ['bad', 'poor', 'average', 'good', 'excellent']
             score: res.data.rating
 #          me.avg_rate.parent().css {'margin' : '0 auto'}
           if res.data.count
@@ -70,6 +94,8 @@ raty =
           _.each res.data, (comment) ->
             me.comments.append me.template({comment : comment})
             me.rate_comment comment
+          unless $('#user_id').val()
+            $('.btn-vote').attr( "disabled", "disabled" );
     
   showResponse: (responseText, statusText, xhr, $form) ->
     obj = jQuery.parseJSON responseText
@@ -88,6 +114,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off-big.png"
       starOn: SYS.baseUrl + "img/stars/star-on-big.png"
       score: comment.rating
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     $("#timeliness" + comment.id).raty
       half: true
       size: 16
@@ -96,6 +124,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off.png"
       starOn: SYS.baseUrl + "img/stars/star-on.png"
       score: comment.timeliness
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     $("#comfort" + comment.id).raty
       half: true
       size: 16
@@ -104,6 +134,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off.png"
       starOn: SYS.baseUrl + "img/stars/star-on.png"
       score: comment.comfort
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     $("#wifi" + comment.id).raty
       half: true
       size: 16
@@ -112,6 +144,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off.png"
       starOn: SYS.baseUrl + "img/stars/star-on.png"
       score: comment.wifi
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     $("#empty-seating" + comment.id).raty
       half: true
       size: 16
@@ -120,6 +154,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off.png"
       starOn: SYS.baseUrl + "img/stars/star-on.png"
       score: comment.empty_seating
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     $("#cleanliness" + comment.id).raty
       half: true
       size: 16
@@ -128,6 +164,8 @@ raty =
       starOff: SYS.baseUrl + "img/stars/star-off.png"
       starOn: SYS.baseUrl + "img/stars/star-on.png"
       score: comment.cleanliness
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
   
   init_form_submit: ->
     @form.submit (e) =>

@@ -77,6 +77,31 @@ class Controller_Company extends My_Layout_User_Controller {
         }
         Helper_Jsonresponse::render_json("success", "", $comments);
     }
+    
+    public function action_vote() {
+        $post = Helper_Output::clean($this->request->post());
+        $vote = ORM::factory('Vote')
+                ->where('comment_id', '=', $post['comment_id'])
+                ->where('user_id', '=', $post['user_id'])
+                ->find();
+        if ($vote->id || !$post['user_id']) {
+            Helper_Jsonresponse::render_json('error', "", "You have already voted for this comment");
+        } else {
+            $vote = ORM::factory('Vote');
+            $vote->comment_id = $post['comment_id'];
+            $vote->user_id = $post['user_id'];
+            if ($post['sign'] == '+') {
+                $vote->vote = 1;
+            }
+            
+            if ($post['sign'] == '-') {
+                $vote->vote = -1;
+            }
+            
+            $vote->save();
+            Helper_Jsonresponse::render_json('success', "", "");
+        }
+    }
 
 }
 

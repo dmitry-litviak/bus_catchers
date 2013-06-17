@@ -4,10 +4,11 @@
         <img class="media-object"  style="width: 64px; height: 64px;" src="<%= comment.photo %>">
         <p class="comment-name"><%= comment.name %></p>
         <div style="text-align: center">
-            <button class="btn btn-mini btn-vote" ><i class="icon-chevron-up"></i></button>
+            <button class="btn btn-mini btn-vote plus" ><i class="icon-chevron-up"></i></button>
             <h1 class="votes"><%= comment.votes %></h1>
-            <button class="btn btn-mini btn-vote" ><i class="icon-chevron-down"></i></button>
+            <button class="btn btn-mini btn-vote minus" ><i class="icon-chevron-down"></i></button>
         </div>
+        <input type="hidden" id="comment-id" data-comment="<%= comment.id %>">
     </a>
     <div class="media-body">
         <h4 class="media-heading"><b><%= comment.title %></b></h4>
