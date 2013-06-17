@@ -87,7 +87,10 @@
             </form>
         </div>
     <?php else: ?>
-        <h3>You have already written a review for this company</h3>
+        <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user']['identifier'] ?>">
+        <input type="hidden" name="photo" value="<?php echo $_SESSION['user']['photoURL'] ? $_SESSION['user']['photoURL'] : URL::site('/img/default-profile.jpg') ?>">
+        <input type="hidden" name="company_id" value="<?php echo $company->id ?>">
+        <h3 class="centered">You have already written a review for this company</h3>
     <?php endif; ?>
 <?php endif; ?>
 <div class="comments-block">
