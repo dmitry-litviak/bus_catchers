@@ -15,7 +15,7 @@
         <h3>You are logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
         <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
     </div>-->
-    <hr>
+    <!--<hr>-->
     <?php if (!ORM::factory('Comment')->where('user_id', '=', $_SESSION['user']['identifier'])->where('company_id', '=', $company->id)->find()->id): ?>
         <div>
             <form class="form-actions comment-form well well-large" action="<?php echo URL::site('company/comment') ?>" method="POST">
