@@ -87,18 +87,18 @@ class Controller_Company extends My_Layout_User_Controller {
         if ($vote->id) {
             Helper_Jsonresponse::render_json('error', "", "You have already voted for this comment");
         } else {
-            $vote = ORM::factory('Vote');
-            $vote->comment_id = $post['comment_id'];
-            $vote->user_id = $post['user_id'];
+            $new_vote = ORM::factory('Vote');
+            $new_vote->comment_id = $post['comment_id'];
+            $new_vote->user_id = $post['user_id'];
             if ($post['sign'] == '+') {
-                $vote->vote = 1;
+                $new_vote->vote = 1;
             }
             
             if ($post['sign'] == '-') {
-                $vote->vote = -1;
+                $new_vote->vote = -1;
             }
             
-            $vote->save();
+            $new_vote->save();
             Helper_Jsonresponse::render_json('success', "", "");
         }
     }
