@@ -42,7 +42,7 @@ index = {
         type: 'POST',
         dataType: 'json',
         success: function(res) {
-          if (res.text = "success") {
+          if (res.text === "success") {
             $(star).raty({
               half: true,
               size: 24,

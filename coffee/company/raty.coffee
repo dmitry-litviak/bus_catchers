@@ -50,7 +50,7 @@ raty =
         type: 'POST'
         dataType: 'json'
         success: (res) =>
-          if res.text = "success"
+          if res.text == "success"
             if element.hasClass('plus')
               element.next().html value + 1
             else
@@ -68,7 +68,7 @@ raty =
       type: 'POST'
       dataType: 'json'
       success: (res) =>
-        if res.text = "success"
+        if res.text == "success"
           me.avg_rate.raty
             half: true
             size: 24
@@ -91,7 +91,7 @@ raty =
       type: 'POST'
       dataType: 'json'
       success: (res) =>
-        if res.text = "success"
+        if res.text == "success"
           _.each res.data, (comment) ->
             me.comments.append me.template({comment : comment})
             me.rate_comment comment
