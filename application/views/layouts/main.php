@@ -30,7 +30,7 @@
         <div id="divBoxed" class="container">
             <?php echo View::factory('layouts/partials/header')->render(); ?>
             <?php if (!empty($_SESSION['user'])): ?>
-                    <h3>You are logged in as <?php echo $_SESSION['user']['displayName'] ?> <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a></h3>
+                    <h4 class="status-line">You are logged in as <?php echo $_SESSION['user']['displayName'] ?> <a href="<?php echo URL::site("company/logout") ?>">Logout</a></h4>
             <?php endif; ?>
             <div class="contentArea">
                 <div class="divPanel notop page-content">

@@ -606,3 +606,8 @@ a.comment-link:active {
 h1.votes {
     font-family: Maven Pro !important; 
 }
+
+.status-line {
+    margin-right: 40px;
+    float: right;
+}
