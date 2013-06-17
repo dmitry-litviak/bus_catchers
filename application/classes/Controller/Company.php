@@ -65,15 +65,20 @@ class Controller_Company extends My_Layout_User_Controller {
 
     public function action_get_comments() {
         $post = Helper_Output::clean($this->request->post());
-        $comments = DB::select()->from('comments')->where('company_id', '=', $post['id'])->execute()->as_array();
+        $comments = DB::select()->from('comments')
+                ->join(DB::expr('(SELECT comment_id, SUM(vote) AS votes FROM votes GROUP BY comment_id) AS votes'), 'LEFT')
+                ->on('votes.comment_id', '=', 'comments.id')
+                ->where('comments.company_id', '=', $post['id'])
+                ->order_by('votes')
+                ->execute()->as_array();
         foreach ($comments as $key => $comment) {
             $comments[$key]['date'] = Helper_Output::ago(strtotime($comment['date']));
-            $votes = DB::select(array(DB::expr('SUM(vote)'), 'votes'))
-                    ->from('votes')
-                    ->where('comment_id', '=', $comment['id'])
-                    ->execute()
-                    ->get('votes');
-            $comments[$key]['votes'] = $votes ? $votes : 0;
+//            $votes = DB::select(array(DB::expr('SUM(vote)'), 'votes'))
+//                    ->from('votes')
+//                    ->where('comment_id', '=', $comment['id'])
+//                    ->execute()
+//                    ->get('votes');
+            $comments[$key]['votes'] = $comment['votes'] ? $comment['votes'] : 0;
         }
         Helper_Jsonresponse::render_json("success", "", $comments);
     }
