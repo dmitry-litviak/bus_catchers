@@ -1,5 +1,5 @@
 <div class="centered">
-    <a href="<?php echo URL::site('compare') ?>">Follow this link to view all companies at one page</a>
+    <a href="<?php echo URL::site('compare') ?>">Back to company comparison</a>
 </div>
 <hr>
 <input type="hidden" id="company" value="<?php echo $company->id ?>">
@@ -12,7 +12,7 @@
     </div>
 <?php else: ?>
     <div class="social-buttons">
-        <h3>You logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
+        <h3>You are logged in as <?php echo $_SESSION['user']['displayName'] ?></h3>
         <a class="btn gl" href="<?php echo URL::site("company/logout") ?>">Logout</a>
     </div>
     <hr>

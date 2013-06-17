@@ -140,6 +140,8 @@ raty = {
     var obj;
     obj = jQuery.parseJSON(responseText);
     if (obj.text === "success") {
+      obj.data.date = "1 second ago";
+      obj.data.votes = "0";
       raty.comments.prepend(raty.template({
         comment: obj.data
       }));

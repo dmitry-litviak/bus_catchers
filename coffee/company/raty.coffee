@@ -101,6 +101,8 @@ raty =
   showResponse: (responseText, statusText, xhr, $form) ->
     obj = jQuery.parseJSON responseText
     if obj.text is "success"
+      obj.data.date = "1 second ago"
+      obj.data.votes = "0"
       raty.comments.prepend raty.template({comment : obj.data})
       raty.rate_comment obj.data
     else
