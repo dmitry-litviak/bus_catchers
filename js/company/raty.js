@@ -256,7 +256,9 @@ raty = {
       score: 0,
       target: '#rating',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     this.timeliness.raty({
       half: true,
@@ -267,7 +269,9 @@ raty = {
       score: 0,
       target: '#timeliness-input',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     this.comfort.raty({
       half: true,
@@ -278,7 +282,9 @@ raty = {
       score: 0,
       target: '#comfort-input',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     this.wifi.raty({
       half: true,
@@ -289,7 +295,9 @@ raty = {
       score: 0,
       target: '#wifi-input',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     this.empty_seating.raty({
       half: true,
@@ -300,7 +308,9 @@ raty = {
       score: 0,
       target: '#empty-seating-input',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
     return this.cleanliness.raty({
       half: true,
@@ -311,7 +321,9 @@ raty = {
       score: 0,
       target: '#cleanliness-input',
       targetType: 'number',
-      targetKeep: true
+      targetKeep: true,
+      noRatedMsg: "Be the first to leave a review",
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     });
   }
 };

@@ -203,6 +203,8 @@ raty =
       target    : '#rating'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     @timeliness.raty
       half: true
       size: 24
@@ -213,6 +215,8 @@ raty =
       target    : '#timeliness-input'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     @comfort.raty
       half: true
       size: 24
@@ -223,6 +227,8 @@ raty =
       target    : '#comfort-input'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     @wifi.raty
       half: true
       size: 24
@@ -233,6 +239,8 @@ raty =
       target    : '#wifi-input'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     @empty_seating.raty
       half: true
       size: 24
@@ -243,6 +251,8 @@ raty =
       target    : '#empty-seating-input'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     @cleanliness.raty
       half: true
       size: 24
@@ -253,6 +263,8 @@ raty =
       target    : '#cleanliness-input'
       targetType: 'number'
       targetKeep: true
+      noRatedMsg: "Be the first to leave a review"
+      hints: ['bad', 'poor', 'average', 'good', 'excellent']
     
     
 $(document).ready ->
