@@ -1,5 +1,5 @@
 <div id="footerOuterSeparator"></div>
-
+<hr style="margin: 0 0;">
 <div id="divFooter" class="footerArea">
 
     <div class="divPanel">

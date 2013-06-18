@@ -166,7 +166,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 .navbar .nav-pills .open .dropdown-toggle {background-color:transparent;}
 
 
-body{background-image: url(subtle_stripes.png); background-color: rgb(181, 181, 181); background-repeat: repeat repeat;}
+/*body{background-image: url(subtle_stripes.png); background-color: rgb(181, 181, 181); background-repeat: repeat repeat;}*/
 
 #divBoxed{margin-top: 51px; }
 
@@ -229,21 +229,23 @@ h1{font-weight: normal; font-style: normal; letter-spacing: 0px;
 #divFooter{
     /*border-bottom-left-radius: 30px;*/ 
     /*border-bottom-right-radius: 30px;*/ 
-    background-color: rgb(191, 13, 0); 
-    color: rgb(227, 227, 227); 
+/*    background-color: rgb(191, 13, 0); 
+    color: rgb(227, 227, 227); */
     font-family: Maven Pro; 
     text-transform: none; 
     font-size: 12px; 
     letter-spacing: 0px; 
     line-height: 22px; 
-    background-image: -webkit-linear-gradient(top, rgb(191, 13, 0), rgb(171, 11, 0));
+    /*background-image: -webkit-linear-gradient(top, rgb(191, 13, 0), rgb(171, 11, 0));*/
 }
 
 .divPanel{padding: 40px;}
 
-#divFooter a{color: rgb(245, 204, 174); font-family: Maven Pro; font-size: 12px; line-height: 22px;}
+#divFooter a{color: rgb(191, 13, 0); font-family: Maven Pro; font-size: 12px; line-height: 22px;}
 
-#divFooter h3{font-family: Dosis; font-weight: normal; font-style: normal; font-size: 19px; line-height: 45px; color: rgb(227, 227, 227);}
+#divFooter h3{font-family: Dosis; font-weight: normal; font-style: normal; font-size: 19px; line-height: 45px; 
+   /*color: rgb(227, 227, 227);*/
+}
 
 h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
@@ -266,7 +268,14 @@ h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
 #divHeaderLine3{margin-top: 37px; line-height: 21px; color: rgb(0, 0, 0);}
 
-#divFooter{background-image:-moz-linear-gradient(bottom,#ab0b00,#bf0d00);filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#bf0d00, endColorstr=#ab0b00);background-image:-o-linear-gradient(bottom,#ab0b00,#bf0d00);background-image:-webkit-gradient(linear,left top, left bottom,from(#ab0b00),to(#bf0d00));background-image:-webkit-linear-gradient(bottom,#ab0b00,#bf0d00);background-image:linear-gradient(bottom,#ab0b00,#bf0d00);}
+/*#divFooter{
+    background-image:-moz-linear-gradient(bottom,#ab0b00,#bf0d00);
+    filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#bf0d00, endColorstr=#ab0b00);
+    background-image:-o-linear-gradient(bottom,#ab0b00,#bf0d00);
+    background-image:-webkit-gradient(linear,left top, left bottom,from(#ab0b00),to(#bf0d00));
+    background-image:-webkit-linear-gradient(bottom,#ab0b00,#bf0d00);
+    background-image:linear-gradient(bottom,#ab0b00,#bf0d00);
+}*/
 
 a.btn, a.btn-large, a.btn-small, a.btn-mini {color:#333}
 
