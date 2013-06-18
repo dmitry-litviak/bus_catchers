@@ -23,6 +23,9 @@
 <!--                            <li class="dropdown"><a href="grid.html">Grid</a></li>-->
 <!--                            <li class="dropdown"><a href="simple.html">Simple</a></li>-->
                             <?php Helper_Mainmenu::render() ?>
+                            <?php if (!empty($_SESSION['user'])): ?>
+                                <li class="dropdown"><a href="<?php echo URL::site("company/logout") ?>">Logout</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
