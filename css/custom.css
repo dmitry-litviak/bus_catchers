@@ -625,6 +625,20 @@ a.comment-link:active {
 
 .btn-vote {
     width: 64px;
+    outline: none
+}
+
+.btn-vote :link {
+    outline: none;
+}
+.btn-vote :visited {
+    outline: none;
+}
+.btn-vote :hover {
+    outline: none;
+}
+.btn-vote :active {
+    outline: none;
 }
 
 h1.votes {
