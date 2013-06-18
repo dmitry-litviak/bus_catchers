@@ -595,12 +595,15 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dos
 
 a.comment-link:link {
     text-decoration:none !important;
+    outline: none;
 }
 a.comment-link:visited {
     text-decoration:none !important;
+    outline: none;
 }
 a.comment-link:hover {
     text-decoration:underline;
+    outline: none;
 }
 a.comment-link:active {
     text-decoration:underline;
