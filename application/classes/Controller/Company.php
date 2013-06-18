@@ -52,7 +52,7 @@ class Controller_Company extends My_Layout_User_Controller {
 
     public function action_logout() {
         Session::instance()->delete('user');
-        $this->redirect("company/info/" . $_SESSION['info']);
+        $this->redirect("/");
     }
 
     public function action_comment() {
