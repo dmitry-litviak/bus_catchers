@@ -32,7 +32,7 @@
             <div class="contentArea">
                 <div class="divPanel notop page-content">
                     <?php if (!empty($_SESSION['user'])): ?>
-                        <h5 class="status-line">You are logged in as <?php echo $_SESSION['user']['displayName'] ?></h5>
+                        <h5 class="status-line">You are logged in as <span class="label label-important"><?php echo $_SESSION['user']['displayName'] ?></span></h5>
                     <?php endif; ?>
                     <div class="row-fluid">
                         <?php echo $content; ?>
