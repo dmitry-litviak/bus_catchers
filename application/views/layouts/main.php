@@ -24,6 +24,7 @@
         <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     </head>
     <body id="pageBody">
         <div id="fb-root"></div>
@@ -34,6 +35,11 @@
                     <?php if (!empty($_SESSION['user'])): ?>
                         <h5 class="status-line">You are logged in as <span class="label label-important"><?php echo $_SESSION['user']['displayName'] ?></span></h5>
                     <?php endif; ?>
+                    <div style="margin-top: 10px">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo URL::site(Request::initial()->uri()) ?>" data-via="BusCatchers" data-lang="en">Tweet</a>
+                        <div class="g-plusone" data-size="medium" data-href="<?php echo URL::site(Request::initial()->uri()) ?>"></div>
+                        <div class="fb-like" data-href="<?php echo URL::site(Request::initial()->uri()) ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+                    </div>
                     <div class="row-fluid">
                         <?php echo $content; ?>
                     </div>
