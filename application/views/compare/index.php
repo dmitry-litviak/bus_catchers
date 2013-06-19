@@ -4,7 +4,7 @@
         <h1>Find Tickets</h1>
         <h4>Are you a frequent traveller or commuter? Search all available bus tickets at once for better pricing and less hassle.</h4>  
     </div>
-
+    <br><br>
     <hr class="hr-custom" >
     <?php foreach ($companies as $key => $company): ?>
         <div class="row-fluid">

@@ -25,7 +25,16 @@
                             <?php Helper_Mainmenu::render() ?>
                             <?php if (!empty($_SESSION['user'])): ?>
                                 <li class="dropdown"><a href="<?php echo URL::site("company/logout") ?>">Logout</a></li>
-                            <?php endif; ?>
+                            <?php else: ?>
+                                <li class="dropdown">
+                                    <a href="javascript: void(0)" class="dropdown-toggle">Sign In <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" style="display: none;">
+                                        <li><a href="<?php echo URL::site("company/login?type=Facebook") ?>"><i class="icon-facebook"></i>&nbsp&nbsp Sign in with Facebook</a></li>
+                                        <li><a href="<?php echo URL::site("company/login?type=Twitter") ?>"><i class="icon-twitter"></i> Sign in with Twitter</a></li>
+                                        <li><a href="<?php echo URL::site("company/login?type=Google") ?>"><i class="icon-google-plus"></i> Sign in with Google</a></li>
+                                    </ul>
+                                </li>
+                            <?php endif;?>
                         </ul>
                     </div>
                 </div>
