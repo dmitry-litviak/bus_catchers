@@ -47,7 +47,11 @@ class Controller_Company extends My_Layout_User_Controller {
         } catch (Exception $e) {
             echo $e;
         }
-        $this->redirect(URL::site("company/info/" . $_SESSION['info']));
+        if (!empty($_SESSION['info'])) {
+            $this->redirect(URL::site("company/info/" . $_SESSION['info']));
+        } else {
+            $this->redirect('/');
+        }
     }
 
     public function action_logout() {
