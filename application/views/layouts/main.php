@@ -33,7 +33,7 @@
             <div class="contentArea">
                 <div class="divPanel notop page-content">
                     <?php if (!empty($_SESSION['user'])): ?>
-                        <h5 class="status-line">You are logged in as <span class="label label-important"><?php echo $_SESSION['user']['displayName'] ?></span></h5>
+                        <div class="status-line">You are logged in as <span class="label label-important"><?php echo $_SESSION['user']['displayName'] ?></span></div>
                     <?php endif; ?>
                     <div style="margin-top: 10px">
                         <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo URL::site(Request::initial()->uri()) ?>" data-via="BusCatchers" data-lang="en">Tweet</a>

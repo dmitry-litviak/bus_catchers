@@ -660,6 +660,7 @@ h1.votes {
 .status-line {
     /*margin-right: 40px;*/
     float: left;
+    margin-top: 10px;
     /*padding: 0 42px;*/
 }
 
