@@ -328,7 +328,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dos
 
 .navbar .nav-pills > .active > a, .navbar .nav-pills > .active > a:hover, .navbar .nav-pills li.dropdown.open > .dropdown-toggle, .navbar .nav-pills li.dropdown.active > .dropdown-toggle {color: rgb(255, 255, 255); background-color: rgb(212, 14, 0); border-bottom-style: none;}
 
-.navbar .ddmenu {margin-top: 59px; margin-bottom: 3px;}
+.navbar .ddmenu {margin-top: 59px; margin-bottom: 3px; width: 625px}
 
 .navbar .nav-pills li.dropdown > .dropdown-toggle .caret {border-top-color:rgb(0, 0, 0);border-bottom-color:rgb(0, 0, 0);}
 
