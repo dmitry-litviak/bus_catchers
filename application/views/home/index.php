@@ -67,7 +67,7 @@
                     </span>
                 </label>
                 <div class="row-fluid">
-                    <div class="span6">
+                    <div class="span6 right-smth">
                         <?php foreach ($companies as $company): ?>
                             <label class="checkbox">
                                 <span>
@@ -77,7 +77,7 @@
                             </label>
                         <?php endforeach; ?>
                     </div>
-                    <div class="span5">
+                    <div class="left-smth" >
 
                         <?php foreach ($companies as $company): ?>
                             <div class="label label-important read-more" data-trigger="click" data-content="<?php echo Helper_Output::cut_string($company->description, 150) ?>" data-title="<?php echo $company->name ?>"><i class="icon-arrow-right icon-white info-link"></i></div>

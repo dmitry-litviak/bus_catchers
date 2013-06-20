@@ -678,3 +678,13 @@ h1.votes {
     border-top: 2px solid #eee;
     margin: 0 0;
 }
+
+.left-smth {
+    width: 50px;
+    display: inline-block;
+}
+
+.right-smth {
+    width: 144px !important;
+    display: inline-block !important;
+}
