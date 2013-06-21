@@ -5,42 +5,25 @@
     <div class="divPanel">
 
         <div class="row-fluid">
-            <div class="span3" id="footerArea1">
+            <div class="span4" id="footerArea1">
 
                 <h3>About Company</h3>
 
-                <p> Bus Catchers is dedicated to providing travellers with the most up to date and comprehensive schedules for bus lines in the Northeast.  We aim to be the Kayak of bus lines.  We will soon be including more bus lines and more cities.  If you wish Bus Catchers to include your city, please shoot us an email.  </p>
-
-                <p>
-                    <a href="#" title="Terms of Use">Terms of Use</a><br />
-                    <a href="#" title="Privacy Policy">Privacy Policy</a><br />
-                    <a href="#" title="FAQ">FAQ</a><br />
-                    <a href="#" title="Sitemap">Sitemap</a>
-                </p>
+                <p>Bus Catchers is your one stop destination for cheap bus tickets, station locations, and bus reviews for bus lines on the East Coast, including Bolt Bus, Greyhound, Peterpan, Megabus, and more.</p>
 
             </div>
-            <div class="span3" id="footerArea2">
+            <div class="span6" id="footerArea3">
 
-                <h3>Recent Blog Posts</h3>
+                <h3>News</h3>
                 <p>
-                 Coming soon! 
+                    BusCatchers was recently featured on Tnooz, the leading travel tech news website on the internet.  Click <a href="http://www.tnooz.com/2013/05/21/news/three-kayak-like-startups-for-bus-ticketing-metasearch/" target="_blank">*here*</a> to read the article. 
+                </p>
+
+                <p>
+                    Your true traveler finds boredom rather agreeable than painful. It is the symbol of his liberty-his excessive freedom. He accepts his boredom, when it comes, not merely philosophically, but almost with pleasure. – Aldous Huxley
                 </p>
             </div>
-            <div class="span3" id="footerArea3">
-
-                <h3>Why travel?</h3>
-                <p>
-                I shall be telling this with a sigh	
-somewhere ages and ages hence:	
-two roads diverged in a wood, and I took the one less traveled by,	
-and that has made all the difference. - Robert Frost
-                </p>
-                
-                <p>
-                Your true traveler finds boredom rather agreeable than painful. It is the symbol of his liberty-his excessive freedom. He accepts his boredom, when it comes, not merely philosophically, but almost with pleasure. – Aldous Huxley
-                </p>
-            </div>
-            <div class="span3" id="footerArea4">
+            <div class="span2" id="footerArea4">
 
                 <h3>Get in Touch</h3>
 
@@ -63,9 +46,9 @@ and that has made all the difference. - Robert Frost
             </div>
         </div>
 
-        <br /><br />
         <div class="row-fluid">
             <div class="span12">
+                <a href="<?php echo URL::base() ?>" id="divSiteTitle-footer">Bus Catchers</a><br />
                 <p class="copyright">
                     Copyright © 2013 Bus Catchers. All Rights Reserved.
                 </p>

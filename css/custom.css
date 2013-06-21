@@ -168,9 +168,9 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 /*body{background-image: url(subtle_stripes.png); background-color: rgb(181, 181, 181); background-repeat: repeat repeat;}*/
 
-#divBoxed{margin-top: 51px; }
+#divBoxed{margin-top: 10px; }
 
-#divLogo{margin-top: 43px; margin-bottom: 0px; }
+#divLogo{margin-top: 20px; margin-bottom: 0px; }
 
 #divSiteTitle{font-family: Chewy; font-size: 34px; line-height: 50px; color: rgb(212, 50, 32); text-shadow: none; letter-spacing: 4px; font-weight: bold; font-style: normal; text-transform: uppercase;}
 
@@ -227,8 +227,8 @@ h1{font-weight: normal; font-style: normal; letter-spacing: 0px;
 .sidebox a{color: rgb(191, 13, 0); font-family: Maven Pro;}
 
 #divFooter{
-    border-bottom-left-radius: 30px; 
-    border-bottom-right-radius: 30px; 
+/*    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; */
 /*    background-color: rgb(191, 13, 0); 
     color: rgb(227, 227, 227); */
     font-family: Maven Pro; 
@@ -253,14 +253,14 @@ h1{font-weight: normal; font-style: normal; letter-spacing: 0px;
 h2{font-weight: normal; font-style: normal; ;font-family: Dosis;}
 
 .transparent-bg{
-    -moz-box-shadow: rgba(0, 0, 0, 0.294118) 0px 1px 4px;
+/*    -moz-box-shadow: rgba(0, 0, 0, 0.294118) 0px 1px 4px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.294118) 0px 1px 4px;
-    box-shadow: rgba(0, 0, 0, 0.294118) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.294118) 0px 1px 4px;*/
     background-color: rgb(255, 255, 255);
-    border-top-left-radius: 30px;
+/*    border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-bottom-left-radius: 30px;*/
 }
 
 .breadcrumbs a{color: rgb(191, 13, 0);;font-family: Maven Pro;}
@@ -320,7 +320,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dos
 
 .navbar .dropdown-menu li > a:hover, .navbar .dropdown-menu .active > a, .navbar .dropdown-menu .active > a:hover {filter:none;color:rgb(255, 255, 255);background-color:rgb(212, 14, 0);background-image:none}
 
-.navbar .nav-pills > li > a {padding: 16px 30px; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; color: rgb(0, 0, 0); margin-right: 2px; margin-left: 2px; border-bottom-style: none;}
+.navbar .nav-pills > li > a {padding: 16px 20px; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; color: rgb(0, 0, 0); margin-right: 2px; margin-left: 2px; border-bottom-style: none;}
 
 .navbar .nav-pills > li > a:hover, .navbar .nav li.dropdown.open.active > .dropdown-toggle {color: rgb(0, 0, 0); background-color: rgb(235, 235, 235); border-bottom-style: none;}
 
@@ -328,7 +328,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dos
 
 .navbar .nav-pills > .active > a, .navbar .nav-pills > .active > a:hover, .navbar .nav-pills li.dropdown.open > .dropdown-toggle, .navbar .nav-pills li.dropdown.active > .dropdown-toggle {color: rgb(255, 255, 255); background-color: rgb(212, 14, 0); border-bottom-style: none;}
 
-.navbar .ddmenu {margin-top: 59px; margin-bottom: 3px; width: 625px}
+.navbar .ddmenu {margin-top: 20px; margin-bottom: 3px;}
 
 .navbar .nav-pills li.dropdown > .dropdown-toggle .caret {border-top-color:rgb(0, 0, 0);border-bottom-color:rgb(0, 0, 0);}
 
@@ -354,7 +354,7 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Dos
     #divLogo {margin-bottom:10px;}
 
 
-    .navbar .btn-navbar-highlight {display:block;padding:9px 14px;margin-top:15px;}
+    .navbar .btn-navbar-highlight {display:block;padding:9px 14px;margin-top:29px;}
 
     .navbar {width:100%;}
 
@@ -687,4 +687,25 @@ h1.votes {
 .right-smth {
     width: 144px !important;
     display: inline-block !important;
+}
+
+.like-block {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+#divMenuRight {
+    margin-right: 60px;
+}
+
+#divSiteTitle-footer{
+    font-family: Chewy !important;
+    font-size: 25px !important; 
+    line-height: 26px !important; 
+    color: rgb(212, 50, 32) !important;
+    text-shadow: none;
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
 }
