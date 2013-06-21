@@ -2,7 +2,7 @@
 <!--<hr class="footer-hr">-->
 <div id="divFooter" class="footerArea">
 
-    <div class="divPanel">
+    <div class="divPanel panel-footer">
 
         <div class="row-fluid">
             <div class="span4" id="footerArea1">
