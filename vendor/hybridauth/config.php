@@ -9,7 +9,7 @@
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
 
-$whitelist = array('buscatchers.loc');
+$whitelist = array('buscatchers.loc', 'buscatchers.com');
 return 
 	array(
 		"base_url" => in_array($_SERVER['HTTP_HOST'], $whitelist) ? 'http://'.$_SERVER['HTTP_HOST']."/loginauth" : 'http://'.$_SERVER['HTTP_HOST']."/bus_catchers/loginauth", 
