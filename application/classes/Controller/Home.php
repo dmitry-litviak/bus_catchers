@@ -23,7 +23,7 @@ class Controller_Home extends My_Layout_User_Controller {
     }
 
     public function action_get_schedule() {
-        $table_name = Helper_Output::db_name_date($this->request->post('depart_time'));
+        $table_name = '2013June16';
         try {
             $time_beg = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_beg'))->format('Y-m-j H:i:s');
             $time_end = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_end'))->format('Y-m-j H:i:s');
