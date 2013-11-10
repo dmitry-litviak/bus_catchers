@@ -194,7 +194,7 @@ abstract class Kohana_Database {
 	 *     $db->query(Database::SELECT, 'SELECT * FROM groups', TRUE);
 	 *
 	 *     // Make a SELECT query and use "Model_User" for the results
-	 *     $db->query(Database::SELECT, 'SELECT * FROM clients LIMIT 1', 'Model_User');
+	 *     $db->query(Database::SELECT, 'SELECT * FROM users LIMIT 1', 'Model_User');
 	 *
 	 * @param   integer  $type       Database::SELECT, Database::INSERT, etc
 	 * @param   string   $sql        SQL query
@@ -213,8 +213,8 @@ abstract class Kohana_Database {
 	 *     $db->begin();
 	 *
 	 *     try {
-	 *          DB::insert('clients')->values($user1)...
-	 *          DB::insert('clients')->values($user2)...
+	 *          DB::insert('users')->values($user1)...
+	 *          DB::insert('users')->values($user2)...
 	 *          // Insert successful commit the changes
 	 *          $db->commit();
 	 *     }
@@ -252,8 +252,8 @@ abstract class Kohana_Database {
 	/**
 	 * Count the number of records in a table.
 	 *
-	 *     // Get the total number of records in the "clients" table
-	 *     $count = $db->count_records('clients');
+	 *     // Get the total number of records in the "users" table
+	 *     $count = $db->count_records('users');
 	 *
 	 * @param   mixed    $table  table name string or array(query, alias)
 	 * @return  integer
@@ -356,14 +356,14 @@ abstract class Kohana_Database {
 	 * Lists all of the columns in a table. Optionally, a LIKE string can be
 	 * used to search for specific fields.
 	 *
-	 *     // Get all columns from the "clients" table
-	 *     $columns = $db->list_columns('clients');
+	 *     // Get all columns from the "users" table
+	 *     $columns = $db->list_columns('users');
 	 *
 	 *     // Get all name-related columns
-	 *     $columns = $db->list_columns('clients', '%name%');
+	 *     $columns = $db->list_columns('users', '%name%');
 	 *
 	 *     // Get the columns from a table that doesn't use the table prefix
-	 *     $columns = $db->list_columns('clients', NULL, FALSE);
+	 *     $columns = $db->list_columns('users', NULL, FALSE);
 	 *
 	 * @param   string  $table       table to get columns from
 	 * @param   string  $like        column to search for

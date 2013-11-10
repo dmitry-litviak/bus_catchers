@@ -27,7 +27,7 @@ class Kohana_Database_Expression {
 	/**
 	 * Sets the expression string.
 	 *
-	 *     $expression = new Database_Expression('COUNT(clients.id)');
+	 *     $expression = new Database_Expression('COUNT(users.id)');
 	 *
 	 * @param   string  $value      raw SQL expression string
 	 * @param   array   $parameters unquoted parameter values

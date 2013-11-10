@@ -25,10 +25,10 @@ class Kohana_DB {
 	 * Create a new [Database_Query] of the given type.
 	 *
 	 *     // Create a new SELECT query
-	 *     $query = DB::query(Database::SELECT, 'SELECT * FROM clients');
+	 *     $query = DB::query(Database::SELECT, 'SELECT * FROM users');
 	 *
 	 *     // Create a new DELETE query
-	 *     $query = DB::query(Database::DELETE, 'DELETE FROM clients WHERE id = 5');
+	 *     $query = DB::query(Database::DELETE, 'DELETE FROM users WHERE id = 5');
 	 *
 	 * Specifying the type changes the returned result. When using
 	 * `Database::SELECT`, a [Database_Query_Result] will be returned.
@@ -79,8 +79,8 @@ class Kohana_DB {
 	/**
 	 * Create a new [Database_Query_Builder_Insert].
 	 *
-	 *     // INSERT INTO clients (id, username)
-	 *     $query = DB::insert('clients', array('id', 'username'));
+	 *     // INSERT INTO users (id, username)
+	 *     $query = DB::insert('users', array('id', 'username'));
 	 *
 	 * @param   string  $table    table to insert into
 	 * @param   array   $columns  list of column names or array($column, $alias) or object
@@ -94,8 +94,8 @@ class Kohana_DB {
 	/**
 	 * Create a new [Database_Query_Builder_Update].
 	 *
-	 *     // UPDATE clients
-	 *     $query = DB::update('clients');
+	 *     // UPDATE users
+	 *     $query = DB::update('users');
 	 *
 	 * @param   string  $table  table to update
 	 * @return  Database_Query_Builder_Update
@@ -108,8 +108,8 @@ class Kohana_DB {
 	/**
 	 * Create a new [Database_Query_Builder_Delete].
 	 *
-	 *     // DELETE FROM clients
-	 *     $query = DB::delete('clients');
+	 *     // DELETE FROM users
+	 *     $query = DB::delete('users');
 	 *
 	 * @param   string  $table  table to delete from
 	 * @return  Database_Query_Builder_Delete
@@ -123,9 +123,9 @@ class Kohana_DB {
 	 * Create a new [Database_Expression] which is not escaped. An expression
 	 * is the only way to use SQL functions within query builders.
 	 *
-	 *     $expression = DB::expr('COUNT(clients.id)');
-	 *     $query = DB::update('clients')->set(array('login_count' => DB::expr('login_count + 1')))->where('id', '=', $id);
-	 *     $clients = ORM::factory('user')->where(DB::expr("BINARY `hash`"), '=', $hash)->find();
+	 *     $expression = DB::expr('COUNT(users.id)');
+	 *     $query = DB::update('users')->set(array('login_count' => DB::expr('login_count + 1')))->where('id', '=', $id);
+	 *     $users = ORM::factory('user')->where(DB::expr("BINARY `hash`"), '=', $hash)->find();
 	 *
 	 * @param   string  $string  expression
 	 * @param   array   parameters
