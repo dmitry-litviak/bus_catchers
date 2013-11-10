@@ -25,8 +25,8 @@ class Controller_Home extends My_Layout_User_Controller {
     public function action_get_schedule() {
         $table_name = '2013June16';
         try {
-            $time_beg = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_beg'))->format('Y-m-j H:i:s');
-            $time_end = DateTime::CreateFromFormat('Y-m-j h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_end'))->format('Y-m-j H:i:s');
+            $time_beg = DateTime::CreateFromFormat('2013-06-16 h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_beg'))->format('2013-06-16 H:i:s');
+            $time_end = DateTime::CreateFromFormat('2013-06-16 h:i a', $this->request->post('depart_time') . ' ' . $this->request->post('time_end'))->format('2013-06-16 H:i:s');
             //if table is not exist, then this row through an error
             $companies = $this->request->post('companies');
             if (!empty($companies)) {
